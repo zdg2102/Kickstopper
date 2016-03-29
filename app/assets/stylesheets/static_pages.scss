@@ -49,11 +49,16 @@ header.nav-header {
 	border-bottom: 1px solid RGB(130, 133, 135); // grey
 }
 
-header.nav-header > a.header-logo {
+a.header-logo {
   float: left;
 	padding: 20px 40px;
-	font-size: 20px;
-	font-weight: bold;
+}
+
+div.logo-div {
+	background-image: image-url("kickstopper-logo-transparent.png");
+	background-size: contain;
+	height: 23px;
+	width: 200px;
 }
 
 ul.nav-header-links {
