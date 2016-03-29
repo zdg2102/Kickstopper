@@ -31,7 +31,7 @@ var Routes = (
   </Router>
 );
 
-window.launchPage = function () {
+launchPage = function () {
   ReactDOM.render(
     Routes,
 		$("div#content")[0]
