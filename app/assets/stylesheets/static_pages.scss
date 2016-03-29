@@ -1,0 +1,173 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// RESET
+
+body, header, h1, h3, h4, h6, ul, li,
+a, img, span, data {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	font-family: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	font-size: 16px;
+	font-weight: normal;
+	font-style: normal;
+  font-family: liberation-sans;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+// CLEARFIX
+
+.group:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+// NAV HEADER
+
+header.nav-header {
+	background-color: RGB(255, 255, 255); // white
+	border-bottom: 1px solid RGB(130, 133, 135); // grey
+}
+
+header.nav-header > a.header-logo {
+  float: left;
+	padding: 20px 40px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+ul.nav-header-links {
+  float: left;
+	font-size: 14px;
+	color: RGB(130, 133, 135); // grey
+	padding-right: 20px;
+	border-right: 1px solid RGB(130, 133, 135); // grey
+}
+
+ul.nav-header-links > li {
+  float: left;
+	font-weight: bold;
+}
+
+ul.nav-header-links > li > a {
+	display: block;
+	padding: 25px 15px;
+}
+
+ul.nav-header-links > li:hover {
+	background-color: RGB(247, 250, 250); // very pale blue
+}
+
+// NAV FOOTER
+
+footer.nav-footer {
+	background-color: RGB(15, 33, 5); // forest green
+	border-top: 1px solid RGB(43, 222, 115); // bright green
+	color: RGB(255, 255, 255); // white
+	font-size: 14px;
+}
+
+div.footer-column-container {
+	width: 1040px;
+	margin: 0px auto;
+	padding: 30px 0px;
+	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+}
+
+div.footer-column {
+  float: left;
+	width: 10%;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+h4.footer-column-header {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+a.footer-logo {
+	display: block;
+	margin: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+// PROJECT MAIN PAGE
+
+section.project-main-info {
+  background-color: RGB(247, 250, 250); // very pale blue
+}
+
+div.project-main-info-container {
+	width: 1040px;
+	padding: 50px 0px;
+	margin: 0px auto;
+}
+
+h1.project-title {
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+h6.project-byline {
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+span.creator-name {
+	font-weight: bold;
+}
+
+div.video-panel {
+  width: 1040px;
+}
+
+div.video {
+	float: left;
+	width: 680px;
+	height: 510px;
+	background-color: RGB(0, 255, 0); // green, temp
+}
+
+div.main-stats-panel {
+	float: right;
+	padding-right: 180px;
+	padding-top: 40px;
+}
+
+data.main-stats-num {
+	display: block;
+  font-weight: bold;
+	font-size: 48px;
+}
+
+span.main-stats-label {
+	display: block;
+	font-size: 14px;
+	color: RGB(130, 133, 135); // grey
+}

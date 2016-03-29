@@ -104,7 +104,6 @@ Project Create Page | / | (/static/)start/
 * Projects
   * Title
   * Creator ID
-  * Category ID
   * Subcategory ID
   * Category Featured (boolean)
   * Funding Goal
