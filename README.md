@@ -16,7 +16,7 @@ Kickstopper is a web application based on Kickstarter and built using Ruby on Ra
 
 ### Wireframes/Diagrams:
 
-See [wireframe images](https://github.com/zdg2102/CapstoneProposal/tree/master/Wireframes).
+See [wireframe images](https://github.com/zdg2102/Kickstopper/tree/master/proposal_wireframes).
 
 ### Routes Outline:
 
@@ -104,8 +104,8 @@ Project Create Page | / | (/static/)start/
 * Projects
   * Title
   * Creator ID
-  * Category
-  * Subcategory
+  * Category ID
+  * Subcategory ID
   * Category Featured (boolean)
   * Funding Goal
   * Funding Target Date
@@ -114,6 +114,13 @@ Project Create Page | / | (/static/)start/
   * Short Summary
   * Creator Description
   * Project Description
+
+* Categories
+  * Category Name
+
+* Subcategories
+  * Subcategory Name
+	* Parent Category ID
 
 * Rewards
   * Project ID
@@ -132,7 +139,7 @@ Project Create Page | / | (/static/)start/
 ### W8D2:
 
 * Set up Rails project
-* Run migrations
+* Run user and token migrations
 * Set up user authorization
 * Add log in/log out functionality
 * Seed sample project data
@@ -141,6 +148,7 @@ Project Create Page | / | (/static/)start/
 
 ### W8D3:
 
+* Run project migrations
 * Set up project page (without video)
 * Create detailed and regular project panels
 * Set up main page (without slideshow or categories selector)
@@ -155,11 +163,14 @@ Project Create Page | / | (/static/)start/
 
 ### W8D5:
 
+* Run category migrations
+* Run rewards migration
 * Build project creation form
 * Figure out how Stripe works
 
 ### W9D1:
 
+* Run pledges migration
 * Build pledge selection page
 * Build payment form page
 * Incorporate Stripe payments
