@@ -1,0 +1,31 @@
+{
+  "name": "Kickstopper",
+  "version": "1.0.0",
+  "description": "Kickstopper is a web application based on Kickstarter and built using Ruby on Rails and React.js.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zdg2102/Kickstopper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zdg2102/Kickstopper/issues"
+  },
+  "homepage": "https://github.com/zdg2102/Kickstopper#readme",
+  "dependencies": {
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "webpack": "^1.12.14"
+  }
+}
