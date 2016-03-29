@@ -119,7 +119,7 @@ Project Create Page | / | (/static/)start/
   * Category Name
 
 * Subcategories
-  * Subcategory Name
+	* Subcategory Name
 	* Parent Category ID
 
 * Rewards
