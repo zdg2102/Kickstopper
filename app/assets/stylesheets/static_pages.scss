@@ -5,7 +5,7 @@
 // RESET
 
 body, header, h1, h3, h4, h6, ul, li,
-a, img, span, data {
+a, img, span, data, p, button {
 	border: 0;
 	margin: 0;
 	padding: 0;
@@ -54,7 +54,7 @@ a.header-logo {
 	padding: 20px 40px;
 }
 
-div.logo-div {
+div.header-logo-div {
 	background-image: image-url("kickstopper-logo-transparent.png");
 	background-size: contain;
 	height: 23px;
@@ -115,9 +115,15 @@ h4.footer-column-header {
 
 a.footer-logo {
 	display: block;
-	margin: 20px;
-	font-weight: bold;
-	font-size: 20px;
+	margin: 30px 90px 0px;
+	padding-bottom: 40px;
+}
+
+div.footer-logo-div {
+	background-image: image-url("kickstopper-logo-footer-transparent.png");
+	background-size: contain;
+	height: 20px;
+	width: 175px;
 }
 
 // PROJECT MAIN PAGE
@@ -131,6 +137,8 @@ div.project-main-info-container {
 	padding: 50px 0px;
 	margin: 0px auto;
 }
+
+// PROJECT MAIN PAGE TITLE BAR
 
 h1.project-title {
 	font-size: 32px;
@@ -148,6 +156,8 @@ span.creator-name {
 	font-weight: bold;
 }
 
+// PROJECT MAIN PAGE VIDEO PANEL
+
 div.video-panel {
   width: 1040px;
 }
@@ -161,7 +171,6 @@ div.video {
 
 div.main-stats-panel {
 	float: right;
-	padding-right: 180px;
 	padding-top: 40px;
 }
 
@@ -169,10 +178,126 @@ data.main-stats-num {
 	display: block;
   font-weight: bold;
 	font-size: 48px;
+	color: RGB(15, 33, 5); // forest green
 }
 
 span.main-stats-label {
 	display: block;
 	font-size: 14px;
 	color: RGB(130, 133, 135); // grey
+	margin-bottom: 10px;
+}
+
+button.back-project-button {
+	background-color: RGB(43, 222, 115); // bright green
+	padding: 20px 30px;
+	margin: 40px 0px;
+	border-radius: 5px;
+	color: RGB(255, 255, 255); // white
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+span.main-stats-fund-date {
+	display: block;
+	width: 330px;
+	color: RGB(130, 133, 135); // grey
+	font-size: 12px;
+}
+
+// PROJECT MAIN PAGE BLURB PANEL
+
+p.project-blurb {
+	float: left;
+	font-size: 22px;
+	margin: 30px 0px;
+}
+
+div.creator-panel {
+	float: right;
+	width: 330px;
+	border-top: 1px solid RGB(217, 217, 222); // light grey
+	padding-top: 30px;
+}
+
+div.creator-circle-icon {
+	float: right;
+	border-radius: 50%;
+	background-color: RGB(0, 255, 0); // green, temp
+	width: 80px;
+	height: 80px;
+}
+
+div.creator-panel-text {
+	float: left;
+	width: 240px;
+}
+
+h6.creator-panel-name {
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 10px;
+	color: RGB(15, 33, 5); // forest green
+}
+
+span.creator-panel-stats {
+	display: block;
+	color: RGB(130, 133, 135); // grey
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+span.creator-page-link {
+	display: block;
+	color: RGB(0, 160, 255); // bright blue
+	font-weight: bold;
+	font-size: 15px;
+}
+
+// PROJECT MAIN PAGE DIVIDER
+
+span.project-page-divider {
+	display: block;
+	padding: 20px 100px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: RGB(255, 255, 255); // white
+	border-top: 1px solid RGB(217, 217, 222); // light grey
+	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+}
+
+// PROJECT MAIN PAGE DETAIL
+
+section.project-detail-info {
+	margin: 70px auto;
+	width: 1040px;
+}
+
+div.project-description {
+	float: left;
+	padding-right: 40px;
+	width: 640px;
+}
+
+div.project-rewards-panel {
+	float: right;
+	width: 330px;
+}
+
+h4.project-detail-header {
+	font-size: 22px;
+	margin-bottom: 60px;
+}
+
+div.project-description-picture {
+	background-color: RGB(0, 255, 0); // green, temp
+	width: 540px;
+	height: 300px;
+}
+
+p.project-description-body {
+	margin-top: 40px;
+	line-height: 1.5;
 }

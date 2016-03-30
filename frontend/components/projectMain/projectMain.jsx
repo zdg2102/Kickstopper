@@ -4,6 +4,9 @@ var React = require('react');
 var ProjectStore = require('../../stores/projectStore');
 var ApiUtil = require('../../utils/apiUtil');
 var MainStatsPanel = require('./mainStatsPanel');
+var CreatorPanel = require('./creatorPanel');
+var MainDescription = require('./mainDescription');
+var RewardsPanel = require('./rewardsPanel');
 
 var ProjectMain = React.createClass({
 	getInitialState: function () {
@@ -52,12 +55,21 @@ var ProjectMain = React.createClass({
 
 						<div className="blurb-panel group">
               <p className="project-blurb">{blurb}</p>
-							
+              <CreatorPanel project={this.state.project} />
 						</div>
 
 					</div>
 
 				</section>
+
+				<span className="project-page-divider">
+					{"Campaign"}
+				</span>
+
+			  <section className="project-detail-info group">
+          <MainDescription project={this.state.project} />
+          <RewardsPanel project={this.state.project} />
+			  </section>
 
       </div>
 		);

@@ -13,7 +13,7 @@ var NavHeader = React.createClass({
 			<header className="nav-header group">
 
         <a className="header-logo" href="#">
-					<div className="logo-div"></div>
+					<div className="header-logo-div"></div>
 				</a>
 
 				<ul className="nav-header-links group">

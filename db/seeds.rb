@@ -39,8 +39,8 @@ depressing_news.projects.create!(
 		" at CNN, MSNBC, the New York Times, and all the way down"\
 		" to Buzzfeed are offering this special Kickstopper project."\
 		" Just give us money, and we'll give you a day where we don't"\
-		" show you anything that makes you cover your eyes over the"\
-		" state of humanity!"
+		" show you anything that makes you cover your eyes in response"\
+		" to the state of humanity!"
 )
 
 # nosy_neighbors.projects.create!(

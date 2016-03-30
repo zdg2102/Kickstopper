@@ -7,6 +7,8 @@ var MainStatsPanel = React.createClass({
   render: function () {
 
 		var goal = this.props.project ? this.props.project.funding_goal : "";
+		var fundingDate = this.props.project ? this.props.project.funding_date
+		  : "";
 
     return (
       <div className="main-stats-panel">
@@ -32,7 +34,13 @@ var MainStatsPanel = React.createClass({
           {"days to go"}
 				</span>
 
+        <button className="back-project-button">
+					{"Back This Project"}
+        </button>
 
+				<span className="main-stats-fund-date">
+					{"This project will be funded on " + fundingDate}
+				</span>
 
       </div>
 		);

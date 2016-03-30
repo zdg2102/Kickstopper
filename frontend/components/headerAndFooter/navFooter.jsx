@@ -38,7 +38,9 @@ var NavFooter = React.createClass({
         </div>
 
         <div className="nav-footer-logo-bar">
-          <a className="footer-logo" href="#"><h3>Kickstopper</h3></a>
+          <a className="footer-logo" href="#">
+						<div className="footer-logo-div"></div>
+          </a>
         </div>
 
 			</footer>
