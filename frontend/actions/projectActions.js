@@ -8,6 +8,14 @@ var ProjectActions = {
 			project: project
 		};
 		AppDispatcher.dispatch(action);
+	},
+
+	receiveAllProjects: function (projects) {
+		var action = {
+			actionType: projectConstants.ALL_PROJECTS_RECEIVED,
+			projects: projects
+		};
+		AppDispatcher.dispatch(action);
 	}
 };
 

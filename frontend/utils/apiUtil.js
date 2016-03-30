@@ -11,6 +11,17 @@ var ApiUtil = {
         ProjectActions.receiveSingleProject(project);
 			}
 		});
+	},
+
+	getAllProjects: function () {
+    $.ajax({
+			type: 'GET',
+			url: '/api/projects/',
+			dataType: 'json',
+			success: function (projects) {
+        ProjectActions.receiveAllProjects(projects);
+			}
+		});
 	}
 };
 

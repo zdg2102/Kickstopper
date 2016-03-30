@@ -301,3 +301,103 @@ p.project-description-body {
 	margin-top: 40px;
 	line-height: 1.5;
 }
+
+// PROJECT TILE
+
+div.project-tile {
+	width: 230px;
+	height: 400px;
+	background-color: RGB(255, 255, 255); // white
+	border: 1px solid RGB(217, 217, 222); // light grey
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+div.tile-image {
+	background-color: RGB(0, 255, 0); // green, temp
+	width: 230px;
+	height: 170px;
+}
+
+div.tile-content {
+	padding: 10px;
+}
+
+h6.tile-title {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 3px;
+	color: RGB(15, 33, 5); // forest green
+}
+
+div.tile-content > p {
+	font-size: 12px;
+	line-height: 1.5;
+	color: RGB(130, 133, 135); // grey
+}
+
+p.tile-byline {
+	margin-bottom: 10px;
+}
+
+p.tile-blurb {
+	height: 72px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+div.tile-footer {
+	padding: 10px;
+}
+
+div.tile-progress-bar {
+	height: 6px;
+	background-color: RGB(217, 217, 222); // light grey
+	border-radius: 3px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+div.tile-progress-complete {
+  position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: RGB(43, 222, 115); // bright green
+}
+
+ul.tile-stats > li {
+	float: left;
+	padding-right: 10px;
+}
+
+data.tile-stat-num {
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 2px;
+	color: RGB(15, 33, 5); // forest green
+}
+
+span.tile-stat-label {
+	color: RGB(130, 133, 135); // grey
+	font-size: 12px;
+}
+
+// UTILITY
+
+.white-gradient {
+	position: relative;
+}
+
+.white-gradient:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 50%;
+	width: 100%;
+	background-image: linear-gradient(transparent, white);
+}
