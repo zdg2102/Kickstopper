@@ -311,11 +311,12 @@ div.project-tile {
 	border: 1px solid RGB(217, 217, 222); // light grey
 	overflow: hidden;
 	border-radius: 6px;
+	cursor: pointer;
 }
 
 div.tile-image {
 	background-color: RGB(0, 255, 0); // green, temp
-	width: 230px;
+	width: 100%;
 	height: 170px;
 }
 
@@ -383,6 +384,27 @@ data.tile-stat-num {
 span.tile-stat-label {
 	color: RGB(130, 133, 135); // grey
 	font-size: 12px;
+}
+
+// DISCOVER PAGE
+
+div.discover-lists-container {
+	width: 1040px;
+	margin: 0px auto;
+}
+
+// DISCOVER PAGE MAIN LIST
+
+span.discover-list-header {
+	display: block;
+	color: RGB(15, 33, 5); // forest green
+	font-size: 22px;
+}
+
+section.main-discover-list > div.project-tile {
+	float: left;
+	margin: 2%;
+	margin-left: 0px;
 }
 
 // UTILITY

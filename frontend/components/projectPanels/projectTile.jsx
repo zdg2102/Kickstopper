@@ -3,22 +3,36 @@
 var React = require('react');
 
 var ProjectTile = React.createClass({
+	contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
+	handleClick: function () {
+    this.context.router.push("/projects/" + this.props.project.id);
+	},
 
   render: function () {
 
 		var title = this.props.project ? this.props.project.title : "";
 		var creator = "Test creator";
-		var blurb = "Test blurb text is in this box so we can test" +
-		  " if this text is working so it can be tested in the display" +
-			" if it is working and we want to get four lines so we can test" +
-			" the fade.";
-		var percComplete = "75%";
+
 		var pledged = 129178;
+
+		var blurb = this.props.project ? this.props.project.project_blurb : "";
+
+		var percComplete;
+		if (this.props.project) {
+      percComplete = parseInt((pledged / this.props.project.funding_goal) *
+			  100, 10) + "%";
+		} else {
+			percComplete = "0%";
+		}
+
 		var daysLeft = 13;
 
     return (
 
-			<div className="project-tile">
+			<div className="project-tile" onClick={this.handleClick}>
 
 			  <div className="tile-image"></div>
 
@@ -65,7 +79,7 @@ var ProjectTile = React.createClass({
 							</span>
 						</li>
 					</ul>
-					
+
 				</div>
 
 			</div>

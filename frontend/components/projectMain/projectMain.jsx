@@ -22,6 +22,10 @@ var ProjectMain = React.createClass({
     this.projectStoreToken.remove();
 	},
 
+	componentDidUpdate: function () {
+    window.scrollTo(0, 0);
+	},
+
 	refresh: function () {
     this.setState({project: ProjectStore.find(this.props.params.projectId)});
 	},

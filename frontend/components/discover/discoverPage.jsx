@@ -4,6 +4,7 @@ var React = require('react');
 var ProjectStore = require('../../stores/projectStore');
 var ApiUtil = require('../../utils/apiUtil');
 var ProjectTile = require('../projectPanels/projectTile');
+var DiscoverMainList = require('./discoverMainList');
 
 var DiscoverPage = React.createClass({
 	getInitialState: function () {
@@ -25,13 +26,15 @@ var DiscoverPage = React.createClass({
 
   render: function () {
 
-    var tiles = this.state.projects.map(function (project) {
-      return <ProjectTile key={project.id} project={project} />;
-		});
-
     return (
 			<div>
-				{tiles}
+
+        <div className="discover-lists-container">
+					
+					<DiscoverMainList projects={this.state.projects} />
+
+        </div>
+
 			</div>
 		);
 	}
