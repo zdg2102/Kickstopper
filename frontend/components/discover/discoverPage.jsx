@@ -12,6 +12,8 @@ var DiscoverPage = React.createClass({
 	},
 
 	componentDidMount: function () {
+	  var queryVals = this.props.location.query;
+
     this.projectStoreToken = ProjectStore.addListener(this.refresh);
 		ApiUtil.getAllProjects();
 	},
@@ -24,6 +26,10 @@ var DiscoverPage = React.createClass({
     this.setState({projects: ProjectStore.all()});
 	},
 
+	loadMain: function () {
+
+	},
+
   render: function () {
 
     return (
@@ -31,7 +37,8 @@ var DiscoverPage = React.createClass({
 
         <div className="discover-lists-container">
 
-					<DiscoverMainList projects={this.state.projects} />
+					<DiscoverMainList projects={this.state.projects}
+						loadMain={this.loadMain} />
 
         </div>
 

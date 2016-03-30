@@ -22,6 +22,18 @@ var ApiUtil = {
         ProjectActions.receiveAllProjects(projects);
 			}
 		});
+	},
+
+	getFilteredProjects: function () {
+		$.ajax({
+			type: 'GET',
+			url: 'api/projects/',
+			dataType: 'json',
+			data: {},
+			success: function (projects) {
+				ProjectActions.receiveAllProjects(projects);
+			}
+		});
 	}
 };
 
