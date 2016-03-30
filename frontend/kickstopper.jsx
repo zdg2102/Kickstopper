@@ -27,6 +27,7 @@ var Routes = (
   <Router history={hashHistory}>
 		<Route path="/" component={NavWrapper}>
       <IndexRoute component={testDiv} />
+			<Route path="projects/:projectId" component={ProjectMain} />
 		</Route>
   </Router>
 );
