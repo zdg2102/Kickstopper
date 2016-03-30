@@ -6,25 +6,27 @@ var MainStatsPanel = React.createClass({
 
   render: function () {
 
+		var goal = this.props.project ? this.props.project.funding_goal : "";
+
     return (
       <div className="main-stats-panel">
 
 				<data className="main-stats-num">
-          {this.props.project.numBackers}
+          {"276"}
 				</data>
 				<span className="main-stats-label">
 					{"backers"}
 				</span>
 
 				<data className="main-stats-num">
-          {this.props.project.pledged}
+          {"11976"}
 				</data>
 				<span className="main-stats-label">
-          {"pledged of " + this.props.project.goal + " goal"}
+          {"pledged of " + goal + " goal"}
 				</span>
 
 				<data className="main-stats-num">
-          {this.props.project.daysLeft}
+          {"24"}
 				</data>
 				<span className="main-stats-label">
           {"days to go"}
