@@ -403,8 +403,24 @@ span.discover-list-header {
 
 section.main-discover-list > div.project-tile {
 	float: left;
-	margin: 2%;
+	margin: calc((100% - (232px * 4)) / 3);
 	margin-left: 0px;
+}
+
+section.main-discover-list > div.project-tile:nth-of-type(4n + 0) {
+	margin-right: 0px;
+}
+
+button.expand-list-button {
+	display: block;
+	margin: 60px auto;
+	border: 2px solid RGB(130, 133, 135); // grey
+	color: RGB(130, 133, 135); // grey
+	background-color: RGB(255, 255, 255); // white
+	border-radius: 6px;
+	font-size: 14px;
+	padding: 10px 20px;
+	cursor: pointer;
 }
 
 // UTILITY

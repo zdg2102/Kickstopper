@@ -30,7 +30,7 @@ var DiscoverPage = React.createClass({
 			<div>
 
         <div className="discover-lists-container">
-					
+
 					<DiscoverMainList projects={this.state.projects} />
 
         </div>

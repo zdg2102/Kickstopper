@@ -5,7 +5,6 @@ var ProjectTile = require('../projectPanels/projectTile');
 
 var DiscoverMainList = React.createClass({
 
-
   render: function () {
 
 		var tiles = this.props.projects.map(function (project) {
@@ -20,6 +19,10 @@ var DiscoverMainList = React.createClass({
 				</span>
 
 				{tiles}
+
+				<button className="expand-list-button">
+					{"Load more"}
+				</button>
 
 			</section>
 
