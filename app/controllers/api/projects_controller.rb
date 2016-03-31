@@ -1,7 +1,10 @@
 class Api::ProjectsController < ApplicationController
 
   def index
-		@projects = projects_by_params
+		# @projects = projects_by_params.with_amount_pledged
+		#   .includes(:subcategory, :category, :creator, :backers)
+			@projects = projects_by_params
+			  .includes(:subcategory, :category, :creator, :backers, :pledges)
 		render :index
 	end
 
@@ -10,7 +13,10 @@ class Api::ProjectsController < ApplicationController
 		# main, panel, and tile
     @type = params[:detailType]
 		if @type
-	    @project = Project.find(params[:id])
+	    @project = Project.includes(:creator)
+				.includes(:backers)
+				.includes(:pledges)
+				.find(params[:id])
 			render :show
 		else
       render json: {"error" => "Must provide detail type param"},

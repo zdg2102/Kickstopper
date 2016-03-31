@@ -12,28 +12,29 @@ var ProjectTile = React.createClass({
 	},
 
   render: function () {
-
-		var title = this.props.project ? this.props.project.title : "";
-		var creator = "Test creator";
-
-		var pledged = 129178;
-
-		var blurb = this.props.project ? this.props.project.project_blurb : "";
-
-		var percComplete;
+		var title, creatorName, amountPledged, blurb, percentComplete,
+		  fundingGoal, fundingDate, daysLeft;
 		if (this.props.project) {
-      percComplete = parseInt((pledged / this.props.project.funding_goal) *
-			  100, 10) + "%";
+			title = this.props.project.title;
+			creatorName = this.props.project.creator_name;
+			amountPledged = this.props.project.amount_pledged;
+      fundingGoal = this.props.project.funding_goal;
+			fundingDate = this.props.project.funding_date;
+			blurb = this.props.project.project_blurb;
+		}
+		if (amountPledged && fundingGoal) {
+			percentComplete = parseInt((amountPledged / fundingGoal) * 100,
+			  10) + "%";
 		} else {
-			percComplete = "0%";
+			percentComplete = "0%";
+		}
+		if (fundingDate) {
+			// convert milliseconds to days
+			var fundDateObj = new Date(fundingDate);
+			daysLeft = Math.ceil((fundDateObj - Date.now()) / 86400000);
 		}
 
 		var testDate = this.props.project ? this.props.project.funding_date : "";
-
-		var fundDate = this.props.project ? new Date(this.props.project.funding_date) : "";
-
-		var daysLeft = this.props.project ?
-		   Math.floor((fundDate - Date.now()) / 86400000) : "";
 
 		var testCat = this.props.project ? this.props.project.category : "";
 		var testSub = this.props.project ? this.props.project.subcategory : "";
@@ -52,7 +53,7 @@ var ProjectTile = React.createClass({
 
 				<div className="tile-content">
 					<h6 className="tile-title">{title}</h6>
-					<p className="tile-byline">{creator}</p>
+					<p className="tile-byline">{creatorName}</p>
 					<p className="tile-blurb white-gradient">{blurb}</p>
 				</div>
 
@@ -60,7 +61,7 @@ var ProjectTile = React.createClass({
 
           <div className="tile-progress-bar">
 						<div className="tile-progress-complete"
-							style={{width: percComplete}}>
+							style={{width: percentComplete}}>
 						</div>
 
           </div>
@@ -68,7 +69,7 @@ var ProjectTile = React.createClass({
 					<ul className="tile-stats group">
 						<li>
 							<data className="tile-stat-num">
-								{percComplete}
+								{percentComplete}
 							</data>
 							<span className="tile-stat-label">
 								{"funded"}
@@ -77,7 +78,7 @@ var ProjectTile = React.createClass({
 
 						<li>
 							<data className="tile-stat-num">
-								{pledged}
+								{amountPledged}
 							</data>
 							<span className="tile-stat-label">
 								{"pledged"}

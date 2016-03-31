@@ -3,3 +3,5 @@ json.extract! project, :id, :title, :category_featured, :funding_goal,
 
 json.category project.category.name
 json.subcategory project.subcategory.name
+json.creator_name project.creator.name
+json.amount_pledged project.amount_pledged

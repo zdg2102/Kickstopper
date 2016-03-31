@@ -5,30 +5,38 @@ var React = require('react');
 var MainStatsPanel = React.createClass({
 
   render: function () {
-
-		var goal = this.props.project ? this.props.project.funding_goal : "";
-		var fundingDate = this.props.project ? this.props.project.funding_date
-		  : "";
+		var fundingGoal, fundingDate, backerCount, daysLeft, amountPledged;
+		if (this.props.project) {
+			fundingGoal = this.props.project.funding_goal;
+			fundingDate = this.props.project.funding_date;
+			backerCount = this.props.project.backer_count;
+			amountPledged = this.props.project.amount_pledged;
+		}
+		if (fundingDate) {
+			// convert milliseconds to days
+			var fundDateObj = new Date(fundingDate);
+			daysLeft = Math.ceil((fundDateObj - Date.now()) / 86400000);
+		}
 
     return (
       <div className="main-stats-panel">
 
 				<data className="main-stats-num">
-          {"276"}
+          {backerCount}
 				</data>
 				<span className="main-stats-label">
 					{"backers"}
 				</span>
 
 				<data className="main-stats-num">
-          {"11976"}
+          {amountPledged}
 				</data>
 				<span className="main-stats-label">
-          {"pledged of " + goal + " goal"}
+          {"pledged of " + fundingGoal + " goal"}
 				</span>
 
 				<data className="main-stats-num">
-          {"24"}
+          {daysLeft}
 				</data>
 				<span className="main-stats-label">
           {"days to go"}

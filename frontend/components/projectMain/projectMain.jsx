@@ -31,9 +31,12 @@ var ProjectMain = React.createClass({
 	},
 
   render: function () {
-
-		var title = this.state.project ? this.state.project.title : "";
-		var blurb = this.state.project ? this.state.project.project_blurb : "";
+		var title, creatorName, blurb;
+		if (this.state.project) {
+			title = this.state.project.title;
+			creatorName = this.state.project.creator_name;
+			blurb = this.state.project.project_blurb;
+		}
 
     return (
       <div>
@@ -47,7 +50,7 @@ var ProjectMain = React.createClass({
 							<h6 className="project-byline">
 								{"by "}
 								<span className="creator-name">
-									{"test name"}
+									{creatorName}
 								</span>
 							</h6>
 						</div>
