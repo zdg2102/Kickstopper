@@ -5,7 +5,7 @@
 // RESET
 
 body, header, h1, h3, h4, h6, ul, li,
-a, img, span, data, p, button {
+a, img, span, data, p, button, hr {
 	border: 0;
 	margin: 0;
 	padding: 0;
@@ -424,6 +424,84 @@ button.expand-list-button {
 	border-radius: 6px;
 	font-size: 14px;
 	padding: 10px 20px;
+	cursor: pointer;
+}
+
+// SESSION FORM
+
+div.session-form-main {
+	background-color: RGB(247, 250, 250); // very pale blue
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+div.session-form-box {
+	width: 400px;
+	background-color: RGB(255, 255, 255); // white
+	border: 1px solid RGB(217, 217, 222); // light grey
+	border-radius: 6px;
+	margin: 0px auto;
+}
+
+div.session-form-divider {
+	width: 400px;
+  text-align: center;
+	color: RGB(130, 133, 135); // grey
+	font-size: 14px;
+}
+
+div.session-form-divider > hr {
+	width: 40%;
+	border: 1px solid RGB(217, 217, 222); // light grey
+	margin-top: 7px;
+}
+
+hr.session-divider-left {
+  float: left;
+	margin-left: 3%;
+}
+
+hr.session-divider-right {
+  float: right;
+	margin-right: 3%;
+}
+
+button.facebook-login-button {
+	display: block;
+	color: RGB(255, 255, 255); // white
+	background-color: RGB(57, 86, 147); // Facebook blue
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 6px;
+	padding: 10px 20px;
+	margin: 20px auto 10px;
+	width: 350px;
+	cursor: pointer;
+}
+
+p.session-button-message {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: RGB(130, 133, 135); // grey
+  width: 250px;
+	margin: 0px auto;
+}
+
+div.switch-form-section {
+	display: block;
+	background-color: RGBA(217, 217, 222, 0.2);
+	text-align: center;
+	margin-top: 40px;
+	border-top: 1px solid RGB(217, 217, 222); // light grey
+	padding: 20px;
+	color: RGB(130, 133, 135); // grey
+	font-size: 14px;
+}
+
+a.switch-form-link {
+	color: RGB(0, 160, 255); // bright blue
+	font-weight: bold;
 	cursor: pointer;
 }
 

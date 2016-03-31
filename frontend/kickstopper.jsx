@@ -7,10 +7,17 @@ var hashHistory = require('react-router').hashHistory;
 var NavWrapper = require('./components/headerAndFooter/navWrapper');
 var ProjectMain = require('./components/projectMain/projectMain');
 var DiscoverPage = require('./components/discover/discoverPage');
+var SessionForm = require('./components/sessionForms/sessionForm');
+var Login = require('./components/sessionForms/login');
+var SignUp = require('./components/sessionForms/signUp');
 
 var Routes = (
   <Router history={hashHistory}>
 		<Route path="/" component={NavWrapper}>
+			<Route path="session" component={SessionForm}>
+				<Route path="/login" component={Login} />
+				<Route path="/signup" component={SignUp} />
+			</Route>
 			<Route path="discover" component={DiscoverPage} />
 			<Route path="discover/categories/:categoryName"
 				component={DiscoverPage} />
