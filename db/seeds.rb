@@ -6,7 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+SessionToken.destroy_all
+Pledge.destroy_all
+Reward.destroy_all
 Project.destroy_all
+User.destroy_all
 Subcategory.destroy_all
 Category.destroy_all
 
@@ -44,6 +48,15 @@ coworkers = work.subcategories.create!(name: "Coworkers")
 # )
 
 categories = [neighbors, media_and_arts, daily_life, work]
+
+users = []
+
+700.times do
+  users << User.create!(
+    name: Faker::Name.name,
+		email: 
+	)
+end
 
 60.times do
   category = categories.sample
