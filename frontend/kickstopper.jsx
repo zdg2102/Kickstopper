@@ -12,6 +12,10 @@ var Routes = (
   <Router history={hashHistory}>
 		<Route path="/" component={NavWrapper}>
 			<Route path="discover" component={DiscoverPage} />
+			<Route path="discover/categories/:categoryName"
+				component={DiscoverPage} />
+			<Route path="discover/categories/:categoryName/:subcategoryName"
+				component={DiscoverPage} />
 			<Route path="projects/:projectId" component={ProjectMain} />
 		</Route>
   </Router>

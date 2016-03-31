@@ -4,27 +4,25 @@ var projectConstants = require('../constants/projectConstants');
 
 var ProjectStore = new Store(AppDispatcher);
 
-var _projects = {};
+var _projects = [];
+
+var _keyedProjects = {};
 
 var refreshProjects = function (projects) {
-	_projects = {};
-  for (var i = 0; i < projects.length; i++) {
-    _projects[projects[i].id] = projects[i];
+	_projects = [];
+	_keyedProjects = {};
+	for (var i = 0; i < projects.length; i++) {
+		_projects.push(projects[i]);
+		_keyedProjects[projects[i].id] = projects[i];
 	}
+};
+
+ProjectStore.all = function () {
+	return _projects.slice();
 };
 
 ProjectStore.find = function (projectId) {
   return _projects[projectId];
-};
-
-ProjectStore.all = function () {
-  var all = [];
-	for (var id in _projects) {
-		if (_projects.hasOwnProperty(id)) {
-			all.push(_projects[id]);
-		}
-	}
-	return all;
 };
 
 ProjectStore.__onDispatch = function (payload) {

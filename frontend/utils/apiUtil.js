@@ -13,28 +13,52 @@ var ApiUtil = {
 		});
 	},
 
-	getAllProjects: function () {
-    $.ajax({
-			type: 'GET',
-			url: '/api/projects/',
-			dataType: 'json',
-			success: function (projects) {
-        ProjectActions.receiveAllProjects(projects);
-			}
-		});
-	},
-
-	getFilteredProjects: function () {
+	getFilteredProjects: function (params) {
 		$.ajax({
 			type: 'GET',
 			url: 'api/projects/',
 			dataType: 'json',
-			data: {},
+			data: {projects: params},
 			success: function (projects) {
 				ProjectActions.receiveAllProjects(projects);
 			}
 		});
+	},
+
+	getNextPageProjects: function (params) {
+		$.ajax({
+			type: 'GET',
+			url: 'api/projects/',
+			dataType: 'json',
+			data: {projects: params},
+			success: function (projects) {
+				ProjectActions.receiveNewPageProjects(projects);
+			}
+		});
 	}
+
+	// getAllProjects: function () {
+  //   $.ajax({
+	// 		type: 'GET',
+	// 		url: '/api/projects/',
+	// 		dataType: 'json',
+	// 		success: function (projects) {
+  //       ProjectActions.receiveAllProjects(projects);
+	// 		}
+	// 	});
+	// },
+	//
+	// getCategoryProjects: function (params) {
+	// 	$.ajax({
+	// 		type: 'GET',
+	// 		url: 'api/projects/',
+	// 		dataType: 'json',
+	// 		data: {projects: params},
+	// 		success: function (projects) {
+	// 			ProjectActions.receiveAllProjects(projects);
+	// 		}
+	// 	});
+	// }
 };
 
 module.exports = ApiUtil;

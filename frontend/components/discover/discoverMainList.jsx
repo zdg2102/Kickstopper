@@ -20,11 +20,6 @@ var DiscoverMainList = React.createClass({
 
 				{tiles}
 
-				<button className="expand-list-button"
-					onClick={this.props.loadMain}>
-					{"Load more"}
-				</button>
-
 			</section>
 
 		);

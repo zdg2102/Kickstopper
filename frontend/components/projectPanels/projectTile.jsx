@@ -28,13 +28,27 @@ var ProjectTile = React.createClass({
 			percComplete = "0%";
 		}
 
-		var daysLeft = 13;
+		var testDate = this.props.project ? this.props.project.funding_date : "";
+
+		var fundDate = this.props.project ? new Date(this.props.project.funding_date) : "";
+
+		var daysLeft = this.props.project ?
+		   Math.floor((fundDate - Date.now()) / 86400000) : "";
+
+		var testCat = this.props.project ? this.props.project.category : "";
+		var testSub = this.props.project ? this.props.project.subcategory : "";
 
     return (
 
 			<div className="project-tile" onClick={this.handleClick}>
 
-			  <div className="tile-image"></div>
+			  <div className="tile-image">
+          {testCat}
+					<br />
+					{testSub}
+					<br />
+					{testDate}
+			  </div>
 
 				<div className="tile-content">
 					<h6 className="tile-title">{title}</h6>

@@ -11,7 +11,7 @@ Subcategory.destroy_all
 Category.destroy_all
 
 neighbors = Category.create!(name: "Neighbors")
-media_and_arts = Category.create!(name: "Media and Arts")
+media_and_arts = Category.create!(name: "Media And Arts")
 daily_life = Category.create!(name: "Daily Life")
 work = Category.create!(name: "Work")
 

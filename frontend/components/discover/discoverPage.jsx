@@ -7,15 +7,22 @@ var ProjectTile = require('../projectPanels/projectTile');
 var DiscoverMainList = require('./discoverMainList');
 
 var DiscoverPage = React.createClass({
+
+  // FINDTAG add message if projects list returns with length 0
+
 	getInitialState: function () {
     return {projects: ProjectStore.all()};
 	},
 
 	componentDidMount: function () {
-	  var queryVals = this.props.location.query;
-
     this.projectStoreToken = ProjectStore.addListener(this.refresh);
-		ApiUtil.getAllProjects();
+		var params = $.extend({}, this.props.location.query, this.props.params);
+		ApiUtil.getFilteredProjects(params);
+	},
+
+	componentWillReceiveProps: function (newProps) {
+		var params = $.extend({}, newProps.location.query, newProps.params);
+    ApiUtil.getFilteredProjects(params);
 	},
 
 	componentWillUnmount: function () {
@@ -37,8 +44,12 @@ var DiscoverPage = React.createClass({
 
         <div className="discover-lists-container">
 
-					<DiscoverMainList projects={this.state.projects}
-						loadMain={this.loadMain} />
+					<DiscoverMainList projects={this.state.projects} />
+
+					<button className="expand-list-button"
+						onClick={this.loadMain}>
+						{"Load more"}
+					</button>
 
         </div>
 

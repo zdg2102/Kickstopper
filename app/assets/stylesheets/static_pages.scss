@@ -395,6 +395,10 @@ div.discover-lists-container {
 
 // DISCOVER PAGE MAIN LIST
 
+section.main-discover-list {
+	margin-bottom: 20px;
+}
+
 span.discover-list-header {
 	display: block;
 	color: RGB(15, 33, 5); // forest green
@@ -413,7 +417,7 @@ section.main-discover-list > div.project-tile:nth-of-type(4n + 0) {
 
 button.expand-list-button {
 	display: block;
-	margin: 60px auto;
+	margin: 0px auto 60px;
 	border: 2px solid RGB(130, 133, 135); // grey
 	color: RGB(130, 133, 135); // grey
 	background-color: RGB(255, 255, 255); // white
