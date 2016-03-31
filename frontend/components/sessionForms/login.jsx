@@ -1,24 +1,37 @@
 // login fields of session form
 
 var React = require('react');
+var FacebookLoginPanel = require('./facebookLoginPanel');
 
 var Login = React.createClass({
 
 	render: function () {
 		return (
-			<form className="login-form">
-        <h2 className="session-form-header">{"Log in"}</h2>
+			<div>
+				<form className="login-form">
+					<h2 className="session-form-header">{"Log in"}</h2>
 
-			  <input type="text" className="session-input"
-				  defaultValue="Email" />
+					<input type="text" className="session-input"
+						defaultValue="Email" />
 
-				<input type="text" className="session-input"
-					defaultValue="Password" />
+					<input type="text" className="session-input"
+						defaultValue="Password" />
 
-				<input type="submit" className="session-submit"
-					value="Log me in!" />
+					<input type="submit" className="session-submit"
+						value="Log me in!" />
 
-			</form>
+				</form>
+				<div className="session-form-footer">
+
+					<FacebookLoginPanel />
+
+					<div className="switch-form-section">
+						{"New to Kickstopper? "}
+						<a className="switch-form-link">{"Sign Up!"}</a>
+					</div>
+
+				</div>
+			</div>
 		);
 	}
 

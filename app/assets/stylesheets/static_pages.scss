@@ -506,7 +506,7 @@ a.switch-form-link {
 }
 
 form.login-form {
-	margin: 15px;
+	margin: 20px;
 }
 
 h2.session-form-header {
@@ -518,9 +518,10 @@ input.session-input {
 	display: block;
 	border: 1px solid RGB(217, 217, 222); // light grey
 	border-radius: 6px;
-	color: RGB(217, 217, 222); // light grey
-	padding: 10px;
-	margin-bottom: 20px;
+	color: RGB(168, 168, 168); // medium-light grey
+	padding: 12px 10px;
+	margin: 0px auto 20px;
+	width: calc(100% - 20px);
 	font-size: 14px;
 }
 
@@ -533,7 +534,7 @@ input.session-submit {
 	border-radius: 6px;
 	padding: 10px 20px;
 	margin: 20px auto 10px;
-	width: 350px;
+	width: 100%;
 	cursor: pointer;
 }
 
