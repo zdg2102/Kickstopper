@@ -4,8 +4,8 @@
 
 // RESET
 
-body, header, h1, h3, h4, h6, ul, li,
-a, img, span, data, p, button, hr {
+body, header, h1, h2, h3, h4, h6, ul, li,
+a, img, span, data, p, button, hr, input {
 	border: 0;
 	margin: 0;
 	padding: 0;
@@ -502,6 +502,38 @@ div.switch-form-section {
 a.switch-form-link {
 	color: RGB(0, 160, 255); // bright blue
 	font-weight: bold;
+	cursor: pointer;
+}
+
+form.login-form {
+	margin: 15px;
+}
+
+h2.session-form-header {
+  font-size: 32px;
+	margin-bottom: 30px;
+}
+
+input.session-input {
+	display: block;
+	border: 1px solid RGB(217, 217, 222); // light grey
+	border-radius: 6px;
+	color: RGB(217, 217, 222); // light grey
+	padding: 10px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+input.session-submit {
+	display: block;
+	color: RGB(255, 255, 255); // white
+	background-color: RGB(43, 222, 115); // bright green
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 6px;
+	padding: 10px 20px;
+	margin: 20px auto 10px;
+	width: 350px;
 	cursor: pointer;
 }
 
