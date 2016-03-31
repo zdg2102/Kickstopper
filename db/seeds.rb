@@ -47,31 +47,6 @@ coworkers = work.subcategories.create!(name: "Coworkers")
 # 		" to the state of humanity!"
 # )
 
-categories = [neighbors, media_and_arts, daily_life, work]
-
-users = []
-
-700.times do
-  users << User.create!(
-    name: Faker::Name.name,
-		email: 
-	)
-end
-
-60.times do
-  category = categories.sample
-	subcategory = category.subcategories.sample
-	subcategory.projects.create!(
-	  title: Faker::Commerce.product_name,
-		creator_id: 1,
-		category_featured: [true, false].sample,
-		funding_goal: rand(500000),
-		funding_date: Date.today + rand(30).days,
-		project_blurb: Faker::Company.bs,
-		project_description: Faker::Hipster.paragraph
-	)
-end
-
 # nosy_neighbors.projects.create!(
 #   title: "No Party This Weekend",
 # 	category_featured: true,
@@ -80,3 +55,51 @@ end
 # 	project_blurb: "Avoid having to hear us yelling all night!",
 # 	project_description: "Hi neighbors, ",
 # )
+
+categories = [neighbors, media_and_arts, daily_life, work]
+
+users = []
+
+700.times do
+	u = User.create(
+	  name: Faker::Name.name,
+		email: Faker::Internet.email,
+		password: "password"
+	)
+	# ignore if we got a duplicate email
+	if u.save
+		users << u
+	end
+end
+
+projects = []
+
+400.times do
+  category = categories.sample
+	subcategory = category.subcategories.sample
+	projects << subcategory.projects.create!(
+	  title: Faker::Commerce.product_name,
+		creator_id: users.sample.id
+		category_featured: [true, false].sample,
+		funding_goal: rand(500000),
+		funding_date: Date.today + (rand(30).days + 1),
+		project_blurb: Faker::Company.bs * (rand(6) + 1),
+		project_description: Faker::Hipster.paragraph * (rand(6) + 1)
+	)
+end
+
+rewards = []
+
+projects.each do |project|
+  (rand(5) + 1).times do
+    rewards << project.rewards.create!(
+		  minimum_pledge: rand(1000) + 1,
+			title: Faker::Company.bs,
+			description: Faker::Company.bs * (rand(6) + 1)
+		)
+	end
+end
+
+1000.times do
+
+end
