@@ -46,7 +46,7 @@ img {
 
 header.nav-header {
 	background-color: RGB(255, 255, 255); // white
-	border-bottom: 1px solid RGB(130, 133, 135); // grey
+	border-bottom: 1px solid RGB(217, 217, 222); // light grey
 }
 
 a.header-logo {
@@ -66,7 +66,7 @@ ul.nav-header-links {
 	font-size: 14px;
 	color: RGB(130, 133, 135); // grey
 	padding-right: 20px;
-	border-right: 1px solid RGB(130, 133, 135); // grey
+	border-right: 1px solid RGB(217, 217, 222); // light grey
 }
 
 ul.nav-header-links > li {
@@ -391,6 +391,50 @@ span.tile-stat-label {
 div.discover-lists-container {
 	width: 1040px;
 	margin: 0px auto;
+}
+
+// DISCOVER PAGE FILTER BOX
+
+div.filter-box {
+	display: block;
+	height: 40px;
+	padding: 140px 0px;
+	background-color: RGB(247, 250, 250); // very pale blue
+	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+	margin-bottom: 50px;
+	color: RGB(15, 33, 5); // forest green
+}
+
+h2.filter-box-text {
+	display: inline-block;
+	font-size: 44px;
+}
+
+span.filter-box-dropdown {
+	font-size: 44px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid RGB(15, 33, 5); // forest green
+}
+
+span.filter {
+	margin-right: 20px;
+}
+
+span.sort {
+	margin-left: 20px;
+}
+
+div.filter-text-line {
+	display: block;
+	padding-left: 20px;
+}
+
+a.arrow {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 20px 0 20px;
+	border-color: RGB(0, 0, 0) transparent transparent transparent;
 }
 
 // DISCOVER PAGE MAIN LIST

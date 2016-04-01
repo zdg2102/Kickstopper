@@ -5,6 +5,7 @@ var ProjectStore = require('../../stores/projectStore');
 var ApiUtil = require('../../utils/apiUtil');
 var ProjectTile = require('../projectPanels/projectTile');
 var DiscoverMainList = require('./discoverMainList');
+var FilterBox = require('./filterBox');
 
 var DiscoverPage = React.createClass({
 
@@ -41,6 +42,8 @@ var DiscoverPage = React.createClass({
 
     return (
 			<div>
+
+				<FilterBox />
 
         <div className="discover-lists-container">
 
