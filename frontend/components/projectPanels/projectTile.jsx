@@ -38,6 +38,7 @@ var ProjectTile = React.createClass({
 
 		var testCat = this.props.project ? this.props.project.category : "";
 		var testSub = this.props.project ? this.props.project.subcategory : "";
+    var testCount = this.props.project ? this.props.project.backer_count : "";
 
     return (
 
@@ -49,6 +50,8 @@ var ProjectTile = React.createClass({
 					{testSub}
 					<br />
 					{testDate}
+          <br />
+          {testCount}
 			  </div>
 
 				<div className="tile-content">

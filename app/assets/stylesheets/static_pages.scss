@@ -414,6 +414,10 @@ span.filter-box-dropdown {
 	font-size: 44px;
 	padding-bottom: 10px;
 	border-bottom: 2px solid RGB(15, 33, 5); // forest green
+  padding-right: 45px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 span.filter {
@@ -432,9 +436,12 @@ div.filter-text-line {
 a.arrow {
 	width: 0;
 	height: 0;
+  top: 22px;
+  right: 0px;
 	border-style: solid;
 	border-width: 15px 20px 0 20px;
 	border-color: RGB(0, 0, 0) transparent transparent transparent;
+  position: absolute;
 }
 
 // DISCOVER PAGE MAIN LIST

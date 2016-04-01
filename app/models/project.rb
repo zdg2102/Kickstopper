@@ -12,11 +12,9 @@ class Project < ActiveRecord::Base
 	has_many :pledges, through: :rewards
 	has_many :backers, through: :pledges, source: :user
 
-  # def self.with_amount_pledged
-  #   self.joins(:pledges).group("projects.id").select("projects.*, SUM(pledges.pledge_amount) AS amount_pledged")
-	# end
-
 	def amount_pledged
+    # check if name is already set as part of aggregate query,
+    # to avoid firing an extra query
 		if self.read_attribute(:amount_pledged)
 			read_attribute(:amount_pledged)
 		else
@@ -25,7 +23,13 @@ class Project < ActiveRecord::Base
 	end
 
 	def backer_count
-    backers.size
+    # check if name is already set as part of aggregate query,
+    # to avoid firing an extra query
+    if self.read_attribute(:backer_count)
+      read_attribute(:backer_count)
+    else
+      backers.size
+    end
 	end
 
 end

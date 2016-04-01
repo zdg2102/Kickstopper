@@ -5,3 +5,5 @@ json.category project.category.name
 json.subcategory project.subcategory.name
 json.creator_name project.creator.name
 json.amount_pledged project.amount_pledged
+
+json.backer_count project.backer_count

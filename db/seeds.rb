@@ -81,7 +81,7 @@ projects = []
 	  title: Faker::Commerce.product_name,
 		creator_id: users.sample.id,
 		category_featured: [true, false].sample,
-		funding_goal: rand(1000),
+		funding_goal: rand(1000) + 1,
 		funding_date: Date.today + (rand(30).days + 3),
 		project_blurb: Faker::Company.bs * (rand(6) + 1),
 		project_description: Faker::Hipster.paragraph * (rand(6) + 1)
@@ -104,6 +104,6 @@ end
   reward = rewards.sample
 	reward.pledges.create!(
 	  user_id: users.sample.id,
-		pledge_amount: rand(1000) + (rand(100).to_f / 100)
+		pledge_amount: rand(1000) + 1 + (rand(100).to_f / 100)
 	)
 end
