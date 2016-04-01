@@ -27,5 +27,7 @@ module Kickstopper
 		config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
 		config.serve_static_files = true
+
+    config.autoload_paths << Rails.root.join("app", "services")
   end
 end

@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  include PgSearch
-  multisearchable :against => :name
-
   validates :name, :email, :password_hash, presence: true
 	validates :email, uniqueness: true
 	validates :password, length: { minimum: 6 }

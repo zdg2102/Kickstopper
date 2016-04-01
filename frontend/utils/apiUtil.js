@@ -40,11 +40,12 @@ var ApiUtil = {
   globalSearch: function (term) {
     $.ajax({
       type: 'GET',
-      url: 'api/search/',
+      url: 'api/searches/search',
       dataType: 'json',
-      data: term,
+      data: {term: term},
       success: function (projects) {
-        SearchActions.receiveSearchResults(projects);
+        console.log("Searched!");
+        // SearchActions.receiveSearchResults(projects);
       }
     });
   }
