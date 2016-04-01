@@ -35,30 +35,19 @@ var ApiUtil = {
 				ProjectActions.receiveNewPageProjects(projects);
 			}
 		});
-	}
+	},
 
-	// getAllProjects: function () {
-  //   $.ajax({
-	// 		type: 'GET',
-	// 		url: '/api/projects/',
-	// 		dataType: 'json',
-	// 		success: function (projects) {
-  //       ProjectActions.receiveAllProjects(projects);
-	// 		}
-	// 	});
-	// },
-	//
-	// getCategoryProjects: function (params) {
-	// 	$.ajax({
-	// 		type: 'GET',
-	// 		url: 'api/projects/',
-	// 		dataType: 'json',
-	// 		data: {projects: params},
-	// 		success: function (projects) {
-	// 			ProjectActions.receiveAllProjects(projects);
-	// 		}
-	// 	});
-	// }
+  globalSearch: function (term) {
+    $.ajax({
+      type: 'GET',
+      url: 'api/search/',
+      dataType: 'json',
+      data: term,
+      success: function (projects) {
+        SearchActions.receiveSearchResults(projects);
+      }
+    });
+  }
 };
 
 module.exports = ApiUtil;

@@ -1,4 +1,7 @@
 class Reward < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :description]
+
   validates :project_id, :minimum_pledge, :title, :description,
 	  presence: true
 	# 2 billion cap is to avoid overflow of DB limit for integer fields

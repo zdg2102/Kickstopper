@@ -1,4 +1,7 @@
 class Project < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :project_blurb, :project_description]
+
   validates :title, :creator_id, :subcategory_id, :funding_goal,
 	  :funding_date, presence: true
 	# 2 billion cap is to avoid overflow of DB limit for integer fields

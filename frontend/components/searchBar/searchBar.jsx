@@ -4,7 +4,27 @@ var React = require('react');
 
 var SearchBar = React.createClass({
   getInitialState: function () {
-    return { term: "" };
+    return { term: null };
+  },
+
+  handleInput: function (e) {
+    this.setState({ term: e.currentTarget.value });
+    // only start searching once the term is at least 2 characters
+    if (e.currentTarget.value.length > 1) {
+      
+    }
+  },
+
+  clearDefault: function (e) {
+    if (!this.state.term) {
+      this.setState({ term: "" });
+    }
+  },
+
+  restoreDefault: function (e) {
+    if (this.state.term.length === 0) {
+      this.setState({ term: null });
+    }
   },
 
   render: function () {
@@ -12,7 +32,9 @@ var SearchBar = React.createClass({
       <div className="search-bar group">
         <div className="magnifying-glass-icon" />
         <input type="text" className="search-bar-input"
-          defaultValue="Search Projects" />
+          defaultValue="Search Projects" value={this.state.term}
+          onChange={this.handleInput} onFocus={this.clearDefault}
+          onBlur={this.restoreDefault} />
       </div>
     );
   }
