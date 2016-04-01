@@ -1,6 +1,7 @@
 // Header for NavWrapper header/footer
 
 var React = require('react');
+var SearchBar = require('../searchBar/searchBar');
 
 var NavHeader = React.createClass({
 
@@ -21,6 +22,8 @@ var NavHeader = React.createClass({
 					<li><a href="#">Start a project</a></li>
 					<li><a href="#">About us</a></li>
 				</ul>
+
+        <SearchBar />
 
 			</header>
 		);
