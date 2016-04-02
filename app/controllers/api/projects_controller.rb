@@ -17,7 +17,7 @@ class Api::ProjectsController < ApplicationController
 				.find(params[:id])
 			render :show
 		else
-      render json: {"error" => "Must provide detail type param"},
+      render json: { "message" => "Must provide detail type param" },
 			  status: 422
 		end
 	end

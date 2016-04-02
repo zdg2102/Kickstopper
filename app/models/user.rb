@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	validates :password, length: { minimum: 6 }
 
-	has_many :projects, foreign_key: :creator_id
-	has_many :pledges
-	has_many :session_tokens
+	has_many :projects, foreign_key: :creator_id, dependent: :destroy
+	has_many :pledges, dependent: :destroy
+	has_many :session_tokens, dependent: :destroy
 
 	attr_reader :password
 
