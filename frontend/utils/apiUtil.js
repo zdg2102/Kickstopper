@@ -48,6 +48,20 @@ var ApiUtil = {
         // SearchActions.receiveSearchResults(projects);
       }
     });
+  },
+
+  getCurrentUser: function (completion) {
+    $.ajax({
+      type: 'GET',
+      url: 'api/sessions/current',
+      dataType: 'json',
+      success: function (currentUser) {
+        SessionActions.currentUserReceived(currentUser);
+      },
+      complete: function () {
+        if (completion) { completion(); }
+      }
+    });
   }
 };
 
