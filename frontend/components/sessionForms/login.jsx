@@ -1,9 +1,14 @@
 // login fields of session form
 
 var React = require('react');
+var ApiUtil = require('../../utils/apiUtil');
 var LoginAlternativePanel = require('./loginAlternativePanel');
 
 var Login = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function () {
     return {
       email: "",
@@ -39,7 +44,19 @@ var Login = React.createClass({
     if (newState.errorMessages.length > 0) {
       this.setState(newState);
     } else {
-
+      ApiUtil.login(
+        {
+          email: this.state.email,
+          password: this.state.password
+        },
+        function () {
+          this.context.router.push("/");
+        }.bind(this),
+        function () {
+          newState.errorMessages.push("Invalid credentials");
+          this.setState(newState);
+        }.bind(this)
+      );
     }
   },
 

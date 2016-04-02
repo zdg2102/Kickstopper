@@ -1,4 +1,4 @@
-var ProjectActions = require('../actions/projectActions');
+var SessionActions = require('../actions/sessionActions');
 
 var ApiUtil = {
   getProjectMain: function (projectId) {
@@ -50,15 +50,18 @@ var ApiUtil = {
     });
   },
 
-  login: function (credentials, callback) {
+  login: function (credentials, successCallback, errorCallback) {
     $.ajax({
       type: "POST",
       url: "/api/session",
       dataType: "json",
       data: {user: credentials},
       success: function (currentUser) {
-        SessionActions.currentUserReceived(currentUser);
-        if (callback) { callback(); }
+        SessionActions.receiveCurrentUser(currentUser);
+        if (successCallback) { successCallback(); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
       }
     });
   },
@@ -80,7 +83,7 @@ var ApiUtil = {
       url: '/api/sessions/current',
       dataType: 'json',
       success: function (currentUser) {
-        SessionActions.currentUserReceived(currentUser);
+        SessionActions.receiveCurrentUser(currentUser);
       },
       complete: function () {
         if (completion) { completion(); }

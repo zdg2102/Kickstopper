@@ -7,6 +7,9 @@ class SessionToken < ActiveRecord::Base
 
 	belongs_to :user
 
+  # FINDTAG session tokens should be deleted from the database after
+  # 7 days
+
   def reset_token!
     update!(token_string: random_token)
   end

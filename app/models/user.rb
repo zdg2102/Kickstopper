@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
 	def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
-		user.is_password?(password) ? user : nil
+		user && user.is_password?(password) ? user : nil
 	end
 
 	def password=(password)
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 	end
 
 	def is_password?(password)
-    password_hash == BCrypt::Password.new(password)
+    BCrypt::Password.new(password_hash).is_password?(password)
 	end
 
 end
