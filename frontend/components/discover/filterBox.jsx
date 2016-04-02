@@ -11,7 +11,7 @@ var FilterBox = React.createClass({
 				<div className="filter-text-line">
 					<span className="filter-box-dropdown filter">
 						{"Everything"}
-						<a className="arrow"></a>
+						<a className="filter-box-arrow"></a>
 					</span>
 
 					<h2 className="filter-box-text">
@@ -20,7 +20,7 @@ var FilterBox = React.createClass({
 
 					<span className="filter-box-dropdown sort">
 						{"End Date"}
-						<a className="arrow"></a>
+						<a className="filter-box-arrow"></a>
 					</span>
 
 				</div>

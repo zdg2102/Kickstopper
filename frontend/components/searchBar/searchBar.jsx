@@ -16,26 +16,13 @@ var SearchBar = React.createClass({
     }
   },
 
-  clearDefault: function (e) {
-    if (!this.state.term) {
-      this.setState({ term: "" });
-    }
-  },
-
-  restoreDefault: function (e) {
-    if (this.state.term.length === 0) {
-      this.setState({ term: null });
-    }
-  },
-
   render: function () {
     return (
       <div className="search-bar group">
         <div className="magnifying-glass-icon" />
         <input type="text" className="search-bar-input"
-          defaultValue="Search Projects" value={this.state.term}
-          onChange={this.handleInput} onFocus={this.clearDefault}
-          onBlur={this.restoreDefault} />
+          placeholder="Search Projects" value={this.state.term}
+          onChange={this.handleInput} />
       </div>
     );
   }

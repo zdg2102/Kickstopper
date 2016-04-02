@@ -1,15 +1,22 @@
 // Header for NavWrapper header/footer
 
 var React = require('react');
+var SessionStore = require('../../stores/sessionStore');
 var SearchBar = require('../searchBar/searchBar');
+var SessionLinks = require('./sessionLinks');
+var CurrentUserNav = require('./currentUserNav');
 
 var NavHeader = React.createClass({
-
   render: function () {
+    var userMenu;
+    if (SessionStore.isLoggedIn()) {
+      userMenu = <CurrentUserNav user={SessionStore.currentUser()} />;
+    } else {
+      userMenu = <SessionLinks />;
+    }
 
     return (
 			<header className="nav-header group">
-
         <a className="header-logo" href="#">
 					<div className="header-logo-div"></div>
 				</a>
@@ -22,10 +29,10 @@ var NavHeader = React.createClass({
 
         <SearchBar />
 
-			</header>
+        {userMenu}
+      </header>
 		);
 	}
-
 });
 
 module.exports = NavHeader;
