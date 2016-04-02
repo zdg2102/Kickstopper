@@ -12,7 +12,8 @@ var loginAlternativePanel = React.createClass({
 					{"or"}
 					<hr className="session-divider-right" />
 				</div>
-        <button className="guest-login-button">
+        <button className="guest-login-button"
+          onClick={this.props.guestLogin}>
           {"Continue as Guest"}
         </button>
 				<button className="facebook-login-button">

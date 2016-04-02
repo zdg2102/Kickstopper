@@ -58,6 +58,8 @@ coworkers = work.subcategories.create!(name: "Coworkers")
 
 categories = [neighbors, media_and_arts, daily_life, work]
 
+User.create!(name: "Guest", email: "GuestSession", password: "password")
+
 users = []
 
 700.times do

@@ -60,6 +60,18 @@ var Login = React.createClass({
     }
   },
 
+  guestLogin: function (e) {
+    ApiUtil.login(
+      {
+        email: "GuestSession",
+        password: "password"
+      },
+      function () {
+        this.context.router.push("/");
+      }.bind(this)
+    );
+  },
+
 	render: function () {
     var emailError = this.state.emailError ? " error" : "";
     var passwordError = this.state.passwordError ? " error" : "";
@@ -98,7 +110,7 @@ var Login = React.createClass({
 				</form>
 
 				<div className="session-form-footer">
-					<LoginAlternativePanel />
+					<LoginAlternativePanel guestLogin={this.guestLogin} />
 
 					<div className="switch-form-section">
 						{"New to Kickstopper? "}

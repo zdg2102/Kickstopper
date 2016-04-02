@@ -5,6 +5,7 @@ var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 var browserHistory = require('react-router').browserHistory;
 var SessionStore = require('./stores/sessionStore');
+var App = require('./components/app/app');
 var NavWrapper = require('./components/headerAndFooter/navWrapper');
 var MainPage = require('./components/main/mainPage');
 var ProjectMain = require('./components/projectMain/projectMain');
@@ -15,21 +16,23 @@ var SignUp = require('./components/sessionForms/signUp');
 
 var Routes = (
   <Router history={browserHistory}>
-		<Route path="/nav" component={NavWrapper}>
-      <Route path="/" component={MainPage} />
-			<Route path="session" component={SessionForm}>
-				<Route path="/login" component={Login}
-          onEnter={_requireLoggedOut} />
-				<Route path="/signup" component={SignUp}
-          onEnter={_requireLoggedOut} />
-			</Route>
-			<Route path="/discover" component={DiscoverPage} />
-			<Route path="/discover/categories/:categoryName"
-				component={DiscoverPage} />
-      <Route path="/discover/categories/:categoryName/:subcategoryName"
-				component={DiscoverPage} />
-      <Route path="/projects/:projectId" component={ProjectMain} />
-		</Route>
+    <Route path="/" component={App} >
+      <Route component={NavWrapper}>
+        <IndexRoute component={MainPage} />
+        <Route component={SessionForm}>
+          <Route path="login" component={Login}
+            onEnter={_requireLoggedOut} />
+          <Route path="signup" component={SignUp}
+            onEnter={_requireLoggedOut} />
+        </Route>
+        <Route path="discover" component={DiscoverPage} />
+        <Route path="discover/categories/:categoryName"
+          component={DiscoverPage} />
+        <Route path="discover/categories/:categoryName/:subcategoryName"
+          component={DiscoverPage} />
+        <Route path="projects/:projectId" component={ProjectMain} />
+      </Route>
+    </Route>
   </Router>
 );
 

@@ -1,3 +1,4 @@
+var ProjectActions = require('../actions/projectActions');
 var SessionActions = require('../actions/sessionActions');
 
 var ApiUtil = {
@@ -80,7 +81,7 @@ var ApiUtil = {
   getCurrentUser: function (completion) {
     $.ajax({
       type: 'GET',
-      url: '/api/sessions/current',
+      url: '/api/session/current',
       dataType: 'json',
       success: function (currentUser) {
         SessionActions.receiveCurrentUser(currentUser);

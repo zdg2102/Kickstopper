@@ -7,6 +7,18 @@ var SessionLinks = require('./sessionLinks');
 var CurrentUserNav = require('./currentUserNav');
 
 var NavHeader = React.createClass({
+  componentDidMount: function () {
+    this.sessionStoreToken = SessionStore.addListener(this.refresh);
+  },
+
+  componentWillUnmount: function () {
+    this.sessionStoreToken.remove();
+  },
+
+  refresh: function () {
+    this.forceUpdate();
+  },
+
   render: function () {
     var userMenu;
     if (SessionStore.isLoggedIn()) {
