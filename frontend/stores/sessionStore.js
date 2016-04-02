@@ -1,41 +1,36 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var Store = require('flux/utils').Store;
-var projectConstants = require('../constants/projectConstants');
+var sessionConstants = require('../constants/sessionConstants');
 
 var SessionStore = new Store(AppDispatcher);
 
-// var _projects = [];
-//
-// var _keyedProjects = {};
-//
-// var refreshProjects = function (projects) {
-// 	_projects = [];
-// 	_keyedProjects = {};
-// 	for (var i = 0; i < projects.length; i++) {
-// 		_projects.push(projects[i]);
-// 		_keyedProjects[projects[i].id] = projects[i];
-// 	}
-// };
-//
-// SessionStore.all = function () {
-// 	return _projects.slice();
-// };
-//
-// SessionStore.find = function (projectId) {
-//   return _projects[projectId];
-// };
+var _currentUser = null;
+var _currentUserHasBeenFetched = false;
+
+SessionStore.currentUser = function () {
+  return _currentUser;
+};
+
+SessionStore.isLoggedIn = function () {
+  return !!_currentUser;
+};
+
+SessionStore.currentUserHasBeenFetched = function () {
+  return _currentUserHasBeenFetched;
+};
 
 SessionStore.__onDispatch = function (payload) {
-  // switch (payload.actionType) {
-	// 	case projectConstants.ALL_PROJECTS_RECEIVED:
-	// 	  refreshProjects(payload.projects);
-	// 		SessionStore.__emitChange();
-	// 		break;
-	// 	case projectConstants.SINGLE_PROJECT_RECEIVED:
-	// 	  _projects[payload.project.id] = payload.project;
-	// 		SessionStore.__emitChange();
-	// 		break;
-	// }
+  switch (payload.actionType) {
+		case sessionConstants.CURRENT_USER_RECEIVED:
+		  _currentUser = payload.currentUser;
+      _currentUserHasBeenFetched = true;
+			SessionStore.__emitChange();
+			break;
+    case sessionConstants.LOGOUT:
+      _currentUser = null;
+      SessionStore.__emitChange();
+      break;
+	}
 };
 
 module.exports = SessionStore;

@@ -6,43 +6,30 @@ var IndexRoute = require('react-router').IndexRoute;
 var browserHistory = require('react-router').browserHistory;
 var SessionStore = require('./stores/sessionStore');
 var NavWrapper = require('./components/headerAndFooter/navWrapper');
+var MainPage = require('./components/main/mainPage');
 var ProjectMain = require('./components/projectMain/projectMain');
 var DiscoverPage = require('./components/discover/discoverPage');
 var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
 
-// FINDTAG push nav to /nav, set global level app wrapper component that
-// does nothing but keep track of if somebody is logged in or not
-
-var App = React.createClass({
-  render: function () {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
-  }
-});
-
 var Routes = (
   <Router history={browserHistory}>
-    <Route path="/" component={App}>
-  		<Route path="/nav" component={NavWrapper}>
-  			<Route path="session" component={SessionForm}>
-  				<Route path="/login" component={Login}
-            onEnter={_requireLoggedOut} />
-  				<Route path="/signup" component={SignUp}
-            onEnter={_requireLoggedOut} />
-  			</Route>
-  			<Route path="/discover" component={DiscoverPage} />
-  			<Route path="/discover/categories/:categoryName"
-  				component={DiscoverPage} />
-        <Route path="/discover/categories/:categoryName/:subcategoryName"
-  				component={DiscoverPage} />
-        <Route path="/projects/:projectId" component={ProjectMain} />
-  		</Route>
-    </Route>
+		<Route path="/nav" component={NavWrapper}>
+      <Route path="/" component={MainPage} />
+			<Route path="session" component={SessionForm}>
+				<Route path="/login" component={Login}
+          onEnter={_requireLoggedOut} />
+				<Route path="/signup" component={SignUp}
+          onEnter={_requireLoggedOut} />
+			</Route>
+			<Route path="/discover" component={DiscoverPage} />
+			<Route path="/discover/categories/:categoryName"
+				component={DiscoverPage} />
+      <Route path="/discover/categories/:categoryName/:subcategoryName"
+				component={DiscoverPage} />
+      <Route path="/projects/:projectId" component={ProjectMain} />
+		</Route>
   </Router>
 );
 

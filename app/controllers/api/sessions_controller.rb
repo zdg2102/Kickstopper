@@ -9,7 +9,10 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_credentials(params[:email], params[:password])
+    user_params = params[:user]
+    if user_params
+      user = User.find_by_credentials(params[:email], params[:password])
+    end
     if user && user.is_password?(params[:password])
       login!(user)
       render json: user

@@ -7,9 +7,6 @@ var NavHeader = React.createClass({
 
   render: function () {
 
-    // FINDTAG will get search bar and user dropdown later
-		// FINDTAG h3 will be replaced with logo image
-
     return (
 			<header className="nav-header group">
 
