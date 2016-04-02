@@ -544,17 +544,24 @@ hr.session-divider-right {
 	margin-right: 3%;
 }
 
+div.login-alternative-panel > button {
+  display: block;
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 20px auto 10px;
+  width: 350px;
+  cursor: pointer;
+}
+
 button.facebook-login-button {
-	display: block;
-	color: RGB(255, 255, 255); // white
-	background-color: RGB(57, 86, 147); // Facebook blue
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 6px;
-	padding: 10px 20px;
-	margin: 20px auto 10px;
-	width: 350px;
-	cursor: pointer;
+  background-color: RGB(57, 86, 147); // Facebook blue
+}
+
+button.guest-login-button {
+  background-color: RGB(43, 222, 115); // bright green
 }
 
 p.session-button-message {

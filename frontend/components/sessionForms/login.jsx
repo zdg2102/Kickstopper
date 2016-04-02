@@ -1,7 +1,7 @@
 // login fields of session form
 
 var React = require('react');
-var FacebookLoginPanel = require('./facebookLoginPanel');
+var LoginAlternativePanel = require('./loginAlternativePanel');
 
 var Login = React.createClass({
 
@@ -23,7 +23,7 @@ var Login = React.createClass({
 				</form>
 				<div className="session-form-footer">
 
-					<FacebookLoginPanel />
+					<LoginAlternativePanel />
 
 					<div className="switch-form-section">
 						{"New to Kickstopper? "}

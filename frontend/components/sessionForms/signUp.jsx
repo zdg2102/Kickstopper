@@ -1,7 +1,7 @@
 // sign up fields of session form
 
 var React = require('react');
-var FacebookLoginPanel = require('./facebookLoginPanel');
+var LoginAlternativePanel = require('./loginAlternativePanel');
 
 var SignUp = React.createClass({
 
@@ -41,7 +41,7 @@ var SignUp = React.createClass({
 
 					<div className="session-form-footer">
 
-						<FacebookLoginPanel />
+						<LoginAlternativePanel />
 
 						<div className="switch-form-section">
 							{"Have an account? "}
