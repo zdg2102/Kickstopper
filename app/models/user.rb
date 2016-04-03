@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
-
 	attr_reader :password
 
 	def self.find_by_credentials(email, password)

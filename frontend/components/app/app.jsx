@@ -10,8 +10,6 @@ var App = React.createClass({
     return { currentUser: null };
   },
 
-  // FINDTAG fix this so it doesn't throw an error on every load
-
   componentDidMount: function () {
     this.sessionStoreToken = SessionStore.addListener(this.updateUser);
     if (SessionStore.currentUserHasBeenFetched()) {

@@ -84,7 +84,11 @@ var ApiUtil = {
       url: '/api/session/current',
       dataType: 'json',
       success: function (currentUser) {
-        SessionActions.receiveCurrentUser(currentUser);
+        // if currentUser is empty object, there is no current session
+        // only trigger further action if a session was received
+        if (Object.keys(currentUser).length !== 0) {
+          SessionActions.receiveCurrentUser(currentUser);
+        }
       },
       complete: function () {
         if (completion) { completion(); }
