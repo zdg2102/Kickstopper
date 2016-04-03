@@ -22,7 +22,7 @@ var NavHeader = React.createClass({
   render: function () {
     var userMenu;
     if (SessionStore.isLoggedIn()) {
-      userMenu = <CurrentUserNav user={SessionStore.currentUser()} />;
+      userMenu = <CurrentUserNav currentUser={SessionStore.currentUser()} />;
     } else {
       userMenu = <SessionLinks />;
     }

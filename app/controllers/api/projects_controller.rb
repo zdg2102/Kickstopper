@@ -8,7 +8,7 @@ class Api::ProjectsController < ApplicationController
 	end
 
 	def show
-		# allows three values for param detailType:
+    # allows three values for param detailType:
 		# main, panel, and tile
     @type = params[:detailType]
 		if @type

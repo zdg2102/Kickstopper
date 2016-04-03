@@ -39,6 +39,10 @@ input[type=text]:focus, input[type=submit]:focus,
   outline-width: 0;
 }
 
+button:focus {
+  outline-width: 0;
+}
+
 // CLEARFIX
 
 .group:after {
@@ -137,6 +141,7 @@ a.session-link:hover {
 div.current-user-nav {
   float: right;
   border-left: 1px solid RGB(217, 217, 222); // light grey
+  position: relative;
 }
 
 span.user-nav-label {
@@ -156,6 +161,65 @@ a.user-nav-arrow {
 	border-width: 7px 5px 0 5px;
 	border-color: RGB(130, 133, 135) transparent transparent transparent;
   position: absolute;
+}
+
+div.user-nav-menu {
+  display: none;
+  position: absolute;
+  background-color: RGB(255, 255, 255); // white
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-top: none;
+  top: calc(100% + 1px);
+  right: 0px;
+}
+
+div.user-nav-menu.active {
+  display: block;
+}
+
+h6.user-menu-header {
+  color: RGB(15, 33, 5); // forest green
+  font-size: 14px;
+  font-weight: bold;
+  margin: 30px 0px 20px 20px;
+}
+
+ul.user-menu-item-list {
+  color: RGB(0, 160, 255); // bright blue
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+li.user-menu-item {
+  margin: 0px 0px 10px 20px;
+  cursor: pointer;
+}
+
+p.user-menu-text {
+  display: block;
+  color: RGB(130, 133, 135); // grey
+  font-size: 12px;
+  margin: 20px;
+  margin-top: 0px;
+  white-space: nowrap;
+}
+
+span.user-menu-name {
+  font-weight: bold;
+}
+
+a.user-menu-logout {
+  color: RGB(0, 160, 255); // bright blue
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+div.menu-white-border {
+  background-color: RGB(255, 255, 255); // white
+  position: absolute;
+  top: 100%;
+  height: 1px;
+  width: 100%;
 }
 
 // NAV FOOTER

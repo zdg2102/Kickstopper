@@ -1,5 +1,8 @@
 class Api::SessionsController < ApplicationController
 
+  # FINDTAG render json is not a long term good solution here, don't
+  # send password digests
+
   def current
     if logged_in?
       render json: current_user
