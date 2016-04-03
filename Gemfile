@@ -31,6 +31,16 @@ gem 'draper', '~> 1.3'
 
 gem 'pg_search'
 
+gem 'devise'
+
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'uuidtools'
+
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -57,6 +67,7 @@ group :development do
 	gem 'better_errors'
 	gem 'quiet_assets'
 	gem 'pry-rails'
+  gem 'letter_opener'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

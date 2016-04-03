@@ -6,7 +6,7 @@ var NavFooter = React.createClass({
 
   render: function () {
 
-		// FINDTAG h3 will be replaced with logo image
+		// FINDTAG fix category names and column widths
 
     return (
 			<footer className="nav-footer group">
@@ -14,12 +14,11 @@ var NavFooter = React.createClass({
         <div className="footer-column-container group">
 
           <div className="footer-column">
-						<h4 className="footer-column-header">About us</h4>
+						<h4 className="footer-column-header">Navigation</h4>
 
 						<ul className="footer-column-list">
-							<li><a href="#">Discover</a></li>
-							<li><a href="#">Start a project</a></li>
-							<li><a href="#">About us</a></li>
+              <li><a href="#">{"What is Kickstopper?"}</a></li>
+							<li><a href="#">{"Start a project"}</a></li>
 						</ul>
           </div>
 
