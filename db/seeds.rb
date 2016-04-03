@@ -19,7 +19,7 @@ media_and_arts = Category.create!(name: "Media And Arts")
 daily_life = Category.create!(name: "Daily Life")
 work = Category.create!(name: "Work")
 
-nosy_neighbors = neighbors.subcategories.create!(name: "Nosy Neighbors")
+weird_neighbors = neighbors.subcategories.create!(name: "Nosy Neighbors")
 loud_neighbors = neighbors.subcategories.create!(name: "Loud Neighbors")
 depressing_news = media_and_arts.subcategories.create!(name: "Depressing News")
 bad_music = media_and_arts.subcategories.create!(name: "Bad Music")
@@ -28,35 +28,6 @@ airplanes = daily_life.subcategories.create!(name: "Airplanes")
 social_media = daily_life.subcategories.create!(name: "Social Media")
 bosses = work.subcategories.create!(name: "Bosses")
 coworkers = work.subcategories.create!(name: "Coworkers")
-
-# depressing_news.projects.create!(
-#   title: "No Depressing News",
-# 	creator_id: 1,
-# 	category_featured: false,
-# 	funding_goal: 1000000,
-# 	funding_date: Date.today + 25.days,
-# 	project_blurb: "Avoid having to see depressing news"\
-# 	  " stories every day!",
-# 	project_description: "Isn't seeing what's in the news every"\
-# 	  " day depressing? Wouldn't you like to avoid some of that"\
-# 		" in your life? For just that reason, we your friends here"\
-# 		" at CNN, MSNBC, the New York Times, and all the way down"\
-# 		" to Buzzfeed are offering this special Kickstopper project."\
-# 		" Just give us money, and we'll give you a day where we don't"\
-# 		" show you anything that makes you cover your eyes in response"\
-# 		" to the state of humanity!"
-# )
-
-# nosy_neighbors.projects.create!(
-#   title: "No Party This Weekend",
-# 	category_featured: true,
-# 	funding_goal: 1500,
-# 	funding_date: Date.today + 7.days
-# 	project_blurb: "Avoid having to hear us yelling all night!",
-# 	project_description: "Hi neighbors, ",
-# )
-
-categories = [neighbors, media_and_arts, daily_life, work]
 
 User.create!(name: "Guest", email: "GuestSession", password: "password")
 
@@ -68,11 +39,79 @@ users = []
 		email: Faker::Internet.email,
 		password: "password"
 	)
-	# ignore if we got a duplicate email
+	# ignore in case of duplicate email from Faker
 	if u.save
 		users << u
 	end
 end
+
+projects = []
+
+# make 5 to 20 duplicates of each project
+
+(5 + rand(15)).times do
+  projects << weird_neighbors.projects.create!(
+    title: "Stop the Yodeling Guy"
+  )
+end
+
+(5 + rand(15)).times do
+  projects << loud_neighbors.projects.create!(
+    title: "No Party This Weekend",
+    creator_id: users.sample.id,
+  	category_featured: [false, false, false, false, true].sample,
+  	funding_goal: rand(7000) + 1000,
+  	funding_date: Date.today + (7 + rand(7)).days,
+  	project_blurb: "You won't have to hear us yelling all night!",
+  	project_description: "Hi neighbors, we're those three guys who"\
+    "live upstairs, the ones who invite over a howling horde of"\
+    "barbarians every Friday and Saturday night to stomp on the"\
+    "floor and randomly burst into fits of screaming (maybe"\
+    "somebody's laughing? Maybe somebody's getting murdered? Difficult"\
+    "to say), going until 3 or 4 AM. If we meet our funding goal here"\
+    "on Kickstopper, we promise this weekend our apartment will be"\
+    "silent as the tomb, and you can finally watch Netflix in peace."\
+    "(The money may or may not be used to have an even more obnoxious"\
+    "party next weekend, no promises...)",
+  )
+end
+
+(5 + rand(15)).times do
+  projects << loud_neighbors.projects.create!(
+    title: "Shut the Dog Up",
+    creator_id: users.sample.id,
+    category_featured: [false, false, false, false, true].sample,
+    funding_goal: rand(500) + 200,
+    funding_date: Date.today + (20 + rand(20)).days,
+    project_blurb: "Buy that stupid dog some toys so it stops barking",
+    project_description: ""
+  )
+end
+
+(5 + rand(15)).times do
+  projects << depressing_news.projects.create!(
+    title: "No Depressing News",
+  	creator_id: users.sample.id,
+  	category_featured: false,
+  	funding_goal: 1000000,
+  	funding_date: Date.today + 25.days,
+  	project_blurb: "Avoid having to see depressing news"\
+  	  " stories every day!",
+  	project_description: "Isn't seeing what's in the news every"\
+  	  " day depressing? Wouldn't you like to avoid some of that"\
+  		" in your life? For just that reason, we your friends here"\
+  		" at CNN, MSNBC, the New York Times, and even all the way down"\
+  		" to Buzzfeed are offering this special Kickstopper project."\
+  		" Just give us money, and we'll give you a day where we don't"\
+  		" show you anything that makes you want to cover your eyes"\
+      " to avoid seeing the state of humanity!"
+  )
+end
+
+
+
+
+
 
 projects = []
 
