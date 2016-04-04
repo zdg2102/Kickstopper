@@ -3,6 +3,10 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
+
+// temp
+var IndexRedirect = require('react-router').IndexRedirect;
+
 var browserHistory = require('react-router').browserHistory;
 var SessionStore = require('./stores/sessionStore');
 var App = require('./components/app/app');
@@ -14,11 +18,13 @@ var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
 
+// <IndexRoute component={MainPage} />
+
 var Routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App} >
       <Route component={NavWrapper}>
-        <IndexRoute component={MainPage} />
+        <IndexRedirect to="discover" />
         <Route component={SessionForm}>
           <Route path="login" component={Login}
             onEnter={_requireLoggedOut} />

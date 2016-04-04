@@ -31,13 +31,7 @@ gem 'draper', '~> 1.3'
 
 gem 'pg_search'
 
-gem 'devise'
-
-gem 'omniauth'
-
 gem 'omniauth-facebook'
-
-gem 'uuidtools'
 
 gem 'figaro'
 

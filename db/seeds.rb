@@ -502,6 +502,76 @@ end
 
 end
 
+(5 + rand(15)).times do
+  weekend = bosses.projects.create!(
+    title: "Avoid Working the Weekend",
+    creator_id: users.sample.id,
+    category_featured: [false, false, false, false, true].sample,
+    funding_goal: rand(1000) + 1000,
+    funding_date: Date.today + (5 + rand(7)).days,
+    project_blurb: "No more getting asked to work weekends",
+    project_description: "This is your boss, the one who always asks"\
+      " you to come in on weekends and then gives you a dirty look"\
+      " when you try to get out of it. I'm offering this Kickstopper"\
+      " to give you a chance to escape and enjoy your weekend."
+  )
 
-bosses
-coworkers
+  weekend_reward_one = weekend.rewards.create!(
+    minimum_pledge: 50,
+    title: "Bullet Dodged Tier",
+    description: "At this tier, you get one get-out-of-jail-free"\
+      " card for avoiding working a weekend."
+  )
+
+  rand(20).times do
+    weekend_reward_one.pledges.create!(
+      user_id: users.sample.id,
+      pledge_amount: 50 + rand(30) + (rand(100).to_f / 100)
+    )
+  end
+
+  weekend_reward_two = weekend.rewards.create!(
+    minimum_pledge: 400,
+    title: "Scot Free Tier",
+    description: "At this tier, you get out of ever having to come in"\
+      " on a weekend again!"
+  )
+
+  rand(5).times do
+    weekend_reward_two.pledges.create!(
+      user_id: users.sample.id,
+      pledge_amount: 400 + rand(50) + (rand(100).to_f / 100)
+    )
+  end
+
+  weekend_reward_three = weekend.rewards.create!(
+    minimum_pledge: 1000,
+    title: "Not My Problem Tier",
+    description: "At this tier, not only do you not have to come in"\
+      " on the weekend, you get to choose one person in the office"\
+      " and I'll make them come in on the weekend to do it instead."
+  )
+
+  rand(2).times do
+    weekend_reward_three.pledges.create!(
+      user_id: users.sample.id,
+      pledge_amount: 1000 + rand(100) + (rand(100).to_f / 100)
+    )
+  end
+
+end
+
+# (5 + rand(15)).times do
+#   test = coworkers.projects.create!(
+#     title: "Avoid Working the Weekend",
+#     creator_id: users.sample.id,
+#     category_featured: [false, false, false, false, true].sample,
+#     funding_goal: rand(800) + 400,
+#     funding_date: Date.today + (5 + rand(7)).days,
+#     project_blurb: "No more getting asked to work weekends",
+#     project_description: "This is your boss, the one who always asks"\
+#       " you to come in on weekends and then gives you a dirty look"\
+#       " when you try to get out of it. "
+#   )
+#
+# end
