@@ -19,6 +19,7 @@ var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
 
 // <IndexRoute component={MainPage} />
+// FINDTAG have to remove projects when they run out of days...
 
 var Routes = (
   <Router history={browserHistory}>

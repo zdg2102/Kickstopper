@@ -20,7 +20,6 @@ going_out = daily_life.subcategories.create!(name: "Going Out")
 airplanes = daily_life.subcategories.create!(name: "Airplanes")
 social_media = daily_life.subcategories.create!(name: "Social Media")
 bosses = work.subcategories.create!(name: "Bosses")
-coworkers = work.subcategories.create!(name: "Coworkers")
 
 User.create!(name: "Guest", email: "GuestSession", password: "password")
 
@@ -47,7 +46,7 @@ end
     creator_id: users.sample.id,
     category_featured: [false, false, false, false, true].sample,
     funding_goal: rand(3000) + 1000,
-    funding_date: Date.today + (14 + rand(10)).days,
+    funding_date: Date.today + (3 + rand(30)).days,
     project_blurb: "Let's hire someone to steal Steve's parrots",
     project_description: "Everyone in the building knows Steve,"\
       " the weird guy who lives upstairs with all the parrots."\
@@ -100,7 +99,7 @@ end
     creator_id: users.sample.id,
   	category_featured: [false, false, false, false, true].sample,
   	funding_goal: rand(7000) + 1000,
-  	funding_date: Date.today + (7 + rand(7)).days,
+  	funding_date: Date.today + (3 + rand(30)).days,
   	project_blurb: "You won't have to hear us yelling all night!",
   	project_description: "Hi neighbors, we're those three guys who"\
       " live upstairs, the ones who invite over a howling horde of"\
@@ -169,8 +168,8 @@ end
     creator_id: users.sample.id,
     category_featured: [false, false, false, false, true].sample,
     funding_goal: rand(500) + 200,
-    funding_date: Date.today + (20 + rand(20)).days,
-    project_blurb: "Buy that stupid dog some toys so it stops barking",
+    funding_date: Date.today + (3 + rand(30)).days,
+    project_blurb: "Buy that dog some toys so it stops barking",
     project_description: "Why would anybody buy a little yippy dog?"\
       " I have no idea. Yet there it is, and I think everyone within five"\
       " blocks can hear it. I think it probably makes those noises all"\
@@ -218,7 +217,7 @@ end
   	creator_id: users.sample.id,
   	category_featured: [false, false, false, false, true].sample,
   	funding_goal: rand(100000) + 100000,
-  	funding_date: Date.today + (25 + rand(5)).days,
+  	funding_date: Date.today + (3 + rand(30)).days,
   	project_blurb: "Avoid having to see depressing news"\
   	  " stories every day!",
   	project_description: "Isn't seeing what's in the news every"\
@@ -269,12 +268,12 @@ end
     creator_id: users.sample.id,
     category_featured: [false, false, false, false, true].sample,
     funding_goal: rand(200000) + 100000,
-    funding_date: Date.today + (30 + rand(15)).days,
+    funding_date: Date.today + (3 + rand(30)).days,
     project_blurb: "Don't want to hear a new album from"\
       " that band you hate? Give us enough money and we'll"\
       " skip releasing the album entirely and spare you nine"\
       " months of hearing only that on the radio on infinite"\
-      " loop!"
+      " loop!",
     project_description: "Hey there everyone, we're that"\
       " band you really hate! Don't you find it incredibly frustrating"\
       " how every time we come out with a new album or single, you hear"\
@@ -338,9 +337,9 @@ end
   	creator_id: users.sample.id,
   	category_featured: [false, false, false, false, true].sample,
   	funding_goal: rand(500) + 200,
-  	funding_date: Date.today + (4 + rand(3)).days,
+  	funding_date: Date.today + (3 + rand(30)).days,
   	project_blurb: "Want to actually be able to hear the movie you"\
-      " paid to watch?"
+      " paid to watch?",
   	project_description: "Hi there, we're the parents of that baby"\
       " in the fourth row of the theater that hasn't stopped crying"\
       " for the entire movie. At this point, we're completely immune"\
@@ -367,52 +366,15 @@ end
 
 end
 
-# FINDTAG one more here
-
-# (5 + rand(15)).times do
-#   theater_baby = going_out.projects.create!(
-#     title: "Quiet the Baby in the Movie Theater",
-#   	creator_id: users.sample.id,
-#   	category_featured: [false, false, false, false, true].sample,
-#   	funding_goal: rand(500) + 200,
-#   	funding_date: Date.today + (4 + rand(3)).days,
-#   	project_blurb: "Want to actually be able to hear the movie you"\
-#       " paid to watch?"
-#   	project_description: "Hi there, we're the parents of that baby"\
-#       " in the fourth row of the theater that hasn't stopped crying"\
-#       " for the entire movie. At this point, we're completely immune"\
-#       " to the sound, but we know you aren't, so we're offering this"\
-#       " Kickstopper. If we reach our funding goal, we'll give him"\
-#       " a bottle so he stops crying and you can watch your movie in peace."\
-#       " If we reach our stretch goal, we'll leave the theater altogether!"
-#   )
-#
-#   theater_baby_reward_one = theater_baby.rewards.create!(
-#     minimum_pledge: 50,
-#     title: "Planning Ahead Tier",
-#     description: "At this tier, we'll buy you a set of noise-canceling"\
-#     " headphones, for the next time you're stuck in a closed space with"\
-#     " a screaming baby."
-#   )
-#
-#   rand(4).times do
-#     theater_baby_reward_one.pledges.create!(
-#       user_id: users.sample.id,
-#       pledge_amount: 50 + rand(20) + (rand(100).to_f / 100)
-#     )
-#   end
-#
-# end
-
 (5 + rand(15)).times do
   seatmate = airplanes.projects.create!(
     title: "Escape Talking to the Chatty Seatmate",
     creator_id: users.sample.id,
     category_featured: [false, false, false, false, true].sample,
     funding_goal: rand(800) + 400,
-    funding_date: Date.today + (4 + rand(3)).days,
+    funding_date: Date.today + (3 + rand(30)).days,
     project_blurb: "Avoid hearing any more weird, rambling vacation"\
-      " stories!"
+      " stories!",
     project_description: "Hi there, I'm that person in the seat next"\
       " to you on the very long plane ride who's decided to become your"\
       " new best friend. I know it's a long flight and you just want"\
@@ -459,7 +421,7 @@ end
     creator_id: users.sample.id,
     category_featured: [false, false, false, false, true].sample,
     funding_goal: rand(800) + 400,
-    funding_date: Date.today + (10 + rand(20)).days,
+    funding_date: Date.today + (3 + rand(30)).days,
     project_blurb: "No more long, ill-informed, caps-lock posts about"\
       " political issues!",
     project_description: "This is your cousin, the one who makes"\
@@ -508,7 +470,7 @@ end
     creator_id: users.sample.id,
     category_featured: [false, false, false, false, true].sample,
     funding_goal: rand(1000) + 1000,
-    funding_date: Date.today + (5 + rand(7)).days,
+    funding_date: Date.today + (3 + rand(30)).days,
     project_blurb: "No more getting asked to work weekends",
     project_description: "This is your boss, the one who always asks"\
       " you to come in on weekends and then gives you a dirty look"\
@@ -549,7 +511,7 @@ end
     title: "Not My Problem Tier",
     description: "At this tier, not only do you not have to come in"\
       " on the weekend, you get to choose one person in the office"\
-      " and I'll make them come in on the weekend to do it instead."
+      " and I'll make them come in this weekend instead."
   )
 
   rand(2).times do
@@ -560,18 +522,3 @@ end
   end
 
 end
-
-# (5 + rand(15)).times do
-#   test = coworkers.projects.create!(
-#     title: "Avoid Working the Weekend",
-#     creator_id: users.sample.id,
-#     category_featured: [false, false, false, false, true].sample,
-#     funding_goal: rand(800) + 400,
-#     funding_date: Date.today + (5 + rand(7)).days,
-#     project_blurb: "No more getting asked to work weekends",
-#     project_description: "This is your boss, the one who always asks"\
-#       " you to come in on weekends and then gives you a dirty look"\
-#       " when you try to get out of it. "
-#   )
-#
-# end
