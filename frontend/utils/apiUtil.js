@@ -1,5 +1,6 @@
 var ProjectActions = require('../actions/projectActions');
 var SessionActions = require('../actions/sessionActions');
+var CategoryActions = require('../actions/categoryActions');
 
 var ApiUtil = {
   getProjectMain: function (projectId) {
@@ -92,6 +93,17 @@ var ApiUtil = {
       },
       complete: function () {
         if (completion) { completion(); }
+      }
+    });
+  },
+
+  getCategoryTree: function () {
+    $.ajax({
+      type: 'GET',
+      url: '/api/categories',
+      dataType: 'json',
+      success: function (categoryTree) {
+        CategoryActions.receiveCategoryTree(categoryTree);
       }
     });
   }

@@ -499,12 +499,20 @@ div.tile-progress-bar {
 	margin-bottom: 10px;
 }
 
+div.tile-progress-bar.with-modal {
+  background-color: RGB(41, 41, 41); // darkened grey
+}
+
 div.tile-progress-complete {
   position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	background-color: RGB(43, 222, 115); // bright green
+}
+
+div.tile-progress-complete.with-modal {
+  background-color: RGB(10, 51, 0); // darkened green
 }
 
 ul.tile-stats > li {
@@ -526,6 +534,10 @@ span.tile-stat-label {
 }
 
 // DISCOVER PAGE
+
+div.discover-page-content {
+  position: relative;
+}
 
 div.discover-lists-container {
 	width: 1040px;
@@ -581,6 +593,60 @@ a.filter-box-arrow {
 	border-width: 15px 20px 0 20px;
 	border-color: RGB(0, 0, 0) transparent transparent transparent;
   position: absolute;
+}
+
+// DISCOVER PAGE FILTER MODAL
+
+div.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: RGBA(0, 0, 0, 0.75); // semi-transparent black
+  height: 100%;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+div.modal-content {
+  position: absolute;
+  z-index: 1;
+  color: RGB(255, 255, 255); // white
+}
+
+div.modal-content.category-modal {
+  top: 20px;
+  left: 20px;
+}
+
+div.modal-content.sort-modal {
+  top: 20px;
+  left: 500px;
+}
+
+h2.modal-main-item {
+  font-size: 32px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+ul.modal-sub-item-list {
+  border-left: 3px solid RGB(255, 255, 255); // white
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+li.modal-sub-item {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+li.modal-sub-item:last-child {
+  margin-bottom: 0px;
+}
+
+h2.modal-main-item:hover, li.modal-sub-item:hover {
+  color: RGBA(255, 255, 255, 0.75); // semi-transparent white
 }
 
 // DISCOVER PAGE MAIN LIST

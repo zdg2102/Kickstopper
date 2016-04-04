@@ -8,8 +8,9 @@ var DiscoverMainList = React.createClass({
   render: function () {
 
 		var tiles = this.props.projects.map(function (project) {
-			return <ProjectTile key={project.id} project={project} />;
-		});
+			return <ProjectTile key={project.id} project={project}
+        modalOn={this.props.modalOn} />;
+    }.bind(this));
 
     return (
 			<section className="main-discover-list group">

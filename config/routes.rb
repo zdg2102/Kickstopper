@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/searches/search' => 'searches#search'
     resource :session, only: [:create, :destroy]
     get '/session/current' => 'sessions#current'
+    resources :categories, only: [:index]
 	end
 
   get '/auth/facebook/callback' => 'omni_auth#facebook'

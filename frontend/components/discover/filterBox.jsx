@@ -5,12 +5,14 @@ var React = require('react');
 var FilterBox = React.createClass({
 
 	render: function () {
+
 		return (
       <div className="filter-box">
 
 				<div className="filter-text-line">
-					<span className="filter-box-dropdown filter">
-						{"Everything"}
+					<span className="filter-box-dropdown filter"
+            onClick={this.props.openCategoryModal}>
+						<span>{this.props.currentCategory}</span>
 						<a className="filter-box-arrow"></a>
 					</span>
 
@@ -18,8 +20,9 @@ var FilterBox = React.createClass({
 						{" sorted by "}
 					</h2>
 
-					<span className="filter-box-dropdown sort">
-						{"End Date"}
+					<span className="filter-box-dropdown sort"
+            onClick={this.props.openSortModal}>
+						<span>{"End Date"}</span>
 						<a className="filter-box-arrow"></a>
 					</span>
 

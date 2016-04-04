@@ -12,7 +12,9 @@ var SearchBar = React.createClass({
     this.setState({ term: e.currentTarget.value });
     // only start searching once the term is at least 2 characters
     if (e.currentTarget.value.length > 1) {
-      ApiUtil.globalSearch(e.currentTarget.value);
+      // FINDTAG temporary disabling of search
+
+      // ApiUtil.globalSearch(e.currentTarget.value);
     }
   },
 

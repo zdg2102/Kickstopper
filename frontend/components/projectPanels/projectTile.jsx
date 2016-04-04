@@ -13,7 +13,7 @@ var ProjectTile = React.createClass({
 
   render: function () {
 		var title, creatorName, amountPledged, blurb, percentComplete,
-		  fundingGoal, fundingDate, daysLeft;
+		  fundingGoal, fundingDate, daysLeft, blurbStyle, progressModal;
 		if (this.props.project) {
 			title = this.props.project.title;
 			creatorName = this.props.project.creator_name;
@@ -33,6 +33,14 @@ var ProjectTile = React.createClass({
 			var fundDateObj = new Date(fundingDate);
 			daysLeft = Math.ceil((fundDateObj - Date.now()) / 86400000);
 		}
+
+    if (this.props.modalOn) {
+      blurbStyle = " with-modal";
+      progressModal = " with-modal";
+    } else {
+      blurbStyle = " white-gradient";
+      progressModal = "";
+    }
 
 		var testDate = this.props.project ? this.props.project.funding_date : "";
 
@@ -57,13 +65,13 @@ var ProjectTile = React.createClass({
 				<div className="tile-content">
 					<h6 className="tile-title">{title}</h6>
 					<p className="tile-byline">{creatorName}</p>
-					<p className="tile-blurb white-gradient">{blurb}</p>
+					<p className={"tile-blurb" + blurbStyle}>{blurb}</p>
 				</div>
 
 				<div className="tile-footer">
 
-          <div className="tile-progress-bar">
-						<div className="tile-progress-complete"
+          <div className={"tile-progress-bar" + progressModal}>
+						<div className={"tile-progress-complete" + progressModal}
 							style={{width: percentComplete}}>
 						</div>
 
