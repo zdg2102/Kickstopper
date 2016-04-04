@@ -27,6 +27,9 @@ var Login = React.createClass({
     this.setState(newState);
   },
 
+  // FINDTAG add a "then" param to allow redirect to the right
+  // place if we got redirected here from somewhere else
+
   handleSubmit: function (e) {
     e.preventDefault();
 
