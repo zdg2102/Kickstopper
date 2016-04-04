@@ -29,12 +29,12 @@ var NavHeader = React.createClass({
 
     return (
 			<header className="nav-header group">
-        <a className="header-logo" href="#">
+        <a className="header-logo" href="/">
 					<div className="header-logo-div"></div>
 				</a>
 
 				<ul className="nav-header-links group">
-					<li><a href="#">Discover</a></li>
+					<li><a href="/discover">Discover</a></li>
 					<li><a href="#">Start a project</a></li>
 					<li><a href="#">About us</a></li>
 				</ul>
