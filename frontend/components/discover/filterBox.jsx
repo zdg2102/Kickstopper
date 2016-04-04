@@ -5,6 +5,19 @@ var React = require('react');
 var FilterBox = React.createClass({
 
 	render: function () {
+    var prettifiedFilters = {
+      popularity: "Popularity",
+      newest: "Newest",
+      endDate: "End Date",
+      mostFunded: "Most Funded"
+    };
+
+    var filterName;
+    if (this.props.sort) {
+      filterName = prettifiedFilters[this.props.sort];
+    } else {
+      filterName = prettifiedFilters.endDate;
+    }
 
 		return (
       <div className="filter-box">
@@ -22,7 +35,7 @@ var FilterBox = React.createClass({
 
 					<span className="filter-box-dropdown sort"
             onClick={this.props.openSortModal}>
-						<span>{"End Date"}</span>
+						<span>{filterName}</span>
 						<a className="filter-box-arrow"></a>
 					</span>
 

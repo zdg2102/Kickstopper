@@ -87,6 +87,13 @@ var DiscoverPage = React.createClass({
     var discoverParams = $.extend({}, this.props.location.query,
       this.props.params);
     var sort = discoverParams.sort;
+    var currentPath = "/discover";
+    if (discoverParams.categoryName) {
+      currentPath = currentPath + "/categories/" + discoverParams.categoryName;
+    }
+    if (discoverParams.subcategoryName) {
+      currentPath = currentPath + "/" + discoverParams.subcategoryName;
+    }
 
     var currentModal;
     var modalOn = false;
@@ -96,7 +103,9 @@ var DiscoverPage = React.createClass({
         sort={sort} />;
       modalOn = true;
     } else if (this.state.openModal === "sort") {
-      currentModal = <SortModal close={this.closeModals} />;
+      currentModal = <SortModal close={this.closeModals}
+        currentPath={currentPath}
+        sort={sort} />;
       modalOn = true;
     }
 
@@ -107,7 +116,8 @@ var DiscoverPage = React.createClass({
 
 				<FilterBox openCategoryModal={this.openCategoryModal}
           openSortModal={this.openSortModal}
-          currentCategory={this.state.currentCategory} />
+          currentCategory={this.state.currentCategory}
+          sort={sort} />
 
         <div className="discover-lists-container">
 
