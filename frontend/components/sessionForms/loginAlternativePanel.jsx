@@ -16,9 +16,11 @@ var loginAlternativePanel = React.createClass({
           onClick={this.props.guestLogin}>
           {"Continue as Guest"}
         </button>
-				<button className="facebook-login-button">
-					{"Log in with Facebook"}
-				</button>
+        <a href="/auth/facebook">
+          <button className="facebook-login-button">
+            {"Log in with Facebook"}
+          </button>
+        </a>
 				<p className="session-button-message">
 					{"We may post things on Facebook without" +
 					" your permission, if we feel like it."}

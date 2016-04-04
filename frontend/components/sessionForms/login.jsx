@@ -29,6 +29,7 @@ var Login = React.createClass({
 
   // FINDTAG add a "then" param to allow redirect to the right
   // place if we got redirected here from somewhere else
+  // will also need to make sure we pass this to the Facebook omniauth controller
 
   handleSubmit: function (e) {
     e.preventDefault();
