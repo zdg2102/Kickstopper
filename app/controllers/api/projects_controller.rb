@@ -1,9 +1,12 @@
 class Api::ProjectsController < ApplicationController
 
   def index
+
+    # FINDTAG might want to remove backer count from aggregate function,
+    # since backer count only gets pulled for single projects
+
     filter = FilterProjects.new(params[:projects])
-		@projects = filter.matching_projects
-		  .preload(:subcategory, :category, :creator)
+		@projects = filter.matching_projects.includes(:creator)
     render :index
 	end
 
@@ -13,7 +16,7 @@ class Api::ProjectsController < ApplicationController
     @type = params[:detailType]
 		if @type
 	    @project = Project
-        .includes(:creator, :backers, :pledges)
+        .includes(:creator, :backers, :pledges, :rewards)
 				.find(params[:id])
 			render :show
 		else

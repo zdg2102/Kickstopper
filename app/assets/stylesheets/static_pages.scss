@@ -4,7 +4,7 @@
 
 // RESET
 
-body, header, h1, h2, h3, h4, h6, ul, li,
+body, header, h1, h2, h3, h4, h5, h6, ul, li,
 a, img, span, data, p, button, hr, input {
 	border: 0;
 	margin: 0;
@@ -350,6 +350,7 @@ span.main-stats-fund-date {
 
 p.project-blurb {
 	float: left;
+  width: 680px;
 	font-size: 22px;
 	margin: 30px 0px;
 }
@@ -429,7 +430,7 @@ div.project-rewards-panel {
 
 h4.project-detail-header {
 	font-size: 22px;
-	margin-bottom: 60px;
+	margin-bottom: 50px;
 }
 
 div.project-description-picture {
@@ -441,6 +442,90 @@ div.project-description-picture {
 p.project-description-body {
 	margin-top: 40px;
 	line-height: 1.5;
+}
+
+// PROJECT MAIN PAGE REWARDS
+
+div.reward-tile-main {
+  display: block;
+  min-width: 100%;
+  border-radius: 6px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+div.reward-tile-main.unhoverable {
+  cursor: auto;
+}
+
+div.reward-tile-main-content {
+  display: block;
+  padding: 20px;
+}
+
+h5.reward-tile-pledge {
+  display: block;
+  width: 290px;
+  font-size: 14px;
+  font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  margin-bottom: 10px;
+}
+
+span.reward-tile-title {
+  display: block;
+  width: 290px;
+  font-size: 14px;
+  font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  margin-bottom: 10px;
+}
+
+p.reward-tile-description {
+  font-size: 14px;
+}
+
+div.reward-tile-main-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: RGBA(43, 222, 115, 0.75); // semi-transparent bright green
+}
+
+div.reward-tile-main-hover > h3 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: calc(45% - 11px);
+  left: 0;
+  color: RGB(255, 255, 255); // white
+  font-size: 22px;
+  text-align: center;
+}
+
+hr.reward-tile-hr {
+  height: 1px;
+  width: 100%;
+  margin: 20px 0px 40px;
+  color: RGB(217, 217, 222); // light grey
+  background-color: RGB(217, 217, 222); // light grey
+}
+
+button.reward-tile-select-button {
+  background-color: RGB(43, 222, 115); // bright green
+  display: block;
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
 }
 
 // PROJECT TILE

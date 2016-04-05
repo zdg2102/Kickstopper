@@ -8,23 +8,27 @@ var CreatorPanel = React.createClass({
 
   render: function () {
 
-		var name = "Test creator";
-		var numCreated = 8;
-		var numBacked = 30;
-		var bioUrl = "#";
+    var creatorName, numCreated, numBacked, creatorUrl;
+    if (this.props.project) {
+      creatorName = this.props.project.creator_name;
+      numCreated = this.props.project.creator_num_projects;
+      numBacked = this.props.project.creator_num_backed;
+    }
+
+    creatorUrl = "#";
 
     return (
       <div className="creator-panel group">
 
 				<div className="creator-panel-text">
-					<h6 className="creator-panel-name">{name}</h6>
+					<h6 className="creator-panel-name">{creatorName}</h6>
 
 					<span className="creator-panel-stats">
 						{numCreated + " created | " + numBacked + " backed"}
 					</span>
 
 					<span className="creator-page-link">
-						<a href={bioUrl}>{"See creator page"}</a>
+						<a href={creatorUrl}>{"See creator page"}</a>
 					</span>
 				</div>
 

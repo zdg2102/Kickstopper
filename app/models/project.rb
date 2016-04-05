@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
 	belongs_to :subcategory
 	belongs_to :creator, class_name: 'User', foreign_key: :creator_id
 	has_one :category, through: :subcategory
-	has_many :rewards, dependent: :destroy
+	has_many :rewards, -> { order(minimum_pledge: :asc) }, dependent: :destroy
 	has_many :pledges, through: :rewards, dependent: :destroy
 	has_many :backers, through: :pledges, source: :user
 
