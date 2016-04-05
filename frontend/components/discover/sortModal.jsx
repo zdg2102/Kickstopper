@@ -1,7 +1,6 @@
 // modal dropdown for choosing sort type
 
 var React = require('react');
-var ReactModal = require('react-modal');
 
 var SortModal = React.createClass({
   contextTypes: {
