@@ -3,6 +3,10 @@
 var React = require('react');
 
 var RewardTileMain = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function () {
     return { hovered: false, expanded: false };
   },
@@ -17,6 +21,13 @@ var RewardTileMain = React.createClass({
 
   handleClick: function (e) {
     this.props.click(this.props.reward.id);
+  },
+
+  selectPledge: function (e) {
+    this.context.router.push({
+      pathname: "/projects/" + this.props.projectId + "/pledges/new",
+      query: { selectedRewardId: this.props.reward.id }
+    });
   },
 
   render: function () {
@@ -34,7 +45,8 @@ var RewardTileMain = React.createClass({
       unhoverable = " unhoverable";
       selectButton = (<div>
         <hr className="reward-tile-hr" />
-        <button className="reward-tile-select-button">
+        <button className="reward-tile-select-button"
+          onClick={this.selectPledge}>
           {"Make a pledge"}
         </button>
       </div>);

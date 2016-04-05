@@ -27,10 +27,6 @@ var Login = React.createClass({
     this.setState(newState);
   },
 
-  // FINDTAG add a "then" param to allow redirect to the right
-  // place if we got redirected here from somewhere else
-  // will also need to make sure we pass this to the Facebook omniauth controller
-
   handleSubmit: function (e) {
     e.preventDefault();
 
@@ -54,7 +50,7 @@ var Login = React.createClass({
           password: this.state.password
         },
         function () {
-          this.context.router.push("/");
+          this.continueToTarget();
         }.bind(this),
         function () {
           newState.errorMessages.push("Invalid credentials");
@@ -71,9 +67,23 @@ var Login = React.createClass({
         password: "password"
       },
       function () {
-        this.context.router.push("/");
+        this.continueToTarget();
       }.bind(this)
     );
+  },
+
+  continueToTarget: function () {
+    // if they reached this page normally, redirect them to the main page
+    // if they were redirected here while trying to perform another action,
+    // pass them back to their continueTo path
+    if (this.props.location.query.continueTo) {
+      this.context.router.push({
+        pathname: this.props.location.query.continueTo,
+        query: this.props.location.query.continueParams
+      });
+    } else {
+      this.context.router.push("/");
+    }
   },
 
 	render: function () {
@@ -92,10 +102,17 @@ var Login = React.createClass({
       );
     }
 
+    var header;
+    if (this.props.location.query.continueTo) {
+      header = "Please log in to continue";
+    } else {
+      header = "Log in";
+    }
+
 		return (
 			<div>
 				<form className="login-form" onSubmit={this.handleSubmit}>
-					<h2 className="session-form-header">{"Log in"}</h2>
+					<h2 className="session-form-header">{header}</h2>
 
           {errorsList}
 

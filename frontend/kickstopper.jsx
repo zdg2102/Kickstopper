@@ -9,11 +9,14 @@ var IndexRedirect = require('react-router').IndexRedirect;
 
 var browserHistory = require('react-router').browserHistory;
 var SessionStore = require('./stores/sessionStore');
+var ApiUtil = require('./utils/apiUtil');
 var App = require('./components/app/app');
 var NavWrapper = require('./components/headerAndFooter/navWrapper');
+var StaticWrapper = require('./components/headerAndFooter/staticWrapper');
 var MainPage = require('./components/main/mainPage');
 var ProjectMain = require('./components/projectMain/projectMain');
 var DiscoverPage = require('./components/discover/discoverPage');
+var PledgePage = require('./components/pledges/pledgePage');
 var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
@@ -26,7 +29,7 @@ var Routes = (
     <Route path="/" component={App} >
       <Route component={NavWrapper}>
         <IndexRedirect to="discover" />
-        <Route component={SessionForm}>
+        <Route component={SessionForm} onEnter={_requireLoggedOut}>
           <Route path="login" component={Login}
             onEnter={_requireLoggedOut} />
           <Route path="signup" component={SignUp}
@@ -39,6 +42,9 @@ var Routes = (
           component={DiscoverPage} />
         <Route path="projects/:projectId" component={ProjectMain} />
       </Route>
+      <Route component={StaticWrapper} onEnter={_requireLoggedIn}>
+        <Route path="projects/:projectId/pledges/new" component={PledgePage} />
+      </Route>
     </Route>
   </Router>
 );
@@ -50,34 +56,37 @@ window.launchPage = function () {
 	);
 };
 
-// function _requireLoggedIn(nextState, replace, asyncCompletionCallback) {
-//   if (!SessionStore.currentUserHasBeenFetched()) {
-//     ApiUtil.fetchCurrentUser(_redirectIfNotLoggedIn);
-//   } else {
-//     _redirectIfNotLoggedIn();
-//   }
-//
-//   function _redirectIfNotLoggedIn() {
-//     if (!SessionStore.isLoggedIn()) {
-//       replace("/login");
-//     }
-//
-//     asyncCompletionCallback();
-//   }
-// }
+function _requireLoggedIn(nextState, replace, callback) {
+  if (!SessionStore.currentUserHasBeenFetched()) {
+    ApiUtil.getCurrentUser(_redirectIfNotLoggedIn);
+  } else {
+    _redirectIfNotLoggedIn();
+  }
+
+  function _redirectIfNotLoggedIn() {
+    if (!SessionStore.isLoggedIn()) {
+      // to ensure continuity with previous request after redirect,
+      // add next path and query to redirect query
+      var params = { continueTo: nextState.location.pathname,
+        continueParams: nextState.location.query };
+      replace({ pathname: "/login",
+        query: params });
+    }
+    callback();
+  }
+}
 
 function _requireLoggedOut(nextState, replace, callback) {
-  // var _redirectIfLoggedIn = function () {
-  //   if (!SessionStore.isLoggedIn()) {
-  //     replace("/");
-  //   }
-  //   callback();
-  // };
-  //
-  // if (!SessionStore.currentUserHasBeenFetched()) {
-  //   ApiUtil.fetchCurrentUser(_redirectIfLoggedIn);
-  // } else {
-  //   _redirectIfLoggedIn();
-  // }
-  callback();
+  if (!SessionStore.currentUserHasBeenFetched()) {
+    ApiUtil.getCurrentUser(_redirectIfNotLoggedOut);
+  } else {
+    _redirectIfNotLoggedOut();
+  }
+
+  function _redirectIfNotLoggedOut() {
+    if (SessionStore.isLoggedIn()) {
+      replace("/");
+    }
+    callback();
+  }
 }

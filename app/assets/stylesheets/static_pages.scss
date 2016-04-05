@@ -267,6 +267,18 @@ div.footer-logo-div {
 	width: 175px;
 }
 
+// STATIC WRAPPER
+
+header.static-header {
+	background-color: RGB(255, 255, 255); // white
+	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+}
+
+footer.static-footer {
+  background-color: RGB(255, 255, 255); // white
+	border-top: 1px solid RGB(217, 217, 222); // light grey
+}
+
 // PROJECT MAIN PAGE
 
 section.project-main-info {
@@ -512,8 +524,7 @@ hr.reward-tile-hr {
   height: 1px;
   width: 100%;
   margin: 20px 0px 40px;
-  color: RGB(217, 217, 222); // light grey
-  background-color: RGB(217, 217, 222); // light grey
+  border-top: 1px dashed RGB(217, 217, 222); // light grey
 }
 
 button.reward-tile-select-button {
