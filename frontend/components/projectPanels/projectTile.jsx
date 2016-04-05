@@ -42,24 +42,17 @@ var ProjectTile = React.createClass({
       progressModal = "";
     }
 
-		var testDate = this.props.project ? this.props.project.funding_date : "";
-
-		var testCat = this.props.project ? this.props.project.category : "";
-		var testSub = this.props.project ? this.props.project.subcategory : "";
-    var testCount = this.props.project ? this.props.project.backer_count : "";
+		// var testDate = this.props.project ? this.props.project.funding_date : "";
+    //
+		// var testCat = this.props.project ? this.props.project.category : "";
+		// var testSub = this.props.project ? this.props.project.subcategory : "";
+    // var testCount = this.props.project ? this.props.project.backer_count : "";
 
     return (
 
 			<div className="project-tile" onClick={this.handleClick}>
 
 			  <div className="tile-image">
-          {testCat}
-					<br />
-					{testSub}
-					<br />
-					{testDate}
-          <br />
-          {testCount}
 			  </div>
 
 				<div className="tile-content">
