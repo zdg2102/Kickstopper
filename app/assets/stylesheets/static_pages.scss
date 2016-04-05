@@ -843,4 +843,5 @@ input.session-submit {
 	height: 50%;
 	width: 100%;
 	background-image: linear-gradient(transparent, white);
+  background-image: -webkit-linear-gradient(top, RGBA(255, 255, 255, 0), white);
 }
