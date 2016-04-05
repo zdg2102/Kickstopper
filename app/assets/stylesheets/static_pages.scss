@@ -175,6 +175,7 @@ div.user-nav-menu {
 
 div.user-nav-menu.active {
   display: block;
+  z-index: 1;
 }
 
 h6.user-menu-header {
