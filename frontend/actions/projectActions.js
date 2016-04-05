@@ -16,7 +16,15 @@ var ProjectActions = {
 			projects: projects
 		};
 		AppDispatcher.dispatch(action);
-	}
+	},
+
+  receiveNewPageProjects: function (projects) {
+    var action = {
+			actionType: projectConstants.NEW_PAGE_PROJECTS_RECEIVED,
+			projects: projects
+		};
+		AppDispatcher.dispatch(action);
+  }
 };
 
 module.exports = ProjectActions;

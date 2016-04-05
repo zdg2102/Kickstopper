@@ -17,6 +17,13 @@ var refreshProjects = function (projects) {
 	}
 };
 
+var appendProjects = function (projects) {
+  for (var i = 0; i < projects.length; i++) {
+    _projects.push(projects[i]);
+    _keyedProjects[projects[i].id] = projects[i];
+  }
+};
+
 ProjectStore.all = function () {
 	return _projects.slice();
 };
@@ -35,6 +42,10 @@ ProjectStore.__onDispatch = function (payload) {
 		  _projects[payload.project.id] = payload.project;
 			ProjectStore.__emitChange();
 			break;
+    case projectConstants.NEW_PAGE_PROJECTS_RECEIVED:
+      appendProjects(payload.projects);
+      ProjectStore.__emitChange();
+      break;
 	}
 };
 

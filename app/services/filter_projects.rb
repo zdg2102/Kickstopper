@@ -96,7 +96,8 @@ class FilterProjects
       # if no sort provided, default to end date
       projects = projects.order(funding_date: :asc)
     end
-    projects
+    # also guarantee sub-sort is by id, to control order
+    projects.order(id: :asc)
   end
 
   def select_page(projects)

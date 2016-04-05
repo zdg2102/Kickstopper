@@ -27,7 +27,9 @@ var ApiUtil = {
 		});
 	},
 
-	getNextPageProjects: function (params) {
+	getNextPageProjects: function (params, pageNum) {
+    // add pageNum to params
+    params.page = pageNum;
 		$.ajax({
 			type: 'GET',
 			url: '/api/projects/',

@@ -16,7 +16,7 @@ var DiscoverPage = React.createClass({
 
 	getInitialState: function () {
     return { projects: ProjectStore.all(), openModal: null,
-      currentCategory: "", prunedTree: [] };
+      currentCategory: "", prunedTree: [], pageNum: 1 };
 	},
 
 	componentDidMount: function () {
@@ -31,6 +31,8 @@ var DiscoverPage = React.createClass({
 		var params = $.extend({}, newProps.location.query, newProps.params);
     ApiUtil.getFilteredProjects(params);
     ApiUtil.getCategoryTree();
+    // this means we changed the url, so pagination goes back to 1
+    this.setState({ pageNum: 1 });
 	},
 
 	componentWillUnmount: function () {
@@ -79,8 +81,10 @@ var DiscoverPage = React.createClass({
     this.setState({ openModal: null });
   },
 
-	loadMain: function () {
-
+	newPage: function (e) {
+    var params = $.extend({}, this.props.location.query, this.props.params);
+    ApiUtil.getNextPageProjects(params, this.state.pageNum + 1);
+    this.setState({ pageNum: this.state.pageNum + 1 });
 	},
 
   render: function () {
@@ -125,7 +129,7 @@ var DiscoverPage = React.createClass({
             modalOn={modalOn} />
 
 					<button className="expand-list-button"
-						onClick={this.loadMain}>
+						onClick={this.newPage}>
 						{"Load more"}
 					</button>
 
