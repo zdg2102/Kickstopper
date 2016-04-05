@@ -104,16 +104,30 @@ var SignUp = React.createClass({
 
   continueToTarget: function () {
     // if they reached this page normally, redirect them to the main page
-    // if they reached here via a login redirect, continue back to where
-    // they were trying to go before
+    // if they were redirected here while trying to perform another action,
+    // pass them back to their continueTo path
     if (this.props.location.query.continueTo) {
+      var newParams = {};
+      for (var id in this.props.location.query) {
+        if (id !== "continueTo") {
+          newParams[id] = this.props.location.query[id];
+        }
+      }
       this.context.router.push({
         pathname: this.props.location.query.continueTo,
-        query: this.props.location.query.continueParams
+        query: newParams
       });
     } else {
       this.context.router.push("/");
     }
+  },
+
+  switchToLogin: function () {
+    // passes redirect params to login if sign in has them
+    this.context.router.push({
+      pathname: "/login",
+      query: this.props.location.query
+    });
   },
 
 	render: function () {
@@ -180,11 +194,13 @@ var SignUp = React.createClass({
 
 					<div className="session-form-footer">
 
-						<LoginAlternativePanel />
+						<LoginAlternativePanel guestLogin={this.guestLogin} />
 
 						<div className="switch-form-section">
 							{"Have an account? "}
-							<a className="switch-form-link">{"Log In"}</a>
+							<a className="switch-form-link" onClick={this.switchToLogin}>
+                {"Log In"}
+              </a>
 						</div>
 
 					</div>

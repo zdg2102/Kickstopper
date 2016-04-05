@@ -77,13 +77,27 @@ var Login = React.createClass({
     // if they were redirected here while trying to perform another action,
     // pass them back to their continueTo path
     if (this.props.location.query.continueTo) {
+      var newParams = {};
+      for (var id in this.props.location.query) {
+        if (id !== "continueTo") {
+          newParams[id] = this.props.location.query[id];
+        }
+      }
       this.context.router.push({
         pathname: this.props.location.query.continueTo,
-        query: this.props.location.query.continueParams
+        query: newParams
       });
     } else {
       this.context.router.push("/");
     }
+  },
+
+  switchToSignup: function () {
+    // passes redirect params to signup if login has them
+    this.context.router.push({
+      pathname: "/signup",
+      query: this.props.location.query
+    });
   },
 
 	render: function () {
@@ -135,7 +149,9 @@ var Login = React.createClass({
 
 					<div className="switch-form-section">
 						{"New to Kickstopper? "}
-						<a className="switch-form-link">{"Sign Up!"}</a>
+						<a className="switch-form-link" onClick={this.switchToSignup}>
+              {"Sign Up!"}
+            </a>
 					</div>
 				</div>
 			</div>

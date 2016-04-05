@@ -67,8 +67,8 @@ function _requireLoggedIn(nextState, replace, callback) {
     if (!SessionStore.isLoggedIn()) {
       // to ensure continuity with previous request after redirect,
       // add next path and query to redirect query
-      var params = { continueTo: nextState.location.pathname,
-        continueParams: nextState.location.query };
+      var params = $.extend({ continueTo: nextState.location.pathname },
+        nextState.location.query);
       replace({ pathname: "/login",
         query: params });
     }
