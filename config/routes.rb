@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     get '/session/current' => 'sessions#current'
     resources :categories, only: [:index]
+    resources :users, only: [:create]
 	end
 
   get '/auth/facebook/callback' => 'omni_auth#facebook'

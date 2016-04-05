@@ -70,6 +70,22 @@ var ApiUtil = {
     });
   },
 
+  signup: function (userInfo, successCallback, errorCallback) {
+    $.ajax({
+      type: "POST",
+      url: "/api/users",
+      dataType: "json",
+      data: { user: userInfo },
+      success: function (newUser) {
+        SessionActions.receiveCurrentUser(newUser);
+        if (successCallback) { successCallback(); }
+      },
+      error: function (error) {
+        if (errorCallback) { errorCallback(error); }
+      }
+    });
+  },
+
   logout: function () {
     $.ajax({
       type: "DELETE",
