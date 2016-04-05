@@ -15,7 +15,7 @@ var RewardsPanel = React.createClass({
   render: function () {
 
     var tiles;
-    if (this.props.project) {
+    if (this.props.project && this.props.project.rewards) {
       tiles = this.props.project.rewards.map( function (reward) {
         return <RewardTileMain key={reward.id} reward={reward}
           click={this.handleRewardClick}

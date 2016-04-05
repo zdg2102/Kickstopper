@@ -24,12 +24,23 @@ var appendProjects = function (projects) {
   }
 };
 
+var updateProject = function (project) {
+  for (var i = 0; i < _projects.length; i++) {
+    if (_projects[i].id === project.id) {
+      _projects.splice(i, 1);
+      break;
+    }
+  }
+  _projects.push(project);
+  _keyedProjects[project.id] = project;
+};
+
 ProjectStore.all = function () {
 	return _projects.slice();
 };
 
 ProjectStore.find = function (projectId) {
-  return _projects[projectId];
+  return _keyedProjects[projectId];
 };
 
 ProjectStore.__onDispatch = function (payload) {
@@ -39,7 +50,7 @@ ProjectStore.__onDispatch = function (payload) {
 			ProjectStore.__emitChange();
 			break;
 		case projectConstants.SINGLE_PROJECT_RECEIVED:
-		  _projects[payload.project.id] = payload.project;
+		  updateProject(payload.project);
 			ProjectStore.__emitChange();
 			break;
     case projectConstants.NEW_PAGE_PROJECTS_RECEIVED:
