@@ -37,9 +37,26 @@ users = []
 	end
 end
 
-# set up files for image upload
+# set up files for image attachments
 
-
+parrot_guy_main = File.open('app/assets/images/parrot-guy-main.jpg')
+parrot_guy_secondary = File.open('app/assets/images/parrot-guy-secondary.jpg')
+no_party_main = File.open('app/assets/images/no-party-main.jpg')
+no_party_secondary = File.open('app/assets/images/no-party-secondary.jpg')
+dog_main = File.open('app/assets/images/dog-main.jpg')
+dog_secondary = File.open('app/assets/images/dog-secondary.jpg')
+news_main = File.open('app/assets/images/news-main.jpg')
+news_secondary = File.open('app/assets/images/news-secondary.jpg')
+that_band_main = File.open('app/assets/images/that-band-main.jpg')
+that_band_secondary = File.open('app/assets/images/that-band-secondary.jpg')
+theater_baby_main = File.open('app/assets/images/theater-baby-main.jpg')
+theater_baby_secondary = File.open('app/assets/images/theater-baby-secondary.jpg')
+seatmate_main = File.open('app/assets/images/seatmate-main.jpg')
+seatmate_secondary = File.open('app/assets/images/seatmate-secondary.jpg')
+facebook_main = File.open('app/assets/images/facebook-main.jpg')
+facebook_secondary = File.open('app/assets/images/facebook-secondary.jpg')
+weekend_main = File.open('app/assets/images/weekend-main.jpg')
+weekend_secondary = File.open('app/assets/images/weekend-secondary.jpg')
 
 # make 5 to 20 duplicates of each project, its rewards, and its pledges
 # (with all non-text values randomized each time)
@@ -63,6 +80,10 @@ end
       " donate them to a wildlife sanctuary, so we can all have"\
       " a wonderful, parrot-free building."
   )
+
+  parrot_guy.images.create!(picture: parrot_guy_main, use_type: :project_main)
+  parrot_guy.images.create!(picture: parrot_guy_secondary,
+    use_type: :project_secondary)
 
   parrot_reward_one = parrot_guy.rewards.create!(
     minimum_pledge: 50,
@@ -116,6 +137,10 @@ end
       " (The money may or may not be used to have an even louder"\
       " party next weekend, no promises...)",
   )
+
+  no_party.images.create!(picture: no_party_main, use_type: :project_main)
+  no_party.images.create!(picture: no_party_secondary,
+    use_type: :project_secondary)
 
   party_reward_one = no_party.rewards.create!(
     minimum_pledge: 50,
@@ -183,6 +208,9 @@ end
       " with. Maybe that will finally tire it out so it stops barking..."
   )
 
+  dog.images.create!(picture: dog_main, use_type: :project_main)
+  dog.images.create!(picture: dog_secondary, use_type: :project_secondary)
+
   dog_reward_one = dog.rewards.create!(
     minimum_pledge: 20,
     title: "Happy Ears Tier",
@@ -233,6 +261,9 @@ end
   		" show you anything that makes you want to cover your eyes"\
       " to avoid seeing the state of humanity!"
   )
+
+  news.images.create!(picture: news_main, use_type: :project_main)
+  news.images.create!(picture: news_secondary, use_type: :project_secondary)
 
   news_reward_one = news.rewards.create!(
     minimum_pledge: 50,
@@ -287,6 +318,10 @@ end
       " our funding goal on this Kickstopper, we'll skip releasing our next"\
       " album, and give your ears a break!"
   )
+
+  that_band.images.create!(picture: that_band_main, use_type: :project_main)
+  that_band.images.create!(picture: that_band_secondary,
+    use_type: :project_secondary)
 
   band_reward_one = that_band.rewards.create!(
     minimum_pledge: 10,
@@ -353,6 +388,10 @@ end
       " If we reach our stretch goal, we'll leave the theater altogether!"
   )
 
+  theater_baby.images.create!(picture: theater_baby_main, use_type: :project_main)
+  theater_baby.images.create!(picture: theater_baby_secondary,
+    use_type: :project_secondary)
+
   theater_baby_reward_one = theater_baby.rewards.create!(
     minimum_pledge: 50,
     title: "Planning Ahead Tier",
@@ -387,6 +426,10 @@ end
       " comparing the weather in my home city to your home city, and just"\
       " let you watch your in-flight movie in peace."
   )
+
+  seatmate.images.create!(picture: seatmate_main, use_type: :project_main)
+  seatmate.images.create!(picture: seatmate_secondary,
+    use_type: :project_secondary)
 
   seatmate_reward_one = seatmate.rewards.create!(
     minimum_pledge: 20,
@@ -436,6 +479,10 @@ end
       " sources to teach me to get past my conspiracy theories."
   )
 
+  facebook.images.create!(picture: facebook_main, use_type: :project_main)
+  facebook.images.create!(picture: facebook_secondary,
+    use_type: :project_secondary)
+
   facebook_reward_one = facebook.rewards.create!(
     minimum_pledge: 20,
     title: "Named Contributor Tier",
@@ -481,6 +528,10 @@ end
       " when you try to get out of it. I'm offering this Kickstopper"\
       " to give you a chance to escape and enjoy your weekend."
   )
+
+  weekend.images.create!(picture: weekend_main, use_type: :project_main)
+  weekend.images.create!(picture: weekend_secondary,
+    use_type: :project_secondary)
 
   weekend_reward_one = weekend.rewards.create!(
     minimum_pledge: 50,
