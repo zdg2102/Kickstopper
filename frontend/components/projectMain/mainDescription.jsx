@@ -12,7 +12,7 @@ var MainDescription = React.createClass({
 
 		var description = this.props.project ?
 		  this.props.project.project_description : "";
-    var imageUrl = this.props.project ? this.props.project.main_image_url : "";
+    var imageUrl = this.props.project ? this.props.project.secondary_image_url : "";
 
     return (
       <div className="project-description">

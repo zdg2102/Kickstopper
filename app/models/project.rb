@@ -11,9 +11,7 @@ class Project < ActiveRecord::Base
       rewards: { title: 'D', description: 'D' }
     }
 
-  has_one :main_image, as: :imageable, class_name: 'Image'
-
-  has_one :secondary_image, as: :imageable, class_name: 'Image'
+  has_many :images, as: :imageable
 
   # has_attached_file :main_image
   # validates_attachment_content_type :main_image, content_type: /\Aimage\/.*\Z/
@@ -56,5 +54,13 @@ class Project < ActiveRecord::Base
       backers.size
     end
 	end
+
+  def main_image
+    images.where(use_type: :project_main).first
+  end
+
+  def secondary_image
+    images.where(use_type: :project_secondary).first
+  end
 
 end
