@@ -1,6 +1,7 @@
 var ProjectActions = require('../actions/projectActions');
 var SessionActions = require('../actions/sessionActions');
 var CategoryActions = require('../actions/categoryActions');
+var SearchActions = require('../actions/searchActions');
 
 var ApiUtil = {
   getProjectMain: function (projectId) {
@@ -48,8 +49,7 @@ var ApiUtil = {
       dataType: 'json',
       data: {term: term},
       success: function (projects) {
-        console.log("Searched!");
-        // SearchActions.receiveSearchResults(projects);
+        SearchActions.receiveSearchResults(projects);
       }
     });
   },

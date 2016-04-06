@@ -57,6 +57,7 @@ button:focus {
 header.nav-header {
 	background-color: RGB(255, 255, 255); // white
 	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  position: relative;
 }
 
 a.header-logo {
@@ -114,6 +115,70 @@ input.search-bar-input {
   font-weight: bold;
   color: RGB(168, 168, 168); // medium-light grey
   padding: 23px 0px;
+}
+
+// SEARCH POPUP
+
+div.search-popup {
+  display: block;
+  width: 100%;
+  height: 570px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
+}
+
+div.search-close-bar {
+  display: block;
+  padding-top: 35px;
+}
+
+div.search-close-button {
+  float: right;
+  margin-right: 90px;
+  cursor: pointer;
+  color: RGB(130, 133, 135); // grey
+}
+
+div.search-popup div.project-tile {
+	float: left;
+	margin: 0px;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+div.search-popup div.project-tile:first-of-type {
+  margin-left: 80px;
+}
+
+div.search-popup  div.project-tile:last-of-type {
+	margin-right: 80px;
+}
+
+button.all-search-button {
+  display: block;
+  margin: 25px auto 40px;
+  padding: 20px 0;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  background-color: RGB(247, 250, 250); // very pale blue
+  width: calc(100% - 160px);
+  border-radius: 6px;
+  color: RGB(130, 133, 135); // grey
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+span.search-button-term {
+  font-size: 14px;
+  font-weight: bold;
+  color: RGB(0, 0, 0); // black
+}
+
+button.all-search-button:hover {
+  border: 1px solid RGB(0, 0, 0); // black
+  color: RGB(0, 0, 0); // black
+  transition: border 0.7s, color 0.7s;
 }
 
 // NAV HEADER SESSION LINKS

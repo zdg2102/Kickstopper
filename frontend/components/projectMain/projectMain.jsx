@@ -22,6 +22,10 @@ var ProjectMain = React.createClass({
     this.projectStoreToken.remove();
 	},
 
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.getProjectMain(newProps.params.projectId);
+  },
+
 	componentDidUpdate: function () {
     window.scrollTo(0, 0);
 	},

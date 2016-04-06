@@ -8,6 +8,10 @@ var ProjectTile = React.createClass({
   },
 
 	handleClick: function () {
+    // close the search box if that's how we got here
+    if (this.props.closeSearch) {
+      this.props.closeSearch();
+    }
     this.context.router.push("/projects/" + this.props.project.id);
 	},
 

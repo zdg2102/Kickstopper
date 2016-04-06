@@ -4,18 +4,8 @@ var React = require('react');
 var ApiUtil = require('../../utils/apiUtil');
 
 var SearchBar = React.createClass({
-  getInitialState: function () {
-    return { term: null };
-  },
-
   handleInput: function (e) {
-    this.setState({ term: e.currentTarget.value });
-    // only start searching once the term is at least 2 characters
-    if (e.currentTarget.value.length > 1) {
-      // FINDTAG temporary disabling of search
-
-      // ApiUtil.globalSearch(e.currentTarget.value);
-    }
+    this.props.updateSearchTerm(e.currentTarget.value);
   },
 
   render: function () {
@@ -23,7 +13,7 @@ var SearchBar = React.createClass({
       <div className="search-bar group">
         <div className="magnifying-glass-icon" />
         <input type="text" className="search-bar-input"
-          placeholder="Search Projects" value={this.state.term}
+          placeholder="Search Projects" value={this.props.term}
           onChange={this.handleInput} />
       </div>
     );
