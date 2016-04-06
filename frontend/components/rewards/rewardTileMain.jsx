@@ -55,8 +55,8 @@ var RewardTileMain = React.createClass({
     return <div className={"reward-tile-main" + unhoverable}
       onMouseEnter={this.handleHover} onMouseLeave={this.handleUnhover} onClick={this.handleClick}>
       {hoverDiv}
-      <div className="reward-tile-main-content">
-        <h5 className="reward-tile-pledge">
+      <div className="reward-tile-content">
+        <h5 className="reward-tile-minimum">
           {this.props.reward.minimum_pledge}
         </h5>
 

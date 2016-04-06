@@ -3,6 +3,15 @@
 var React = require('react');
 
 var MainStatsPanel = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
+  handleBackClick: function (e) {
+    this.context.router.push({
+      pathname: "/projects/" + this.props.project.id + "/pledges/new",
+    });
+  },
 
   render: function () {
 		var fundingGoal, fundingDate, backerCount, daysLeft, amountPledged;
@@ -42,7 +51,7 @@ var MainStatsPanel = React.createClass({
           {"days to go"}
 				</span>
 
-        <button className="back-project-button">
+        <button className="back-project-button" onClick={this.handleBackClick}>
 					{"Back This Project"}
         </button>
 

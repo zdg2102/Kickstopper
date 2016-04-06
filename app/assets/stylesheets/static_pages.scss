@@ -277,6 +277,7 @@ header.static-header {
 footer.static-footer {
   background-color: RGB(255, 255, 255); // white
 	border-top: 1px solid RGB(217, 217, 222); // light grey
+  min-height: 70px;
 }
 
 // PROJECT MAIN PAGE
@@ -472,12 +473,12 @@ div.reward-tile-main.unhoverable {
   cursor: auto;
 }
 
-div.reward-tile-main-content {
+div.reward-tile-content {
   display: block;
   padding: 20px;
 }
 
-h5.reward-tile-pledge {
+h5.reward-tile-minimum {
   display: block;
   width: 290px;
   font-size: 14px;
@@ -528,6 +529,93 @@ hr.reward-tile-hr {
 }
 
 button.reward-tile-select-button {
+  background-color: RGB(43, 222, 115); // bright green
+  display: block;
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+// PROJECT REWARDS PAGE
+
+div.pledge-page-title-bar {
+  padding-top: 40px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  margin-bottom: 70px;
+}
+
+h4.pledge-page-subhead {
+  font-size: 22px;
+  margin-left: 40px;
+  margin-bottom: 25px;
+}
+
+div.reward-tile-pledge {
+  display: block;
+  width: 700px;
+  border-radius: 6px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  transition: width 0.5s;
+}
+
+div.reward-tile-pledge:last-of-type {
+  margin-bottom: 100px;
+}
+
+div.reward-tile-pledge:hover {
+  width: 750px;
+  transition: width 0.5s;
+  background-color: RGB(240, 243, 243);
+}
+
+div.reward-tile-pledge.clicked {
+  width: 750px;
+  transition: width 0.5s;
+  background-color: RGB(240, 243, 243);
+  cursor: auto;
+  border: 1px solid RGB(217, 217, 222); // light grey
+}
+
+div.reward-check-circle {
+  display: block;
+  float: left;
+  height: 20px;
+  width: 20px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  background-color: RGB(255, 255, 255); // white
+  border-radius: 50%;
+  margin-right: 0px;
+}
+
+div.reward-check-circle.clicked {
+  background-color: RGB(43, 222, 115); // bright green
+  color: RGB(255, 255, 255); // white
+  text-align: center;
+}
+
+div.reward-tile-text {
+  margin-left: 30px;
+  margin-bottom: 20px;
+  width: 600px;
+  float: left;
+}
+
+hr.pledge-tile-hr {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 40px;
+  border-top: 1px dashed RGB(217, 217, 222); // light grey
+}
+
+button.pledge-tile-select-button {
   background-color: RGB(43, 222, 115); // bright green
   display: block;
   color: RGB(255, 255, 255); // white
