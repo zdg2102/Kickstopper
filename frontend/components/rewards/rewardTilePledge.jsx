@@ -8,7 +8,7 @@ var RewardTilePledge = React.createClass({
   },
 
   getInitialState: function () {
-    return { pledgeAmount: "", amountError: false };
+    return { pledgeAmount: this.props.reward.minimum_pledge, amountError: false };
   },
 
   updatePledgeAmount: function (e) {
@@ -16,6 +16,10 @@ var RewardTilePledge = React.createClass({
     if (e.currentTarget.value.match(digitReg)) {
       this.setState({ pledgeAmount: e.currentTarget.value, amountError: false });
     }
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    this.setState({ pledgeAmount: newProps.reward.minimum_pledge });
   },
 
   handleClick: function (e) {

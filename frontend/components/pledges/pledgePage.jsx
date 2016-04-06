@@ -31,7 +31,7 @@ var PledgePage = React.createClass({
   handleSubmit: function (pledgeAmount) {
 
     console.log(pledgeAmount);
-    
+
   },
 
   render: function () {
