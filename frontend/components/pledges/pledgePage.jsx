@@ -28,6 +28,12 @@ var PledgePage = React.createClass({
     this.setState({ clickedId: rewardId });
   },
 
+  handleSubmit: function (pledgeAmount) {
+
+    console.log(pledgeAmount);
+    
+  },
+
   render: function () {
 
     var title, creatorName, tiles;
@@ -40,7 +46,8 @@ var PledgePage = React.createClass({
         return <RewardTilePledge key={reward.id} reward={reward}
           click={this.handleRewardClick}
           clicked={this.state.clickedId === reward.id}
-          projectId={this.state.project.id} />;
+          projectId={this.state.project.id}
+          submit={this.handleSubmit} />;
       }.bind(this));
     }
 

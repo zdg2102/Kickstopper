@@ -7,16 +7,31 @@ var RewardTilePledge = React.createClass({
     router: React.PropTypes.object.isRequired
   },
 
+  getInitialState: function () {
+    return { pledgeAmount: "", amountError: false };
+  },
+
+  updatePledgeAmount: function (e) {
+    var digitReg = /^\d*\.?(\d{1,2})?$/;
+    if (e.currentTarget.value.match(digitReg)) {
+      this.setState({ pledgeAmount: e.currentTarget.value, amountError: false });
+    }
+  },
+
   handleClick: function (e) {
     this.props.click(this.props.reward.id);
   },
 
-  // selectPledge: function (e) {
-  //   this.context.router.push({
-  //     pathname: "/projects/" + this.props.projectId + "/pledges/new",
-  //     query: { selectedRewardId: this.props.reward.id }
-  //   });
-  // },
+  handleSubmit: function (e) {
+    if (this.state.pledgeAmount) {
+      amount = parseFloat(this.state.pledgeAmount, 10);
+      if (!amount || amount < this.props.reward.minimum_pledge) {
+        this.setState({ amountError: true });
+      } else {
+        this.props.submit(amount);
+      }
+    }
+  },
 
   render: function () {
 
@@ -26,12 +41,29 @@ var RewardTilePledge = React.createClass({
     if (this.props.clicked) {
       clicked = " clicked";
       check = "\u2713";
+      var error = "";
+      var errorMessage;
+      if (this.state.amountError) {
+        error = " error";
+        errorMessage = (<span className="pledge-error">
+          {"Pledge amount must be higher than minimum pledge for reward"}
+        </span>);
+      }
       selectButton = (<div>
         <hr className="pledge-tile-hr" />
-        <button className="pledge-tile-select-button"
-          onClick={this.selectPledge}>
-          {"Make a pledge"}
-        </button>
+        <div className="group">
+          <label htmlFor="pledgeAmount" className="pledge-label">
+            {"Pledge amount"}
+          </label>
+          {errorMessage}
+          <input className={"pledge-input" + error} type="text" id="pledgeAmount"
+            value={this.state.pledgeAmount}
+            onChange={this.updatePledgeAmount} />
+          <button className="pledge-tile-select-button"
+            onClick={this.handleSubmit}>
+            {"Continue"}
+          </button>
+        </div>
       </div>);
     }
 

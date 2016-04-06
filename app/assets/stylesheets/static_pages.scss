@@ -611,19 +611,47 @@ div.reward-tile-text {
 hr.pledge-tile-hr {
   height: 1px;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-top: 1px dashed RGB(217, 217, 222); // light grey
+}
+
+label.pledge-label {
+  display: block;
+  font-size: 14px;
+  color: RGB(130, 133, 135); // grey
+  margin-bottom: 10px;
+}
+
+input.pledge-input {
+  float: left;
+  padding: 9px 20px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  margin-right: 40px;
+}
+
+input.pledge-input.error {
+  border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+span.pledge-error {
+  display: block;
+  font-size: 14px;
+  color: RGB(246, 0, 47); // purple-red
+  margin-bottom: 10px;
 }
 
 button.pledge-tile-select-button {
   background-color: RGB(43, 222, 115); // bright green
   display: block;
+  float: left;
   color: RGB(255, 255, 255); // white
   font-size: 14px;
   font-weight: bold;
   border-radius: 6px;
   padding: 10px 20px;
-  width: 100%;
+  width: 100px;
   cursor: pointer;
 }
 
