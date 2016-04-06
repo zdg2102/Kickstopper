@@ -21,6 +21,7 @@ var ProjectTile = React.createClass({
       fundingGoal = this.props.project.funding_goal;
 			fundingDate = this.props.project.funding_date;
 			blurb = this.props.project.project_blurb;
+      imageUrl = this.props.project.main_image_url;
 		}
 		if (amountPledged && fundingGoal) {
 			percentComplete = parseInt((amountPledged / fundingGoal) * 100,
@@ -42,17 +43,12 @@ var ProjectTile = React.createClass({
       progressModal = "";
     }
 
-		// var testDate = this.props.project ? this.props.project.funding_date : "";
-    //
-		// var testCat = this.props.project ? this.props.project.category : "";
-		// var testSub = this.props.project ? this.props.project.subcategory : "";
-    // var testCount = this.props.project ? this.props.project.backer_count : "";
-
     return (
 
 			<div className="project-tile" onClick={this.handleClick}>
 
-			  <div className="tile-image">
+			  <div className="tile-image-container">
+          <img className="tile-image" src={imageUrl} />
 			  </div>
 
 				<div className="tile-content">

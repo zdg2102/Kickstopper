@@ -6,7 +6,7 @@ class Api::ProjectsController < ApplicationController
     # since backer count only gets pulled for single projects
 
     filter = FilterProjects.new(params[:projects])
-		@projects = filter.matching_projects.includes(:creator)
+		@projects = filter.matching_projects.includes(:creator, :main_image)
     render :index
 	end
 
@@ -16,7 +16,8 @@ class Api::ProjectsController < ApplicationController
     @type = params[:detailType]
 		if @type
 	    @project = Project
-        .includes(:creator, :backers, :pledges, :rewards)
+        .includes(:creator, :backers, :pledges, :rewards, :main_image,
+          :secondary_image)
 				.find(params[:id])
 			render :show
 		else

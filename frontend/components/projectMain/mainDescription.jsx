@@ -4,8 +4,6 @@ var React = require('react');
 
 var MainDescription = React.createClass({
 
-	// FINDGTAG need to edit this to use the project's picture
-
 	// FINDTAG need to edit this to allow users to write
 	// their descriptions in Markdown
 	// (or rich text editor library)
@@ -14,6 +12,7 @@ var MainDescription = React.createClass({
 
 		var description = this.props.project ?
 		  this.props.project.project_description : "";
+    var imageUrl = this.props.project ? this.props.project.main_image_url : "";
 
     return (
       <div className="project-description">
@@ -22,9 +21,10 @@ var MainDescription = React.createClass({
 					{"About this project"}
 				</h4>
 
-				<div className="project-description-picture">
-
-				</div>
+        <div className="project-description-picture-container">
+          <img className="project-description-picture"
+            src={imageUrl} />
+        </div>
 
 			  <p className="project-description-body">
 					{description}

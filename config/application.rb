@@ -31,5 +31,16 @@ module Kickstopper
     config.assets.initialize_on_precompile = false
 
     config.autoload_paths << Rails.root.join("app", "services")
+
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+        :bucket => ENV["s3_bucket"],
+        :access_key_id => ENV["aws_access_key_id"],
+        :secret_access_key => ENV["aws_secret_access_key"],
+        :s3_region => ENV["aws_region"]
+      }
+    }
+
   end
 end

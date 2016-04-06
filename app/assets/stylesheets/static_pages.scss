@@ -446,10 +446,16 @@ h4.project-detail-header {
 	margin-bottom: 50px;
 }
 
-div.project-description-picture {
-	background-color: RGB(0, 255, 0); // green, temp
-	width: 540px;
-	height: 300px;
+div.project-description-picture-container {
+  height: 300px;
+  width: auto;
+  max-width: 640px;
+  overflow: hidden;
+}
+
+img.project-description-picture {
+	width: auto;
+	height: 100%;
 }
 
 p.project-description-body {
@@ -667,10 +673,15 @@ div.project-tile {
 	cursor: pointer;
 }
 
-div.tile-image {
-	background-color: RGB(0, 255, 0); // green, temp
-	width: 100%;
-	height: 170px;
+div.tile-image-container {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+}
+
+img.tile-image {
+	width: auto;
+	height: 100%;
 }
 
 div.tile-content {
