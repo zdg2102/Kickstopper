@@ -12,7 +12,7 @@ media_and_arts = Category.create!(name: "Media And Arts")
 daily_life = Category.create!(name: "Daily Life")
 work = Category.create!(name: "Work")
 
-weird_neighbors = neighbors.subcategories.create!(name: "Nosy Neighbors")
+weird_neighbors = neighbors.subcategories.create!(name: "Weird Neighbors")
 loud_neighbors = neighbors.subcategories.create!(name: "Loud Neighbors")
 depressing_news = media_and_arts.subcategories.create!(name: "Depressing News")
 bad_music = media_and_arts.subcategories.create!(name: "Bad Music")
@@ -36,6 +36,10 @@ users = []
 		users << u
 	end
 end
+
+# set up files for image upload
+
+
 
 # make 5 to 20 duplicates of each project, its rewards, and its pledges
 # (with all non-text values randomized each time)

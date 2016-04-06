@@ -31,11 +31,12 @@ var ProjectMain = React.createClass({
 	},
 
   render: function () {
-		var title, creatorName, blurb;
+		var title, creatorName, blurb, imageUrl;
 		if (this.state.project) {
 			title = this.state.project.title;
 			creatorName = this.state.project.creator_name;
 			blurb = this.state.project.project_blurb;
+      imageUrl = this.state.project.main_image_url;
 		}
 
     return (
@@ -56,7 +57,9 @@ var ProjectMain = React.createClass({
 						</div>
 
 						<div className="video-panel group">
-							<div className="video"></div>
+							<div className="video">
+                <img className="project-main-picture" src={imageUrl} />
+							</div>
 							<MainStatsPanel project={this.state.project} />
 						</div>
 
