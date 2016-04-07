@@ -93,8 +93,9 @@ var CheckoutForm = React.createClass({
           this.props.checkout.id,
           response.id,
           function () {
-            this.context.router.push("    ");
-          },
+            this.context.router.push("/checkouts/" + this.props.checkout.id +
+            "/completed");
+          }.bind(this),
           function () {
             this.setState({ errorMessages: ["Error processing request." +
               " Please try again."]});

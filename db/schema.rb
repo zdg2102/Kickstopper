@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407153220) do
+ActiveRecord::Schema.define(version: 20160407221138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,14 +48,16 @@ ActiveRecord::Schema.define(version: 20160407153220) do
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "pledges", force: :cascade do |t|
-    t.integer  "user_id",       null: false
-    t.integer  "reward_id",     null: false
-    t.float    "pledge_amount", null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "user_id",            null: false
+    t.integer  "reward_id",          null: false
+    t.float    "pledge_amount",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "stripe_customer_id"
   end
 
   add_index "pledges", ["reward_id"], name: "index_pledges_on_reward_id", using: :btree
+  add_index "pledges", ["stripe_customer_id"], name: "index_pledges_on_stripe_customer_id", using: :btree
   add_index "pledges", ["user_id"], name: "index_pledges_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
