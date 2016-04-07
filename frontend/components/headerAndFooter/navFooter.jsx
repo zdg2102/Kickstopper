@@ -26,11 +26,12 @@ var NavFooter = React.createClass({
 						<h4 className="footer-column-header">Discover</h4>
 
 						<ul className="footer-column-list">
-							<li><a href="#">Category1</a></li>
-							<li><a href="#">Category2</a></li>
-							<li><a href="#">Category3</a></li>
-							<li><a href="#">Category4</a></li>
-							<li><a href="#">Category5</a></li>
+							<li><a href="/discover/categories/neighbors">Neighbors</a></li>
+							<li><a href="/discover/categories/media_and_arts">
+                Media and Arts
+              </a></li>
+            <li><a href="/discover/categories/daily_life">Daily Life</a></li>
+							<li><a href="/discover/categories/work">Work</a></li>
 						</ul>
           </div>
 

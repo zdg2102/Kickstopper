@@ -298,6 +298,15 @@ footer.nav-footer {
 	font-size: 14px;
 }
 
+footer.nav-footer li {
+  margin-bottom: 5px;
+  color: RGB(189, 190, 194); // grey-white
+}
+
+footer.nav-footer li:hover {
+  color: RGB(255, 255, 255); // white
+}
+
 div.footer-column-container {
 	width: 1040px;
 	margin: 0px auto;
@@ -307,9 +316,9 @@ div.footer-column-container {
 
 div.footer-column {
   float: left;
-	width: 10%;
-	padding-left: 5%;
-	padding-right: 5%;
+	width: 13%;
+	padding-left: 2%;
+	padding-right: 2%;
 	margin-left: 15%;
 	margin-right: 15%;
 }
