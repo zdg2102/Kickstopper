@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406155752) do
+ActiveRecord::Schema.define(version: 20160407153220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20160406155752) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "checkouts", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.integer  "reward_id",     null: false
+    t.float    "pledge_amount", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "checkouts", ["reward_id"], name: "index_checkouts_on_reward_id", using: :btree
+  add_index "checkouts", ["user_id"], name: "index_checkouts_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "imageable_id"
@@ -105,6 +116,8 @@ ActiveRecord::Schema.define(version: 20160406155752) do
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
+  add_foreign_key "checkouts", "rewards"
+  add_foreign_key "checkouts", "users"
   add_foreign_key "pledges", "rewards"
   add_foreign_key "pledges", "users"
   add_foreign_key "projects", "subcategories"
