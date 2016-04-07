@@ -39,6 +39,8 @@ gem 'paperclip', '5.0.0.beta1'
 
 gem 'aws-sdk', '>= 2.0'
 
+gem 'stripe'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -65,7 +67,6 @@ group :development do
 	gem 'better_errors'
 	gem 'quiet_assets'
 	gem 'pry-rails'
-  gem 'letter_opener'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
