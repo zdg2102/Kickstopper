@@ -639,7 +639,7 @@ div.reward-tile-pledge {
   cursor: pointer;
   margin-bottom: 30px;
   margin-left: 40px;
-  transition: width 0.5s;
+  transition: transform 0.3s;
 }
 
 div.reward-tile-pledge:last-of-type {
@@ -647,14 +647,12 @@ div.reward-tile-pledge:last-of-type {
 }
 
 div.reward-tile-pledge:hover {
-  width: 750px;
-  transition: width 0.5s;
-  background-color: RGB(240, 243, 243);
+  transform: scale(1.03);
 }
 
 div.reward-tile-pledge.clicked {
   width: 750px;
-  transition: width 0.5s;
+  transform: scale(1.03);
   background-color: RGB(240, 243, 243);
   cursor: auto;
   border: 1px solid RGB(217, 217, 222); // light grey

@@ -19,7 +19,11 @@ var RewardTilePledge = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.setState({ pledgeAmount: newProps.reward.minimum_pledge });
+    // reset if another pledge is clicked
+    if (!this.props.clicked) {
+      this.setState({ pledgeAmount: newProps.reward.minimum_pledge,
+        amountError: false });
+    }
   },
 
   handleClick: function (e) {

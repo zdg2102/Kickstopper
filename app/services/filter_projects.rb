@@ -16,25 +16,26 @@ class FilterProjects
   PER_PAGE_DEFAULT = 12
 
   def per_page
-    @params[:per_page] ? @params[:per_page] : PER_PAGE_DEFAULT
+    @params && @params[:per_page] ? @params[:per_page] : PER_PAGE_DEFAULT
   end
 
   def filter_by_params(projects)
     # permitted project filter params:
-    #  categoryName
-    #  subcategoryName (must also have categoryName)
-    #    (NB: category and subcategory names must be
-    #      titleized to match the names in the database)
-    #  term (i.e. search string)
-    #  categoryId (only passed by search)
-    #  subcategoryId (only passed by search)
-    #  sort: (
-    #    popularity
-    #    newest
-    #    endDate
+    #   categoryName
+    #   subcategoryName (must also have categoryName)
+    #     (NB: category and subcategory names must be
+    #       titleized to match the names in the database)
+    #   term (i.e. search string)
+    #   categoryId (only passed by search)
+    #   subcategoryId (only passed by search)
+    #   sort: (
+    #     popularity
+    #     newest
+    #     endDate
     #    mostFunded
-    #  )
-    #  page (i.e. index for serving paginated results)
+    #   )
+    #   page (i.e. index for serving paginated results)
+    #   per_page (defaults to 12)
 
     in_scope_projects = filter_by_category(projects)
     in_scope_projects = set_aggregate_calculations(in_scope_projects)
