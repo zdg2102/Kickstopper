@@ -13,10 +13,10 @@ class FilterProjects
 
   private
 
-  PER_PAGE = 12
+  PER_PAGE_DEFAULT = 12
 
   def per_page
-    PER_PAGE
+    @params[:per_page] ? @params[:per_page] : PER_PAGE_DEFAULT
   end
 
   def filter_by_params(projects)

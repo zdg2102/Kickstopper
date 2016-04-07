@@ -4,8 +4,21 @@ var React = require('react');
 var ProjectTile = require('../projectPanels/projectTile');
 
 var SearchPopup = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   handleClose: function (e) {
     this.props.clear();
+  },
+
+  handleButtonClick: function (e) {
+    // close search box first
+    this.props.clear();
+    this.context.router.push({
+      pathname: "/discover",
+      query: { term: this.props.term }
+    });
   },
 
   render: function () {
@@ -16,7 +29,8 @@ var SearchPopup = React.createClass({
           closeSearch={this.handleClose} />;
       }.bind(this));
       resultsButton = (
-        <button className="all-search-button">
+        <button className="all-search-button"
+          onClick={this.handleButtonClick}>
           {"See all results for "}
           <span className="search-button-term">
             {this.props.term}
