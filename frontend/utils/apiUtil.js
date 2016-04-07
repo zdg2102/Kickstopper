@@ -124,6 +124,45 @@ var ApiUtil = {
         CategoryActions.receiveCategoryTree(categoryTree);
       }
     });
+  },
+
+  createCheckout: function (params, successCallback, errorCallback) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/checkouts',
+      dataType: 'json',
+      success: function (checkout) {
+        CheckoutActions.receiveCheckout(checkout);
+        if (successCallback) { successCallback(); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
+      }
+    });
+  },
+
+  getCheckout: function (checkoutId) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/checkouts/' + checkoutId,
+      dataType: 'json',
+      success: function (checkout) {
+        CheckoutActions.receiveCheckout(checkout);
+      }
+    });
+  },
+
+  destroyCheckout: function (checkoutId) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/checkouts/' + checkoutId,
+      dataType: 'json',
+      success: function () {
+        // FINDTAG temp
+        console.log("checkout destroyed");
+
+      }
+    });
   }
 };
 
