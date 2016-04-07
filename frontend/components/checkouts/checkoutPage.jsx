@@ -3,6 +3,8 @@
 var React = require('react');
 var ApiUtil = require('../../utils/apiUtil');
 var CheckoutStore = require('../../stores/checkoutStore');
+var CheckoutRewardInfoPanel = require('./checkoutRewardInfoPanel');
+var CheckoutForm = require('./checkoutForm');
 
 var CheckoutPage = React.createClass({
   getInitialState: function () {
@@ -39,40 +41,41 @@ var CheckoutPage = React.createClass({
   },
 
   render: function () {
+    var projectTitle, creatorName;
+    if (this.state.checkout) {
+      projectTitle = this.state.checkout.project_title;
+      creatorName = this.state.checkout.creator_name;
+    }
 
-    var pledgeAmount, rewardMinimum, rewardTitle, rewardText;
-
-
-    // var title, creatorName, tiles;
-    // if (this.state.project) {
-    //   title = this.state.project.title;
-		// 	creatorName = this.state.project.creator_name;
-    // }
-    // if (this.state.project && this.state.project.rewards) {
-    //   tiles = this.state.project.rewards.map( function (reward) {
-    //     return <RewardTilePledge key={reward.id} reward={reward}
-    //       click={this.handleRewardClick}
-    //       clicked={this.state.clickedId === reward.id}
-    //       projectId={this.state.project.id}
-    //       submit={this.handleSubmit} />;
-    //   }.bind(this));
-    // }
-
-    // <div className="pledge-page-title-bar">
-    //   <h1 className="project-title">{title}</h1>
-    //   <h6 className="project-byline">
-    //     {"by " + creatorName}
-    //   </h6>
-    // </div>
-    //
-    // <h4 className="pledge-page-subhead">
-    //   {"Let's choose your reward!"}
-    // </h4>
-    //
-    // {tiles}
     return (
       <div>
-        {"TEST"}
+        <div className="pledge-page-title-bar">
+          <h1 className="project-title">{projectTitle}</h1>
+          <h6 className="project-byline">
+            {"by " + creatorName}
+          </h6>
+        </div>
+
+        <div className="group">
+          <div className="checkout-form-column">
+            <h4 className="checkout-form-header">
+              {"Payment information"}
+            </h4>
+
+            <p className="checkout-form-info">
+              {"The Stripe payment API is configured to run in Test mode." +
+              " If you'd like to make a pledge, you can use the dummy" +
+              " card number 4242 4242 4242 4242 and any 3-digit CSV."}
+            </p>
+
+            <CheckoutForm checkout={this.state.checkout} />
+
+          </div>
+
+          <div className="checkout-info-column">
+            <CheckoutRewardInfoPanel checkout={this.state.checkout} />
+          </div>
+        </div>
 
       </div>
 		);

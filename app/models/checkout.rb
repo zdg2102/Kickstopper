@@ -5,5 +5,6 @@ class Checkout < ActiveRecord::Base
   belongs_to :user
   belongs_to :reward
   has_one :project, through: :reward
+  has_one :project_creator, through: :project, source: :creator
 
 end

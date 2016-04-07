@@ -7,7 +7,8 @@ class Api::CheckoutsController < ApplicationController
       checkout = user.checkouts.create(reward_id: checkout_params[:rewardId],
         pledge_amount: checkout_params[:pledgeAmount])
       if checkout.save
-        @checkout = Checkout.includes(:reward).find(checkout.id)
+        @checkout = Checkout.includes(:reward, :project,
+          :project_creator).find(checkout.id)
         render :show
       else
         render json: {}, status: 403
@@ -22,7 +23,8 @@ class Api::CheckoutsController < ApplicationController
     checkout = Checkout.find(params[:id])
     if user && checkout
       if checkout.user_id == user.id
-        @checkout = Checkout.includes(:reward).find(checkout.id)
+        @checkout = Checkout.includes(:reward, :project,
+          :project_creator).find(checkout.id)
         render :show
       else
         render json: {}, status: 403
@@ -30,10 +32,6 @@ class Api::CheckoutsController < ApplicationController
     else
       render json: {}, status: 403
     end
-  end
-
-  def complete
-
   end
 
 end

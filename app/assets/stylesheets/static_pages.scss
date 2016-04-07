@@ -5,7 +5,7 @@
 // RESET
 
 body, header, h1, h2, h3, h4, h5, h6, ul, li,
-a, img, span, data, p, button, hr, input {
+a, img, span, data, p, button, hr, input, select {
 	border: 0;
 	margin: 0;
 	padding: 0;
@@ -733,6 +733,161 @@ button.pledge-tile-select-button {
   padding: 10px 20px;
   width: 100px;
   cursor: pointer;
+}
+
+// CHECKOUT PAGE
+
+div.checkout-form-column {
+  float: left;
+  width: 680px;
+  padding-left: 60px;
+  padding-right: 20px;
+}
+
+div.checkout-info-column {
+  float: right;
+  padding-right: 40px;
+  padding-left: 20px;
+}
+
+div.checkout-info-panel {
+  width: 320px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  border: 1px solid RGB(217, 217, 222); // light grey
+  margin-bottom: 100px;
+}
+
+span.checkout-info-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  color: RGB(130, 133, 135); // grey
+  margin: 10px;
+}
+
+span.checkout-pledge-amount {
+  display: block;
+  font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 22px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
+}
+
+span.checkout-reward-label {
+  display: block;
+  font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+p.checkout-reward-description {
+  display: block;
+  padding: 10px;
+  padding-top: 0px;
+  font-size: 14px;
+  color: RGB(15, 33, 5); // forest green
+}
+
+h4.checkout-form-header {
+  display: block;
+  font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+h4.checkout-form-header.form-first {
+  padding-top: 30px;
+}
+
+p.checkout-form-info {
+  display: block;
+  font-size: 14px;
+  color: RGB(15, 33, 5); // forest green
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+
+label.checkout-form-label {
+  float: left;
+  font-size: 13px;
+  color: RGB(15, 33, 5); // forest green
+  width: 100px;
+  padding-top: 5px;
+}
+
+input.checkout-form-input {
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+input.checkout-form-input.error {
+  border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+select.checkout-form-select {
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  padding: 5px;
+  height: 25px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  width: 70px;
+  background-color: RGB(255, 255, 255); // white
+}
+
+select.checkout-form-select.error {
+  border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+input.checkout-name {
+  width: 480px;
+}
+
+input.checkout-card-number {
+  width: 330px;
+}
+
+input.checkout-cvn {
+  width: 70px;
+  margin-bottom: 60px;
+}
+
+input.checkout-country {
+  width: 300px;
+}
+
+input.checkout-postal-code {
+  width: 100px;
+  margin-bottom: 60px;
+}
+
+input.checkout-submit {
+  background-color: RGB(43, 222, 115); // bright green
+  display: block;
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 200px;
+}
+
+span.checkout-error {
+  display: block;
+  font-size: 14px;
+  color: RGB(246, 0, 47); // purple-red
+  margin-bottom: 10px;
 }
 
 // PROJECT TILE
