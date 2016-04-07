@@ -9,6 +9,7 @@ var IndexRedirect = require('react-router').IndexRedirect;
 
 var browserHistory = require('react-router').browserHistory;
 var SessionStore = require('./stores/sessionStore');
+var CheckoutStore = require('./stores/checkoutStore');
 var ApiUtil = require('./utils/apiUtil');
 var App = require('./components/app/app');
 var NavWrapper = require('./components/headerAndFooter/navWrapper');
@@ -45,7 +46,8 @@ var Routes = (
       </Route>
       <Route component={StaticWrapper} onEnter={_requireLoggedIn}>
         <Route path="projects/:projectId/pledges/new" component={PledgePage} />
-        <Route path="checkouts/:checkoutId" component={CheckoutPage} />
+        <Route path="checkouts/:checkoutId" component={CheckoutPage}
+          onEnter={_requireOwner} />
       </Route>
     </Route>
   </Router>
@@ -87,6 +89,29 @@ function _requireLoggedOut(nextState, replace, callback) {
 
   function _redirectIfNotLoggedOut() {
     if (SessionStore.isLoggedIn()) {
+      replace("/");
+    }
+    callback();
+  }
+}
+
+function _requireOwner(nextState, replace, callback) {
+  if (!SessionStore.currentUserHasBeenFetched()) {
+    ApiUtil.getCurrentUser(_redirectIfNotOwner);
+  } else {
+    _redirectIfNotOwner();
+  }
+
+  function _redirectIfNotOwner() {
+    if (!CheckoutStore.currentCheckout()) {
+      ApiUtil.getCheckout(nextState.params.checkoutId, function () {
+        callback();
+      }, function () {
+        replace("/");
+        callback();
+      });
+    } else if (CheckoutStore.currentCheckout().user_id !==
+         SessionStore.currentUser().id) {
       replace("/");
     }
     callback();

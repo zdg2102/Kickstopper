@@ -2,6 +2,7 @@ var ProjectActions = require('../actions/projectActions');
 var SessionActions = require('../actions/sessionActions');
 var CategoryActions = require('../actions/categoryActions');
 var SearchActions = require('../actions/searchActions');
+var CheckoutActions = require('../actions/checkoutActions');
 
 var ApiUtil = {
   getProjectMain: function (projectId) {
@@ -131,6 +132,22 @@ var ApiUtil = {
       type: 'POST',
       url: '/api/checkouts',
       dataType: 'json',
+      data: { checkout: params },
+      success: function (checkout) {
+        CheckoutActions.receiveCheckout(checkout);
+        if (successCallback) { successCallback(checkout); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
+      }
+    });
+  },
+
+  getCheckout: function (checkoutId, successCallback, errorCallback) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/checkouts/' + checkoutId,
+      dataType: 'json',
       success: function (checkout) {
         CheckoutActions.receiveCheckout(checkout);
         if (successCallback) { successCallback(); }
@@ -141,22 +158,12 @@ var ApiUtil = {
     });
   },
 
-  getCheckout: function (checkoutId) {
+  createPledgeFromCheckout: function (checkoutId) {
     $.ajax({
-      type: 'GET',
-      url: '/api/checkouts/' + checkoutId,
+      type: 'POST',
+      url: '/api/pledges',
       dataType: 'json',
-      success: function (checkout) {
-        CheckoutActions.receiveCheckout(checkout);
-      }
-    });
-  },
-
-  destroyCheckout: function (checkoutId) {
-    $.ajax({
-      type: 'GET',
-      url: '/api/checkouts/' + checkoutId,
-      dataType: 'json',
+      data: { checkoutId: checkoutId },
       success: function () {
         // FINDTAG temp
         console.log("checkout destroyed");

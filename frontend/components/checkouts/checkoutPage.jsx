@@ -1,40 +1,47 @@
 // Page to complete project checkout with payment submission
 
 var React = require('react');
-// var ApiUtil = require('../../utils/apiUtil');
-// var ProjectStore = require('../../stores/projectStore');
-// var RewardTilePledge = require('../rewards/rewardTilePledge');
+var ApiUtil = require('../../utils/apiUtil');
+var CheckoutStore = require('../../stores/checkoutStore');
 
 var CheckoutPage = React.createClass({
-  // getInitialState: function () {
-  //   return { project: ProjectStore.find(this.props.params.projectId),
-  //     clickedId: parseInt(this.props.location.query.selectedRewardId, 10) };
-  // },
-  //
-  // componentDidMount: function () {
-  //   this.projectStoreToken = ProjectStore.addListener(this.refresh);
-  //   ApiUtil.getProjectMain(this.props.params.projectId);
-  // },
-  //
-  // componentWillUnmount: function () {
-  //   this.projectStoreToken.remove();
-  // },
-  //
-  // refresh: function () {
-  //   this.setState({ project: ProjectStore.find(this.props.params.projectId) });
-  // },
-  //
-  // handleRewardClick: function (rewardId) {
-  //   this.setState({ clickedId: rewardId });
-  // },
-  //
-  // handleSubmit: function (pledgeAmount) {
-  //
-  //   console.log(pledgeAmount);
-  //
-  // },
+  getInitialState: function () {
+    var initialState = {};
+    if (CheckoutStore.currentCheckout() &&
+        CheckoutStore.currentCheckout().id ===
+        parseInt(this.props.params.checkoutId, 10)) {
+      initialState = { checkout: CheckoutStore.currentCheckout() };
+    } else {
+      initialState = { checkout: null };
+    }
+    return initialState;
+  },
+
+  componentDidMount: function () {
+    this.CheckoutStoreToken = CheckoutStore.addListener(this.refresh);
+    if (!CheckoutStore.currentCheckout() ||
+        CheckoutStore.currentCheckout().id !==
+        parseInt(this.props.params.checkoutId, 10)) {
+      ApiUtil.getCheckout(this.props.params.checkoutId);
+    }
+  },
+
+  refresh: function () {
+    if (CheckoutStore.currentCheckout() &&
+        CheckoutStore.currentCheckout().id ===
+        parseInt(this.props.params.checkoutId, 10)) {
+    this.setState({ checkout: CheckoutStore.currentCheckout() });
+    }
+  },
+
+  componentWillUnmount: function () {
+    this.CheckoutStoreToken.remove();
+  },
 
   render: function () {
+
+    var pledgeAmount, rewardMinimum, rewardTitle, rewardText;
+
 
     // var title, creatorName, tiles;
     // if (this.state.project) {

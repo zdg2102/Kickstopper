@@ -8,10 +8,14 @@ var _currentCheckout = null;
 
 CheckoutStore.currentCheckout = function () {
   var checkoutCopy = {};
-  for (var id in _currentCheckout) {
-    if (_currentCheckout.hasOwnProperty(id)) {
-      checkoutCopy[id] = _currentCheckout[id];
+  if (_currentCheckout) {
+    for (var id in _currentCheckout) {
+      if (_currentCheckout.hasOwnProperty(id)) {
+        checkoutCopy[id] = _currentCheckout[id];
+      }
     }
+  } else {
+    checkoutCopy = null;
   }
   return checkoutCopy;
 };

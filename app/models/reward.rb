@@ -6,6 +6,7 @@ class Reward < ActiveRecord::Base
 		greater_than: 0, less_than: 2000000000 }
 
 	belongs_to :project
-	has_many :pledges
+	has_many :pledges, dependent: :destroy
+  has_many :checkouts, dependent: :destroy
 
 end

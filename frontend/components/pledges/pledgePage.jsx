@@ -6,9 +6,14 @@ var ProjectStore = require('../../stores/projectStore');
 var RewardTilePledge = require('../rewards/rewardTilePledge');
 
 var PledgePage = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function () {
     return { project: ProjectStore.find(this.props.params.projectId),
-      clickedId: parseInt(this.props.location.query.selectedRewardId, 10) };
+      clickedId: parseInt(this.props.location.query.selectedRewardId, 10),
+      submissionError: false };
   },
 
   componentDidMount: function () {
@@ -25,18 +30,28 @@ var PledgePage = React.createClass({
   },
 
   handleRewardClick: function (rewardId) {
-    this.setState({ clickedId: rewardId });
+    this.setState({ clickedId: rewardId, submissionError: false });
   },
 
   handleSubmit: function (pledgeAmount) {
-
-    console.log(pledgeAmount);
-
+    this.setState({ submissionError: false });
+    ApiUtil.createCheckout(
+      {
+        rewardId: this.state.clickedId,
+        pledgeAmount: pledgeAmount
+      },
+      function (newCheckout) {
+        this.context.router.push("/checkouts/" + newCheckout.id);
+      }.bind(this),
+      function () {
+        this.setState({ submissionError: true });
+      }.bind(this)
+    );
   },
 
   render: function () {
 
-    var title, creatorName, tiles;
+    var title, creatorName, tiles, errorMessage;
     if (this.state.project) {
       title = this.state.project.title;
 			creatorName = this.state.project.creator_name;
@@ -50,6 +65,11 @@ var PledgePage = React.createClass({
           submit={this.handleSubmit} />;
       }.bind(this));
     }
+    if (this.state.submissionError) {
+      errorMessage = <p className="pledge-submission-error">
+        {"Submission error. Please try again."}
+      </p>;
+    }
 
     return (
       <div>
@@ -60,6 +80,8 @@ var PledgePage = React.createClass({
             {"by " + creatorName}
           </h6>
         </div>
+
+        {errorMessage}
 
         <h4 className="pledge-page-subhead">
           {"Let's choose your reward!"}

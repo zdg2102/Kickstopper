@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
 	has_many :projects, foreign_key: :creator_id, dependent: :destroy
 	has_many :pledges, dependent: :destroy
+  has_many :checkouts, dependent: :destroy
 	has_many :session_tokens, dependent: :destroy
 
 	attr_reader :password
