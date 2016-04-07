@@ -158,16 +158,18 @@ var ApiUtil = {
     });
   },
 
-  createPledgeFromCheckout: function (checkoutId) {
+  createPledgeFromCheckout: function (checkoutId, stripeToken, successCallback,
+    errorCallback) {
     $.ajax({
       type: 'POST',
       url: '/api/pledges',
       dataType: 'json',
-      data: { checkoutId: checkoutId },
+      data: { pledge: { checkoutId: checkoutId, stripeToken: stripeToken } },
       success: function () {
-        // FINDTAG temp
-        console.log("checkout destroyed");
-
+        if (successCallback) { successCallback(); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
       }
     });
   }

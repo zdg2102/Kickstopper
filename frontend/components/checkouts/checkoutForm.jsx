@@ -1,8 +1,13 @@
 // form for completing checkouts to make pledges
 
 var React = require('react');
+var ApiUtil = require('../../utils/apiUtil');
 
 var CheckoutForm = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function () {
     return {
       name: "",
@@ -68,8 +73,35 @@ var CheckoutForm = React.createClass({
     if (newState.errorMessages.length > 0) {
       this.setState(newState);
     } else {
-      console.log("yay!");
+      this.submitStripeRequest();
     }
+  },
+
+  submitStripeRequest: function () {
+    var card = {
+      number: this.state.cardNumber,
+      cvc: this.state.cvn,
+      exp_month: this.state.expirationMonth,
+      exp_year: this.state.expirationYear
+    };
+    Stripe.card.createToken(card, function (status, response) {
+      if (status !== 200) {
+        this.setState({ errorMessages: ["Card invalid. Please check" +
+          " card number and CVN"]});
+      } else {
+        ApiUtil.createPledgeFromCheckout(
+          this.props.checkout.id,
+          response.id,
+          function () {
+            this.context.router.push("    ");
+          },
+          function () {
+            this.setState({ errorMessages: ["Error processing request." +
+              " Please try again."]});
+          }.bind(this)
+        );
+      }
+    }.bind(this));
   },
 
   render: function () {

@@ -19,6 +19,7 @@ var ProjectMain = require('./components/projectMain/projectMain');
 var DiscoverPage = require('./components/discover/discoverPage');
 var PledgePage = require('./components/pledges/pledgePage');
 var CheckoutPage = require('./components/checkouts/checkoutPage');
+var ThankYouPage = require('./components/pledges/thankYouPage');
 var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
@@ -47,6 +48,8 @@ var Routes = (
       <Route component={StaticWrapper} onEnter={_requireLoggedIn}>
         <Route path="projects/:projectId/pledges/new" component={PledgePage} />
         <Route path="checkouts/:checkoutId" component={CheckoutPage}
+          onEnter={_requireOwner} />
+        <Route path="checkouts/:checkoutId/completed" component={ThankYouPage}
           onEnter={_requireOwner} />
       </Route>
     </Route>

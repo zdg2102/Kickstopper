@@ -635,6 +635,7 @@ p.pledge-submission-error {
   color: RGB(246, 0, 47); // purple-red
   margin-left: 40px;
   margin-bottom: 25px;
+  font-weight: bold;
 }
 
 div.reward-tile-pledge {
@@ -886,8 +887,55 @@ input.checkout-submit {
 span.checkout-error {
   display: block;
   font-size: 14px;
+  font-weight: bold;
   color: RGB(246, 0, 47); // purple-red
   margin-bottom: 10px;
+}
+
+// THANK YOU PAGE
+
+div.thank-you-background {
+  background-color: RGB(247, 250, 250); // very pale blue
+  padding: 150px 0px;
+}
+
+div.thank-you-box {
+  width: 300px;
+  margin: 0px auto;
+  background-color: RGB(255, 255, 255); // white
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+}
+
+h2.thank-you-header {
+  display: block;
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: RGB(15, 33, 5); // forest green
+}
+
+p.thank-you-message {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: RGB(15, 33, 5); // forest green
+  display: block;
+  padding: 0px 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+button.thank-you-button {
+  background-color: RGB(43, 222, 115); // bright green
+  display: block;
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 0px auto 30px;
+  cursor: pointer;
 }
 
 // PROJECT TILE
