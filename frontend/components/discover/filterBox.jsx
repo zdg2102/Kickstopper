@@ -13,7 +13,7 @@ var FilterBox = React.createClass({
     };
 
     var filterName;
-    if (this.props.sort) {
+    if (this.props.sort && prettifiedFilters[this.props.sort]) {
       filterName = prettifiedFilters[this.props.sort];
     } else {
       filterName = prettifiedFilters.endDate;

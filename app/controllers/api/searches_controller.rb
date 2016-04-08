@@ -20,6 +20,7 @@ class Api::SearchesController < ApplicationController
     # end
     # project_search_table = project_search_table.join("\n")
     #
+
     #
     # @projects = Project.find_by_sql(<<-SQL)
     #   SELECT

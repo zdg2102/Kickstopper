@@ -1162,6 +1162,157 @@ h2.modal-main-item:hover, li.modal-sub-item:hover {
   color: RGBA(255, 255, 255, 0.75); // semi-transparent white
 }
 
+// DISCOVER PAGE SEARCH FILTER BOX
+
+div.search-filter-box {
+  display: block;
+  height: 40px;
+  padding: 70px 0px;
+  background-color: RGB(255, 255, 255); // white
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  margin-bottom: 50px;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 22px;
+}
+
+h2.search-filter-box-text {
+	display: inline-block;
+}
+
+div.search-filter-text-line {
+	display: block;
+	padding-left: 50px;
+}
+
+span.search-filter-item {
+  padding: 10px;
+  margin: 0px 10px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+span.search-filter-item.pad {
+  padding-right: 20px;
+}
+
+span.search-filter-item span.search-filter-item-text {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+span.search-filter-item a.filter-term-x {
+  font-size: 15px;
+}
+
+span.search-filter-item a.search-filter-arrow {
+  width: 0;
+  height: 0;
+  top: 22px;
+  right: 10px;
+  border-style: solid;
+  border-width: 5px 7px 0 7px;
+  border-color: RGB(0, 0, 0) transparent transparent transparent;
+  position: absolute;
+}
+
+span.search-filter-item:hover {
+  border: 1px solid RGB(43, 222, 115); // bright green
+  color: RGB(43, 222, 115); // bright green
+}
+
+span.search-filter-item:hover a.search-filter-arrow {
+  border-color: RGB(43, 222, 115) transparent transparent transparent;
+}
+
+// DISCOVER PAGE SEARCH FILTER POPOUT
+
+div.sort-filter-popout {
+  width: 175px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0px;
+  background-color: RGB(255, 255, 255); // white
+  box-shadow: RGBA(0, 0, 0, 0.14902) 0px 2px 8px 0px;
+  padding: 25px;
+}
+
+div.category-filter-popout {
+  width: 200px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0px;
+  background-color: RGB(255, 255, 255); // white
+  box-shadow: RGBA(0, 0, 0, 0.14902) 0px 2px 8px 0px;
+}
+
+div.category-filter-popout.expand {
+  width: 430px;
+}
+
+div.filter-popout-category-column {
+  display: block;
+  width: 150px;
+  padding: 25px;
+  float: left;
+}
+
+div.filter-popout-category-column.expand {
+  border-right: 1px solid RGB(217, 217, 222); // light grey
+}
+
+div.filter-popout-subcategory-column {
+  float: left;
+  display: block;
+  width: 175px;
+  height: 100%;
+  padding: 25px;
+}
+
+span.filter-popout-subcategory-header {
+  display: block;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+
+span.sort-popout-main {
+  display: block;
+  color: RGB(130, 133, 135); // grey
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+span.sort-popout-main:last-of-type {
+  margin-bottom: 0px;
+}
+
+span.sort-popout-main:hover {
+  color: RGB(43, 222, 115); // bright green
+}
+
+span.sort-popout-sub {
+  display: block;
+  color: RGB(130, 133, 135); // grey
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+span.sort-popout-sub:hover {
+  color: RGB(43, 222, 115); // bright green
+}
+
 // DISCOVER PAGE MAIN LIST
 
 section.main-discover-list {

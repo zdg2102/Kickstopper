@@ -6,6 +6,7 @@ var CategoryStore = require('../../stores/categoryStore');
 var ApiUtil = require('../../utils/apiUtil');
 var ProjectTile = require('../projectPanels/projectTile');
 var DiscoverMainList = require('./discoverMainList');
+var SearchFilterBox = require('./searchFilterBox');
 var FilterBox = require('./filterBox');
 var CategoryModal = require('./categoryModal');
 var SortModal = require('./sortModal');
@@ -91,6 +92,7 @@ var DiscoverPage = React.createClass({
     var discoverParams = $.extend({}, this.props.location.query,
       this.props.params);
     var sort = discoverParams.sort;
+    var term = discoverParams.term;
     var currentPath = "/discover";
     if (discoverParams.categoryName) {
       currentPath = currentPath + "/categories/" + discoverParams.categoryName;
@@ -113,15 +115,26 @@ var DiscoverPage = React.createClass({
       modalOn = true;
     }
 
+    var filterBox;
+    if (this.props.location.query.term) {
+      filterBox = <SearchFilterBox term={term} sort={sort}
+        prunedTree={this.state.prunedTree}
+        currentPath={currentPath}
+        currentQuery={this.props.location.query}
+        currentCategory={this.state.currentCategory} />;
+    } else {
+      filterBox = <FilterBox openCategoryModal={this.openCategoryModal}
+        openSortModal={this.openSortModal}
+        currentCategory={this.state.currentCategory}
+        sort={sort} />;
+    }
+
     return (
 			<div className="discover-page-content">
 
         {currentModal}
 
-				<FilterBox openCategoryModal={this.openCategoryModal}
-          openSortModal={this.openSortModal}
-          currentCategory={this.state.currentCategory}
-          sort={sort} />
+        {filterBox}
 
         <div className="discover-lists-container">
 
