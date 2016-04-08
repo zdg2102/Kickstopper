@@ -22,9 +22,9 @@ var SearchPopup = React.createClass({
   },
 
   render: function () {
-    var tiles, resultsButton;
+    var results, resultsButton;
     if (this.props.results.length > 0) {
-      tiles = this.props.results.map( function (result) {
+      results = this.props.results.map( function (result) {
         return <ProjectTile key={result.id} project={result}
           closeSearch={this.handleClose} />;
       }.bind(this));
@@ -37,6 +37,10 @@ var SearchPopup = React.createClass({
           </span>
         </button>
       );
+    } else {
+      results = <span className="search-empty-message">
+        {"No results found for " + this.props.term}
+      </span>;
     }
 
     return (
@@ -49,7 +53,7 @@ var SearchPopup = React.createClass({
         </div>
 
         <div className="search-tiles group">
-          {tiles}
+          {results}
         </div>
 
         {resultsButton}

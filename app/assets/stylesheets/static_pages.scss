@@ -122,7 +122,6 @@ input.search-bar-input {
 div.search-popup {
   display: block;
   width: 100%;
-  height: 570px;
   background-color: RGB(247, 250, 250); // very pale blue
   border-bottom: 1px solid RGB(217, 217, 222); // light grey
 }
@@ -137,6 +136,16 @@ div.search-close-button {
   margin-right: 90px;
   cursor: pointer;
   color: RGB(130, 133, 135); // grey
+}
+
+span.search-empty-message {
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 22px;
+  color: RGB(130, 133, 135); // grey
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 
 div.search-popup div.project-tile {
