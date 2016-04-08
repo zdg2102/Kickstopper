@@ -6,13 +6,11 @@ var SessionLinks = React.createClass({
   render: function () {
     return (
 			<div className="session-links-div">
-        <a className="session-link" href="/signup"
-          onClick={this.handleSignupClick}>
+        <a className="session-link" href="/signup">
           {"Sign Up"}
         </a>
 
-        <a className="session-link" href="/login"
-          onClick={this.handleLoginClick}>
+        <a className="session-link" href="/login">
           {"Log In"}
         </a>
 			</div>
