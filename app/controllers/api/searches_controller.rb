@@ -21,6 +21,7 @@ class Api::SearchesController < ApplicationController
     # project_search_table = project_search_table.join("\n")
     #
 
+
     #
     # @projects = Project.find_by_sql(<<-SQL)
     #   SELECT
@@ -40,10 +41,8 @@ class Api::SearchesController < ApplicationController
     #
     # debugger
 
-    # @projects = @projects.includes(:creator, :images)
 
 
-    results = Project.where(id: valid_project_ids)
     filter_params = params[:projects] ? params[:projects] : {}
     filter_params[:per_page] = 4
     filter = FilterProjects.new(filter_params)

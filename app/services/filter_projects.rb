@@ -4,11 +4,15 @@ class FilterProjects
     @params = params
   end
 
-  def matching_projects(search_results = nil)
-    # if search results were passed, filters those, otherwise
-    # filters all projects
-    projects = search_results || Project
-    filter_by_params(projects)
+  # def matching_projects(search_results = nil)
+  #   # if search results were passed, filters those, otherwise
+  #   # filters all projects
+  #   projects = search_results || Project
+  #   filter_by_params(projects)
+  # end
+
+  def matching_projects
+    filter_by_params(Project)
   end
 
   private
@@ -26,19 +30,19 @@ class FilterProjects
     #     (NB: category and subcategory names must be
     #       titleized to match the names in the database)
     #   term (i.e. search string)
-    #   categoryId (only passed by search)
-    #   subcategoryId (only passed by search)
     #   sort: (
     #     popularity
     #     newest
     #     endDate
-    #    mostFunded
+    #     mostFunded
+    #     searchRank (only if term is present)
     #   )
     #   page (i.e. index for serving paginated results)
     #   per_page (defaults to 12)
 
     in_scope_projects = filter_by_category(projects)
     in_scope_projects = set_aggregate_calculations(in_scope_projects)
+    in_scope_projects = filter_by_search_term(in_scope_projects)
     in_scope_projects = set_sort_type(in_scope_projects)
     in_scope_projects = select_page(in_scope_projects)
     in_scope_projects
@@ -76,6 +80,53 @@ class FilterProjects
         projects.*, COUNT(users.id) AS backer_count,
           SUM(pledges.pledge_amount) AS amount_pledged
       SQL
+  end
+
+  def filter_by_search_term(projects)
+    # filters by comparison with the results of pg_search
+    # if a search term is passed
+    if @params && @params[:term]
+      # pg_search returns a table that is unfriendly to
+      # additional joining due to the randomized aliasing of the rank
+      # field, so it is only used to generate ids and rank
+      search_match_ids = Project.text_search(@params[:term])
+        .select("projects.id AS id").pluck(:id)
+      # then a union-all psuedo-table is built for interpolation,
+      # so the search result ranking can be preserved
+      project_rank_table = search_match_ids.each_with_index.map do |id, index|
+        new_line = "SELECT #{id} project_id, #{index + 1} project_rank"
+        new_line += "\nUNION ALL" unless index == search_match_ids.size.pred
+        new_line
+      end
+      project_rank_table = project_rank_table.join("\n")
+      # the current set of projects are converted to a table that
+      # is used for the aggregate totals (this causes duplicate
+      # retrieval from the projects table, but this is hard to
+      # avoid due to ActiveRecord not giving control over the FROM clause)
+      project_aggregates_table = projects.to_sql
+      # the new set of projects is determined by joining the ranks to
+      # data table, leaving us with only the relevant projects with
+      # their search rank now appended
+      projects = Project
+        .select(<<-SQL)
+          projects.*, ranks.project_rank AS search_rank, aggs.backer_count
+            AS backer_count, aggs.amount_pledged AS amount_pledged
+        SQL
+        .joins(<<-SQL)
+          INNER JOIN
+            (#{project_aggregates_table}) AS aggs
+          ON
+            aggs.id = projects.id
+          INNER JOIN
+            (#{project_rank_table}) AS ranks
+          ON
+            ranks.project_id = projects.id
+        SQL
+      projects
+    else
+      # if no term is given, return the original set of projects
+      projects
+    end
   end
 
   def set_sort_type(projects)

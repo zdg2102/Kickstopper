@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   include PgSearch
-  pg_search_scope :global_project_search,
+  pg_search_scope :text_search,
     against: {
       title: 'A',
       project_blurb: 'B',
