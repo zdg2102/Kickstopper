@@ -67,7 +67,7 @@ var NavHeader = React.createClass({
           <ul className="nav-header-links group">
             <li><a href="/discover">Discover</a></li>
             <li><a href="#">Start a project</a></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="/about">About us</a></li>
           </ul>
 
           <SearchBar term={this.state.searchTerm}

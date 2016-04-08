@@ -22,7 +22,7 @@ body {
 	font-weight: normal;
 	font-style: normal;
   font-family: liberation-sans;
-  min-width: 1000px;
+  min-width: 1100px;
 }
 
 ul {
@@ -156,11 +156,11 @@ div.search-popup div.project-tile {
 }
 
 div.search-popup div.project-tile:first-of-type {
-  margin-left: 80px;
+  margin-left: calc((100% - 1000px) / 2);
 }
 
 div.search-popup  div.project-tile:last-of-type {
-	margin-right: 80px;
+	margin-right: calc((100% - 1000px) / 2);
 }
 
 button.all-search-button {
@@ -1497,6 +1497,85 @@ input.session-submit {
 	margin: 20px auto 10px;
 	width: 100%;
 	cursor: pointer;
+}
+
+// ABOUT PAGE
+
+div.about-page-main {
+  display: block;
+  height: 1300px;
+}
+
+div.about-page-image {
+  background-image: image-url("stop-sign.jpg");
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 550px;
+  position: relative;
+  margin-bottom: 400px;
+}
+
+h3.about-page-tagline {
+  display: block;
+  position: absolute;
+  width: 640px;
+  margin: calc((100% - 640px) / 2);
+  margin-top: 40px;
+  margin-bottom: 0px;
+  text-align: center;
+  top: 0;
+  left: 0;
+  font-size: 40px;
+  color: RGB(255, 255, 255); // white
+}
+
+div.about-page-text-block {
+  display: block;
+  position: absolute;
+  width: 1040px;
+  margin: calc((100% - 1040px) / 2);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: 530px;
+  background-color: RGB(43, 222, 115); // bright green
+  border-radius: 6px;
+}
+
+p.about-page-description {
+  display: block;
+  margin: 0px auto;
+  width: 660px;
+  padding: 80px 0px;
+  text-align: center;
+  color: RGB(255, 255, 255); // white
+  font-size: 25px;
+  font-family: serif;
+  line-height: 1.8;
+}
+
+h4.about-page-subhead {
+  display: block;
+  padding-left: 60px;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 25px;
+  margin-bottom: 80px;
+}
+
+p.about-page-text {
+  display: block;
+  padding-left: 60px;
+  width: 500px;
+  color: RGB(70, 70, 70); // dark grey
+  font-family: serif;
+  line-height: 1.4;
+  font-size: 20px;
+}
+
+a.about-page-text-link {
+  text-decoration: underline;
+  color: RGB(63, 96, 183); // link blue
 }
 
 // UTILITY

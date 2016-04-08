@@ -20,6 +20,7 @@ var DiscoverPage = require('./components/discover/discoverPage');
 var PledgePage = require('./components/pledges/pledgePage');
 var CheckoutPage = require('./components/checkouts/checkoutPage');
 var ThankYouPage = require('./components/pledges/thankYouPage');
+var AboutPage = require('./components/about/aboutPage');
 var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
@@ -38,6 +39,7 @@ var Routes = (
           <Route path="signup" component={SignUp}
             onEnter={_requireLoggedOut} />
         </Route>
+        <Route path="about" component={AboutPage} />
         <Route path="discover" component={DiscoverPage} />
         <Route path="discover/categories/:categoryName"
           component={DiscoverPage} />
