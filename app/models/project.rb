@@ -13,7 +13,8 @@ class Project < ActiveRecord::Base
 
   has_many :images, as: :imageable
 
-  validates_presence_of :images
+  # FINDTAG make this work
+  # validates_presence_of :images
 
   validates :title, :creator_id, :subcategory_id, :funding_goal,
 	  :funding_date, presence: true
