@@ -4,13 +4,6 @@ class FilterProjects
     @params = params
   end
 
-  # def matching_projects(search_results = nil)
-  #   # if search results were passed, filters those, otherwise
-  #   # filters all projects
-  #   projects = search_results || Project
-  #   filter_by_params(projects)
-  # end
-
   def matching_projects
     filter_by_params(Project)
   end
@@ -91,6 +84,8 @@ class FilterProjects
       # field, so it is only used to generate ids and rank
       search_match_ids = Project.text_search(@params[:term])
         .select("projects.id AS id").pluck(:id)
+      # if no matches found, return none
+      return Project.none if search_match_ids.empty?
       # then a union-all psuedo-table is built for interpolation,
       # so the search result ranking can be preserved
       project_rank_table = search_match_ids.each_with_index.map do |id, index|
@@ -131,6 +126,14 @@ class FilterProjects
 
   def set_sort_type(projects)
     if @params && @params[:sort]
+      # before getting into the switch statement, check if
+      # there's a valid request for searchRank (valid meaning
+      # a term was also passed)
+      if @params[:term] && @params[:sort] == "searchRank"
+        projects = projects.order("search_rank ASC")
+        return projects
+      end
+      # otherwise check for the regular sorts
       case @params[:sort]
       when "popularity"
         projects = projects.order("backer_count DESC")
@@ -141,12 +144,22 @@ class FilterProjects
       when "mostFunded"
         projects = projects.order("amount_pledged DESC")
       else
-        # if they pass an incorrect value, default to end date
-        projects = projects.order(funding_date: :asc)
+        # if they pass an incorrect value, default to end date for
+        # regular requests and search rank for search requests
+        if @params[:term]
+          projects = projects.order("search_rank ASC")
+        else
+          projects = projects.order(funding_date: :asc)
+        end
       end
     else
-      # if no sort provided, default to end date
-      projects = projects.order(funding_date: :asc)
+      # if no sort provided, default to end date for regular requests
+      # and search rank for search requests
+      if @params && @params[:term]
+        projects = projects.order("search_rank ASC")
+      else
+        projects = projects.order(funding_date: :asc)
+      end
     end
     # also guarantee sub-sort is by id, to control order
     projects.order(id: :asc)
