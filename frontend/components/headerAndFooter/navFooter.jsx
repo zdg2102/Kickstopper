@@ -18,7 +18,7 @@ var NavFooter = React.createClass({
 
 						<ul className="footer-column-list">
               <li><a href="/about">{"What is Kickstopper?"}</a></li>
-							<li><a href="#">{"Start a project"}</a></li>
+							<li><a href="/start">{"Start a project"}</a></li>
 						</ul>
           </div>
 

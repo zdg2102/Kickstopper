@@ -21,6 +21,7 @@ var PledgePage = require('./components/pledges/pledgePage');
 var CheckoutPage = require('./components/checkouts/checkoutPage');
 var ThankYouPage = require('./components/pledges/thankYouPage');
 var AboutPage = require('./components/about/aboutPage');
+var StartProjectPage = require('./components/startProject/startProjectPage');
 var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
@@ -40,6 +41,7 @@ var Routes = (
             onEnter={_requireLoggedOut} />
         </Route>
         <Route path="about" component={AboutPage} />
+        <Route path="start" component={StartProjectPage} />
         <Route path="discover" component={DiscoverPage} />
         <Route path="discover/categories/:categoryName"
           component={DiscoverPage} />
@@ -122,3 +124,26 @@ function _requireOwner(nextState, replace, callback) {
     callback();
   }
 }
+
+// function _requireCreator(nextState, replace, callback) {
+//   if (!SessionStore.currentUserHasBeenFetched()) {
+//     ApiUtil.getCurrentUser(_redirectIfNotCreator);
+//   } else {
+//     _redirectIfNotCreator();
+//   }
+//
+//   function _redirectIfNotCreator() {
+//     if (!CheckoutStore.currentCheckout()) {
+//       ApiUtil.getCheckout(nextState.params.checkoutId, function () {
+//         callback();
+//       }, function () {
+//         replace("/");
+//         callback();
+//       });
+//     } else if (CheckoutStore.currentCheckout().user_id !==
+//          SessionStore.currentUser().id) {
+//       replace("/");
+//     }
+//     callback();
+//   }
+// }

@@ -6,13 +6,13 @@ var CategoryStore = new Store(AppDispatcher);
 
 var _categoryTree = null;
 
-// CategoryStore.allCategories = function () {
-//   var all = [];
-//   for (var i = 0; i < _categoryTree.length; i++) {
-//     all.push(_categoryTree[i].name);
-//   }
-//   return all;
-// };
+CategoryStore.allCategories = function () {
+  var all = [];
+  for (var i = 0; i < _categoryTree.length; i++) {
+    all.push(_categoryTree[i].name);
+  }
+  return all;
+};
 
 CategoryStore.currentCategoryOrSubcategory = function (paramName) {
   for (var i = 0; i < _categoryTree.length; i++) {
