@@ -64,14 +64,14 @@ class FilterProjects
     # add backer_count and amount_pledged to avoid N + 1 querying
     projects
       .joins(<<-SQL)
-        INNER JOIN "rewards" ON "rewards"."project_id" = "projects"."id"
-        INNER JOIN "pledges" ON "pledges"."reward_id" = "rewards"."id"
-        INNER JOIN "users" ON "users"."id" = "pledges"."user_id"
+        LEFT OUTER JOIN "rewards" ON "rewards"."project_id" = "projects"."id"
+        LEFT OUTER JOIN "pledges" ON "pledges"."reward_id" = "rewards"."id"
+        LEFT OUTER JOIN "users" ON "users"."id" = "pledges"."user_id"
       SQL
       .group("projects.id")
       .select(<<-SQL)
-        projects.*, COUNT(users.id) AS backer_count,
-          SUM(pledges.pledge_amount) AS amount_pledged
+        projects.*, COALESCE(COUNT(users.id), 0) AS backer_count,
+          COALESCE(SUM(pledges.pledge_amount), 0) AS amount_pledged
       SQL
   end
 

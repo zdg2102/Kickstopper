@@ -11,16 +11,13 @@ class Project < ActiveRecord::Base
       rewards: { title: 'D', description: 'D' }
     }
 
-  has_many :images, as: :imageable
-
-  # FINDTAG make this work
-  # validates_presence_of :images
-
   validates :title, :creator_id, :subcategory_id, :funding_goal,
 	  :funding_date, presence: true
 	# 2 billion cap is to avoid overflow of DB limit for integer fields
 	validates :funding_goal, numericality: { only_integer: true,
 		greater_than: 0, less_than: 2000000000 }
+
+  has_many :images, as: :imageable
 
 	belongs_to :subcategory
 	belongs_to :creator, class_name: 'User', foreign_key: :creator_id
@@ -28,7 +25,6 @@ class Project < ActiveRecord::Base
 	has_many :rewards, -> { order(minimum_pledge: :asc) }, dependent: :destroy
 	has_many :pledges, through: :rewards, dependent: :destroy
 	has_many :backers, through: :pledges, source: :user
-
 
 	def amount_pledged
     # check if value is already set as part of aggregate query,
