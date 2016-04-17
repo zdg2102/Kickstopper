@@ -3,6 +3,8 @@ var SessionActions = require('../actions/sessionActions');
 var CategoryActions = require('../actions/categoryActions');
 var SearchActions = require('../actions/searchActions');
 var CheckoutActions = require('../actions/checkoutActions');
+var UnlaunchedProjectActions =
+  require('../actions/unlaunchedProjectActions');
 
 var ApiUtil = {
   getProjectMain: function (projectId) {
@@ -158,14 +160,63 @@ var ApiUtil = {
     });
   },
 
-  createPledgeFromCheckout: function (checkoutId, stripeToken, successCallback,
-    errorCallback) {
+  createPledgeFromCheckout: function (checkoutId, stripeToken,
+    successCallback, errorCallback) {
     $.ajax({
       type: 'POST',
       url: '/api/pledges',
       dataType: 'json',
       data: { pledge: { checkoutId: checkoutId, stripeToken: stripeToken } },
       success: function () {
+        if (successCallback) { successCallback(); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
+      }
+    });
+  },
+
+  createUnlaunchedProject: function (params, successCallback,
+    errorCallback) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/unlaunched_projects',
+      dataType: 'json',
+      data: { project: params },
+      success: function (project) {
+        UnlaunchedProjectActions.receiveUnlaunchedProject(project);
+        if (successCallback) { successCallback(); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
+      }
+    });
+  },
+
+  getUnlaunchedProject: function (unlaunchedProjectId, successCallback,
+    errorCallback) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/unlaunched_projects/' + unlaunchedProjectId,
+      dataType: 'json',
+      success: function (project) {
+        UnlaunchedProjectActions.receiveUnlaunchedProject(project);
+        if (successCallback) { successCallback(); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
+      }
+    });
+  },
+
+  updateUnlaunchedProject: function (unlaunchedProjectId, params,
+    successCallback, errorCallback) {
+    $.ajax({
+      type: 'PUT',
+      url: '/api/unlaunched_projects/' + unlaunchedProjectId,
+      dataType: 'json',
+      data: { project: params },
+      success: function (project) {
         if (successCallback) { successCallback(); }
       },
       error: function () {
