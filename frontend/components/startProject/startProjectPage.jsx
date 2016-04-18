@@ -29,6 +29,18 @@ var StartProjectPage = React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
+    var params = { title: this.state.title };
+    ApiUtil.createUnlaunchedProject(
+      params,
+      function (newProject) {
+        this.context.router.push({
+          pathname: "/unlaunched/" + newProject.id + "/edit",
+          query: { category: this.state.category }
+        })
+      }
+    )
+
+    category: this.state.category,
 
     console.log(this.state.category);
     console.log(this.state.title);
