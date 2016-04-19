@@ -146,7 +146,7 @@ function _requireCreator(nextState, replace, callback) {
         replace("/");
         callback();
       });
-    } else if (UnlaunchedProjecStore.currentProject().user_id !==
+    } else if (UnlaunchedProjectStore.currentProject().creator_id !==
          SessionStore.currentUser().id) {
       replace("/");
     }

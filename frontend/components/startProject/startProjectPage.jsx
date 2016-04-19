@@ -36,14 +36,9 @@ var StartProjectPage = React.createClass({
         this.context.router.push({
           pathname: "/unlaunched/" + newProject.id + "/edit",
           query: { category: this.state.category }
-        })
-      }
-    )
-
-    category: this.state.category,
-
-    console.log(this.state.category);
-    console.log(this.state.title);
+        });
+      }.bind(this)
+    );
   },
 
   updateTitle: function (e) {

@@ -185,7 +185,7 @@ var ApiUtil = {
       data: { project: params },
       success: function (project) {
         UnlaunchedProjectActions.receiveUnlaunchedProject(project);
-        if (successCallback) { successCallback(); }
+        if (successCallback) { successCallback(project); }
       },
       error: function () {
         if (errorCallback) { errorCallback(); }
@@ -201,7 +201,7 @@ var ApiUtil = {
       dataType: 'json',
       success: function (project) {
         UnlaunchedProjectActions.receiveUnlaunchedProject(project);
-        if (successCallback) { successCallback(); }
+        if (successCallback) { successCallback(project); }
       },
       error: function () {
         if (errorCallback) { errorCallback(); }
@@ -217,7 +217,7 @@ var ApiUtil = {
       dataType: 'json',
       data: { project: params },
       success: function (project) {
-        if (successCallback) { successCallback(); }
+        if (successCallback) { successCallback(project); }
       },
       error: function () {
         if (errorCallback) { errorCallback(); }
