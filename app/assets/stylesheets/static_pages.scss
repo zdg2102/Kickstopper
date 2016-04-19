@@ -276,7 +276,9 @@ p.user-menu-text {
   color: RGB(130, 133, 135); // grey
   font-size: 12px;
   margin: 20px;
-  margin-top: 0px;
+
+  margin-top: 20px; // FINDTAG reset to 0
+
   white-space: nowrap;
 }
 
@@ -464,6 +466,9 @@ div.creator-panel {
 }
 
 div.creator-circle-icon {
+	// FINDTAG
+	display: none;
+
 	float: right;
 	border-radius: 50%;
 	background-color: RGB(0, 255, 0); // green, temp
@@ -494,6 +499,10 @@ span.creator-panel-stats {
 
 span.creator-page-link {
 	display: block;
+
+	// FINDTAG
+	display: none;
+
 	color: RGB(0, 160, 255); // bright blue
 	font-weight: bold;
 	font-size: 15px;
@@ -1025,6 +1034,104 @@ input.project-start-submit {
 input.project-start-submit:hover {
 	background-color: RGB(169, 171, 172); // medium grey
 	transition: background-color, 0.2s;
+}
+
+// PROJECT EDIT PAGE
+
+div.project-edit-background {
+	display: block;
+  background-color: RGB(247, 250, 250); // very pale blue
+  padding: 80px 0px;
+}
+
+h2.project-edit-header {
+  display: block;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+	color: RGB(15, 33, 5); // forest green
+}
+
+h3.project-edit-subheader {
+	display: block;
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 60px;
+	color: RGB(15, 33, 5); // forest green
+}
+
+form.project-edit-form {
+	display: block;
+	margin: 0px auto;
+	width: 700px;
+	background-color: RGB(255, 255, 255); // white
+	border-radius: 6px;
+	padding: 20px;
+	padding-bottom: 20px;
+}
+
+div.project-edit-item-box {
+	display: block;
+	background-color: RGB(247, 250, 250); // very pale blue
+	padding: 10px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+}
+
+div.project-edit-item-box:last-of-type {
+	margin-bottom: 0px;
+}
+
+label.project-edit-item-label {
+	color: RGB(15, 33, 5); // forest green
+	padding: 10px;
+	display: block;
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+label.project-edit-reward-label {
+	color: RGB(15, 33, 5); // forest green
+	display: block;
+	margin-bottom: 20px;
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+input.project-edit-item-input {
+	float: right;
+	background-color: RGB(255, 255, 255); // white
+	color: RGB(15, 33, 5); // forest green
+	border-radius: 6px;
+	border: 1px solid RGB(217, 217, 222); // light grey
+	width: 430px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+textarea.project-edit-item-textarea {
+	float: right;
+	background-color: RGB(255, 255, 255); // white
+	color: RGB(15, 33, 5); // forest green
+	border-radius: 6px;
+	border: 1px solid RGB(217, 217, 222); // light grey
+	width: 430px;
+	height: 150px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+div.project-edit-image-upload {
+	float: right;
+	background-color: RGB(255, 255, 255); // white
+	border-radius: 6px;
+	border: 1px dashed RGB(217, 217, 222); // light grey
+	width: 430px;
+	height: 100px;
+	padding: 10px;
 }
 
 // PROJECT TILE

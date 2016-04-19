@@ -23,6 +23,12 @@ var CurrentUserNav = React.createClass({
       whiteBorder = <div className="menu-white-border"></div>;
     }
 
+    // <h6 className="user-menu-header">{"My stuff"}</h6>
+    //
+    // <ul className="user-menu-item-list">
+    // <li className="user-menu-item">{"Profile"}</li>
+    // <li className="user-menu-item">{"Edit Profile"}</li>
+    // </ul>
     return (
       <div className="current-user-nav" onClick={this.handleClick}>
         <span className="user-nav-label">
@@ -33,12 +39,6 @@ var CurrentUserNav = React.createClass({
         {whiteBorder}
 
         <div className={"user-nav-menu" + active}>
-          <h6 className="user-menu-header">{"My stuff"}</h6>
-
-          <ul className="user-menu-item-list">
-            <li className="user-menu-item">{"Profile"}</li>
-            <li className="user-menu-item">{"Edit Profile"}</li>
-          </ul>
 
           <p className="user-menu-text">
             {"You're logged in as "}
