@@ -5,7 +5,8 @@
 // RESET
 
 body, header, h1, h2, h3, h4, h5, h6, ul, li,
-a, img, span, data, p, button, hr, input, select {
+a, img, span, data, p, button, hr, input, select,
+textarea {
 	border: 0;
 	margin: 0;
 	padding: 0;
@@ -1147,6 +1148,17 @@ textarea.project-edit-item-textarea {
 	font-size: 14px;
 }
 
+select.project-edit-item-select {
+	float: right;
+	background-color: RGB(255, 255, 255); // white
+	color: RGB(15, 33, 5); // forest green
+	border-radius: 6px;
+	border: 1px solid RGB(217, 217, 222); // light grey
+	width: 450px;
+	padding: 10px;
+	font-size: 14px;
+}
+
 input.project-edit-image-upload {
 	float: right;
 	background-color: RGB(255, 255, 255); // white
@@ -1158,6 +1170,7 @@ input.project-edit-image-upload {
 	position: relative;
 }
 
+
 input.project-edit-image-upload:hover {
   background-color: RGB(232, 246, 255); // darker blue
 }
@@ -1168,6 +1181,38 @@ img.project-edit-preview {
 	height: auto;
 	margin-top: 20px;
 	border: 1px dashed RGB(217, 217, 222); // light grey
+}
+
+input.project-edit-image-upload.error {
+	border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+input.project-edit-item-input.error {
+	border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+textarea.project-edit-item-textarea.error {
+	border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+select.project-edit-item-select.error {
+	border: 2px solid RGB(246, 0, 47); // purple-red
+}
+
+div.edit-error-list {
+	width: 700px;
+	margin: 0px auto 40px;
+}
+
+span.edit-error {
+	font-size: 18px;
+	display: block;
+	color: RGB(246, 0, 47); // purple-red
+	padding-bottom: 20px;
+}
+
+span.edit-error:last-of-type {
+	padding-bottom: 0px;
 }
 
 // PROJECT TILE
