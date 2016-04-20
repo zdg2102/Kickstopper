@@ -1041,7 +1041,30 @@ input.project-start-submit:hover {
 div.project-edit-background {
 	display: block;
   background-color: RGB(247, 250, 250); // very pale blue
-  padding: 80px 0px;
+  padding: 40px 0px 80px;
+}
+
+div.project-edit-button-container {
+	display: block;
+	margin: 0px auto;
+	width: 700px;
+}
+
+button.project-edit-submit {
+	float: right;
+	background-color: RGB(255, 255, 255); // white
+	border-radius: 6px;
+	border: 1px solid RGB(217, 217, 222); // light grey
+	font-size: 14px;
+	font-weight: bold;
+	padding: 20px;
+	margin-bottom: 50px;
+	color: RGB(15, 33, 5); // forest green
+	cursor: pointer;
+}
+
+button.project-edit-submit:hover {
+	background-color: RGB(247, 250, 250); // very pale blue
 }
 
 h2.project-edit-header {
@@ -1124,14 +1147,27 @@ textarea.project-edit-item-textarea {
 	font-size: 14px;
 }
 
-div.project-edit-image-upload {
+input.project-edit-image-upload {
 	float: right;
 	background-color: RGB(255, 255, 255); // white
 	border-radius: 6px;
 	border: 1px dashed RGB(217, 217, 222); // light grey
 	width: 430px;
-	height: 100px;
 	padding: 10px;
+	cursor: pointer;
+	position: relative;
+}
+
+input.project-edit-image-upload:hover {
+  background-color: RGB(232, 246, 255); // darker blue
+}
+
+img.project-edit-preview {
+  float: right;
+	width: 450px;
+	height: auto;
+	margin-top: 20px;
+	border: 1px dashed RGB(217, 217, 222); // light grey
 }
 
 // PROJECT TILE

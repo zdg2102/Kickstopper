@@ -65,7 +65,9 @@ var CheckoutPage = React.createClass({
             <p className="checkout-form-info">
               {"The Stripe payment API is configured to run in Test mode." +
               " If you'd like to make a pledge, you can use the dummy" +
-              " card number 4242 4242 4242 4242 and any 3-digit CVN."}
+              " card number 4242 4242 4242 4242, any 3-digit CVN, and" +
+              " any future expiration date. All other fields can be" +
+              " filled in with any non-blank values."}
             </p>
 
             <CheckoutForm checkout={this.state.checkout} />
