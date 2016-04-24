@@ -54,4 +54,13 @@ class Project < ActiveRecord::Base
     images.where(use_type: :project_secondary).first
   end
 
+  def handle_funding_date
+    # check if project has reached its funding date
+    if amount_pledged >= funding_goal
+
+    else
+
+    end
+  end
+
 end
