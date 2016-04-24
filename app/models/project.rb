@@ -57,10 +57,19 @@ class Project < ActiveRecord::Base
   def handle_funding_date
     # check if project has reached its funding date
     if amount_pledged >= funding_goal
-
-    else
-
+      # charge all the pledges that have Stripe card tokens
+      charge_pledges = self.pledges
+        .where("pledges.stripe_customer_id IS NOT NULL")
+      charge_pledges.each do |pledge|
+        stripe_token = pledge.stripe_customer_id
+        # 
+      end
     end
+    # regardless of whether it reached its goal or not,
+    # destroy all dependent records and self
+    self.pledges.destroy_all
+    self.rewards.destroy_all
+    self.destroy
   end
 
 end
