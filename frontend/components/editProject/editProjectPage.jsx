@@ -8,6 +8,7 @@ var EditProjectPage = React.createClass({
   getInitialState: function () {
     return {
       categoryTree: [],
+      fetchedInitialData: true,
       mainImageUrl: "",
       mainImageFile: null,
       secondaryImageUrl: "",
@@ -57,6 +58,12 @@ var EditProjectPage = React.createClass({
     if (this.props.location.query.category) {
       this.setState({ category: this.props.location.query.category });
     }
+    ApiUtil.getUnlaunchedProject(
+      this.props.params.unlaunchedProjectId,
+      function (project) {
+        this.initialUpdate(project);
+      }.bind(this)
+    )
   },
 
   componentWillUnmount: function () {
@@ -67,6 +74,36 @@ var EditProjectPage = React.createClass({
     var category = arg || this.state.category
     var newTree = CategoryStore.prunedTree(category);
     this.setState({ categoryTree: newTree });
+  },
+
+  initialUpdate: function (project) {
+    // only update once, to avoid overwriting data the user
+    // is partway through completing if the
+    // unlaunched projects store somehow gets re-triggered
+    if (!this.state.fetchedInitialData) {
+      this.setState({
+        mainImageUrl: "",
+        mainImageFile: null,
+        secondaryImageUrl: "",
+        secondaryImageFile: null,
+        title: "",
+        category: "",
+        subcategory: "",
+        blurb: "",
+        duration: "",
+        goal: "",
+        description: "",
+        rewardOneMin: "",
+        rewardOneTitle: "",
+        rewardOneDesc: "",
+        rewardTwoMin: "",
+        rewardTwoTitle: "",
+        rewardTwoDesc: "",
+        rewardThreeMin: "",
+        rewardThreeTitle: "",
+        rewardThreeDesc: ""
+      });
+    }
   },
 
   handleImageUpload: function (imageName, e) {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417173615) do
+ActiveRecord::Schema.define(version: 20160424135049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,17 @@ ActiveRecord::Schema.define(version: 20160417173615) do
   add_index "unlaunched_projects", ["creator_id"], name: "index_unlaunched_projects_on_creator_id", using: :btree
   add_index "unlaunched_projects", ["subcategory_id"], name: "index_unlaunched_projects_on_subcategory_id", using: :btree
 
+  create_table "unlaunched_rewards", force: :cascade do |t|
+    t.integer  "unlaunched_project_id", null: false
+    t.integer  "minimum_pledge"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "unlaunched_rewards", ["unlaunched_project_id"], name: "index_unlaunched_rewards_on_unlaunched_project_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",          null: false
     t.string   "email",         null: false
@@ -144,4 +155,5 @@ ActiveRecord::Schema.define(version: 20160417173615) do
   add_foreign_key "subcategories", "categories"
   add_foreign_key "unlaunched_projects", "subcategories"
   add_foreign_key "unlaunched_projects", "users", column: "creator_id"
+  add_foreign_key "unlaunched_rewards", "unlaunched_projects"
 end
