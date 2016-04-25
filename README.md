@@ -28,6 +28,7 @@ On Kickstopper, users have the ability to browse and search projects, make pledg
 * User selecting a reward and beginning the checkout process creates a Checkout object on the server side, so that the payment values can't be manipulated on the front end. On completion, Checkout is destroyed and a new Pledge created with the Checkout's values
 * Using the Stripe API in test mode, user can submit a predefined dummy card number (included on the payment page form) to generate a response from Stripe
 * Stripe token is stored with the Pledge in the Pledges table on the server, so it can be charged only when the project reaches its funding date
+* Scheduled Rake task runs every day with Heroku Scheduler to find all projects whose funding period ends that day, charge their pledges if they met their funding goal, and destroy the project and all dependent records
 
 ### Create
 
