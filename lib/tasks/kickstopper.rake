@@ -10,7 +10,9 @@ namespace :kickstopper do
     # to sort, explore, and filter, need to generate new seeds
     # every time old projects reach their funding date and
     # are destroyed
-    new_seeds = GenerateSeeds.new(deadline_projects.length)
-    new_seeds.generate_new_seeds
+    if deadline_projects.length > 0
+      new_seeds = GenerateSeeds.new(deadline_projects.length)
+      new_seeds.generate_new_seeds
+    end
   end
 end
