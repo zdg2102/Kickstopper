@@ -60,14 +60,20 @@ class Project < ActiveRecord::Base
       # charge all the pledges that have Stripe card tokens
       charge_pledges = self.pledges
         .where("pledges.stripe_customer_id IS NOT NULL")
+      Stripe.api_key = ENV["stripe_secret_test_key"]
       charge_pledges.each do |pledge|
         stripe_token = pledge.stripe_customer_id
-        # 
+        # amount charged must be in cents
+        Stripe::Charge.create(
+          amount: (pledge.pledge_amount * 100).to_i,
+          currency: 'usd',
+          customer: stripe_token
+        )
       end
     end
     # regardless of whether it reached its goal or not,
     # destroy all dependent records and self
-    self.pledges.destroy_all
+    # (pledges will be destroyed by reward destruction)
     self.rewards.destroy_all
     self.destroy
   end
