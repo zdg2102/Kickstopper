@@ -209,13 +209,31 @@ var ApiUtil = {
     });
   },
 
-  updateUnlaunchedProject: function (unlaunchedProjectId, params,
+  updateUnlaunchedProject: function (unlaunchedProjectId, formData,
     successCallback, errorCallback) {
     $.ajax({
       type: 'PUT',
       url: '/api/unlaunched_projects/' + unlaunchedProjectId,
+      processData: false,
+      contentType: false,
       dataType: 'json',
-      data: { project: params },
+      data: formData,
+      success: function (project) {
+        if (successCallback) { successCallback(project); }
+      },
+      error: function () {
+        if (errorCallback) { errorCallback(); }
+      }
+    });
+  },
+
+  createProjectFromUnlaunchedProject: function (
+    unlaunchedProjectId, successCallback, errorCallback) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/projects',
+      dataType: 'json',
+      data: { unlaunchedProjectId: unlaunchedProjectId },
       success: function (project) {
         if (successCallback) { successCallback(project); }
       },

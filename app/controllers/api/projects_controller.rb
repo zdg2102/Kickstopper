@@ -6,6 +6,12 @@ class Api::ProjectsController < ApplicationController
     render :index
 	end
 
+  def create
+    # creates project from unlaunched project and destroys
+    # unlaunched project and its rewards, reassigns its images
+    # to the project
+  end
+
 	def show
     # allows three values for param detailType:
 		# main, panel, and tile

@@ -1,6 +1,10 @@
 # clear all existing rows
 SessionToken.destroy_all
+Checkout.destroy_all
+Image.destroy_all
 Pledge.destroy_all
+UnlaunchedReward.destroy_all
+UnlaunchedProject.destroy_all
 Reward.destroy_all
 Project.destroy_all
 User.destroy_all

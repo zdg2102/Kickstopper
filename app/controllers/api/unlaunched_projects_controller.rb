@@ -23,6 +23,18 @@ class Api::UnlaunchedProjectsController < ApplicationController
   def update
     @project = UnlaunchedProject.find(params[:id])
     if current_user.id == @project.creator_id
+      if params[:project][:duration] != ""
+        duration = params[:project][:duration].to_i
+        params[:project][:funding_date] = Date.today + duration.days
+      end
+      if params[:project][:subcategory] != ""
+        params[:project][:subcategory_id] = Subcategory
+          .find_by(name: params[:project][:subcategory].titleize).id
+      end
+      if params[:project][:funding_goal] != ""
+        params[:project][:funding_goal] =
+          params[:project][:funding_goal].to_i
+      end
       @project.update(unlaunched_project_params)
       if @project.save
         render json: @project
@@ -37,7 +49,9 @@ class Api::UnlaunchedProjectsController < ApplicationController
   private
 
   def unlaunched_project_params
-    params.require(:project).permit()
+    params.require(:project).permit(:title, :funding_date,
+      :subcategory_id, :project_blurb, :project_description,
+      :funding_goal)
   end
 
 end

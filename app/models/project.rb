@@ -75,6 +75,7 @@ class Project < ActiveRecord::Base
     # destroy all dependent records and self
     # (pledges will be destroyed by reward destruction)
     self.rewards.destroy_all
+    self.images.destroy_all
     self.destroy
   end
 

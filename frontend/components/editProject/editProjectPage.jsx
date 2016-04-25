@@ -2,13 +2,15 @@
 
 var React = require('react');
 var CategoryStore = require('../../stores/categoryStore');
+var UnlaunchedProjectStore =
+  require('../../stores/unlaunchedProjectStore');
 var ApiUtil = require('../../utils/apiUtil');
 
 var EditProjectPage = React.createClass({
   getInitialState: function () {
     return {
       categoryTree: [],
-      fetchedInitialData: true,
+      fetchedInitialData: false,
       mainImageUrl: "",
       mainImageFile: null,
       secondaryImageUrl: "",
@@ -54,20 +56,21 @@ var EditProjectPage = React.createClass({
   componentDidMount: function () {
     this.categoryStoreToken = CategoryStore
       .addListener(this.updateCategories);
+    this.unlaunchedProjectStoreToken = UnlaunchedProjectStore
+      .addListener(this.initialUpdate);
     ApiUtil.getCategoryTree();
     if (this.props.location.query.category) {
       this.setState({ category: this.props.location.query.category });
     }
     ApiUtil.getUnlaunchedProject(
-      this.props.params.unlaunchedProjectId,
-      function (project) {
-        this.initialUpdate(project);
-      }.bind(this)
+      this.props.params.unlaunchedProjectId
     )
+    ApiUtil.getCategoryTree();
   },
 
   componentWillUnmount: function () {
     this.categoryStoreToken.remove();
+    this.unlaunchedProjectStoreToken.remove();
   },
 
   updateCategories: function (arg) {
@@ -80,13 +83,15 @@ var EditProjectPage = React.createClass({
     // only update once, to avoid overwriting data the user
     // is partway through completing if the
     // unlaunched projects store somehow gets re-triggered
+    var project = UnlaunchedProjectStore.currentProject();
     if (!this.state.fetchedInitialData) {
       this.setState({
+        fetchedInitialData: true,
         mainImageUrl: "",
         mainImageFile: null,
         secondaryImageUrl: "",
         secondaryImageFile: null,
-        title: "",
+        title: project.title,
         category: "",
         subcategory: "",
         blurb: "",
@@ -177,6 +182,38 @@ var EditProjectPage = React.createClass({
       newState.errorMessages.push("Reward #1 minimum pledge must " +
       "be greater than zero");
     }
+    if (this.state.rewardOneTitle.length === 0) {
+      newState.rewardOneTitleError = true;
+      newState.errorMessages.push("Reward #1 must have a title")
+    }
+    if (this.state.rewardOneDesc.length === 0) {
+      newState.rewardOneDescError = true;
+      newState.errorMessages.push("Reward #1 must have a description")
+    }
+    // only trigger errors on rewards 2 and 3 if they're
+    // partially filled out
+    if ((this.state.rewardTwoMin.length > 0 ||
+      this.state.rewardTwoTitle.length > 0 ||
+      this.state.rewardTwoDesc.length > 0) &&
+      (this.state.rewardTwoMin.length === 0 ||
+      this.state.rewardTwoTitle.length === 0 ||
+      this.state.rewardThreeTitle.length === 0)) {
+      newState.rewardTwoMinError = true;
+      newState.rewardTwoTitleError = true;
+      newState.rewardTwoDescError = true;
+      newState.errorMessages.push("Reward #2 partially filled out")
+    }
+    if ((this.state.rewardThreeMin.length > 0 ||
+      this.state.rewardThreeTitle.length > 0 ||
+      this.state.rewardThreeDesc.length > 0) &&
+      (this.state.rewardThreeMin.length === 0 ||
+      this.state.rewardThreeTitle.length === 0 ||
+      this.state.rewardThreeTitle.length === 0)) {
+      newState.rewardThreeMinError = true;
+      newState.rewardThreeTitleError = true;
+      newState.rewardThreeDescError = true;
+      newState.errorMessages.push("Reward #3 partially filled out")
+    }
 
     if (newState.errorMessages.length > 0) {
       this.setState(newState);
@@ -186,8 +223,45 @@ var EditProjectPage = React.createClass({
   },
 
   saveProject: function () {
+    var formData = new FormData();
+    formData.append("project[main_image]", this.state.mainImageFile);
+    formData.append("project[secondary_image]",
+      this.state.secondaryImageFile);
+    formData.append("project[title]", this.state.title);
+    formData.append("project[subcategory]", this.state.subcategory);
+    formData.append("project[project_blurb]", this.state.blurb);
+    formData.append("project[project_description]",
+      this.state.description);
+    formData.append("project[duration]", this.state.duration);
+    formData.append("project[funding_goal]", this.state.goal);
+    formData.append("reward_one[minimum_pledge]",
+      this.state.rewardOneMin);
+    formData.append("reward_one[title]", this.state.rewardOneTitle);
+    formData.append("reward_one[description]",
+      this.state.rewardOneDesc);
+    formData.append("reward_one[order]", 1);
+    formData.append("reward_two[minimum_pledge]",
+      this.state.rewardTwoMin);
+    formData.append("reward_two[title]", this.state.rewardTwoTitle);
+    formData.append("reward_two[description]",
+      this.state.rewardTwoDesc);
+    formData.append("reward_two[order]", 2);
+    formData.append("reward_three[minimum_pledge]",
+      this.state.rewardThreeMin);
+    formData.append("reward_three[title]", this.state.rewardThreeTitle);
+    formData.append("reward_three[description]",
+      this.state.rewardThreeDesc);
+    formData.append("reward_three[order]", 3);
 
-    console.log("yay");
+    ApiUtil.updateUnlaunchedProject(
+      this.props.params.unlaunchedProjectId,
+      formData,
+      function () {
+
+        console.log("saved");
+
+      }
+    );
   },
 
   handleTextInput: function (fieldName, e) {
