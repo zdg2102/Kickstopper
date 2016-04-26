@@ -7,10 +7,15 @@ var UnlaunchedProjectStore =
 var ApiUtil = require('../../utils/apiUtil');
 
 var EditProjectPage = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function () {
     return {
       categoryTree: [],
       fetchedInitialData: false,
+      currentlySubmitting: false,
       mainImageUrl: "",
       mainImageFile: null,
       secondaryImageUrl: "",
@@ -55,17 +60,14 @@ var EditProjectPage = React.createClass({
 
   componentDidMount: function () {
     this.categoryStoreToken = CategoryStore
-      .addListener(this.updateCategories);
+      .addListener(this.updateCategories.bind(this,
+      this.props.location.query.category));
     this.unlaunchedProjectStoreToken = UnlaunchedProjectStore
       .addListener(this.initialUpdate);
     ApiUtil.getCategoryTree();
-    if (this.props.location.query.category) {
-      this.setState({ category: this.props.location.query.category });
-    }
     ApiUtil.getUnlaunchedProject(
       this.props.params.unlaunchedProjectId
     )
-    ApiUtil.getCategoryTree();
   },
 
   componentWillUnmount: function () {
@@ -76,7 +78,11 @@ var EditProjectPage = React.createClass({
   updateCategories: function (arg) {
     var category = arg || this.state.category
     var newTree = CategoryStore.prunedTree(category);
-    this.setState({ categoryTree: newTree });
+    var newState = { categoryTree: newTree };
+    if (this.props.location.query.category) {
+      newState.category = this.props.location.query.category;
+    }
+    this.setState(newState);
   },
 
   initialUpdate: function (project) {
@@ -92,7 +98,6 @@ var EditProjectPage = React.createClass({
         secondaryImageUrl: "",
         secondaryImageFile: null,
         title: project.title,
-        category: "",
         subcategory: "",
         blurb: "",
         duration: "",
@@ -134,6 +139,11 @@ var EditProjectPage = React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
+
+    // do nothing if they've already clicked it
+    if (this.state.currentlySubmitting) {
+      return;
+    }
 
     var newState = {};
     newState.errorMessages = [];
@@ -197,7 +207,7 @@ var EditProjectPage = React.createClass({
       this.state.rewardTwoDesc.length > 0) &&
       (this.state.rewardTwoMin.length === 0 ||
       this.state.rewardTwoTitle.length === 0 ||
-      this.state.rewardThreeTitle.length === 0)) {
+      this.state.rewardTwoTitle.length === 0)) {
       newState.rewardTwoMinError = true;
       newState.rewardTwoTitleError = true;
       newState.rewardTwoDescError = true;
@@ -223,6 +233,9 @@ var EditProjectPage = React.createClass({
   },
 
   saveProject: function () {
+    // set the state so the button is inactive
+    this.setState({ currentlySubmitting: true });
+
     var formData = new FormData();
     formData.append("project[main_image]", this.state.mainImageFile);
     formData.append("project[secondary_image]",
@@ -257,10 +270,17 @@ var EditProjectPage = React.createClass({
       this.props.params.unlaunchedProjectId,
       formData,
       function () {
-
-        console.log("saved");
-
-      }
+        // at this point because we can't yet return
+        // later to unlaunched projects, we immediately
+        // trigger the creation of the final project
+        ApiUtil.createProjectFromUnlaunchedProject(
+          this.props.params.unlaunchedProjectId,
+          function (newProject) {
+            this.context.router
+              .push("/projects/" + newProject.id);
+          }.bind(this)
+        );
+      }.bind(this)
     );
   },
 
@@ -288,6 +308,7 @@ var EditProjectPage = React.createClass({
   },
 
   render: function () {
+
     var mainImageError, secondaryImageError, titleError,
       categoryError, subcategoryError, blurbError, durationError,
       goalError, descriptionError, rewardOneMinError,
@@ -326,6 +347,13 @@ var EditProjectPage = React.createClass({
       );
     }
 
+    var submitting = "";
+    var submitValue = "Submit";
+    if (this.state.currentlySubmitting) {
+      submitting = " inactive-submit-button"
+      submitValue = "Submitting...";
+    }
+
     var mainImage, secondaryImage;
     if (this.state.mainImageUrl.length > 0) {
       mainImage = <img className="project-edit-preview"
@@ -361,9 +389,9 @@ var EditProjectPage = React.createClass({
     return (
       <div className="project-edit-background">
         <div className="project-edit-button-container group">
-          <button className="project-edit-submit"
+          <button className={"project-edit-submit" + submitting}
             onClick={this.handleSubmit}>
-            {"Submit"}
+            {submitValue}
           </button>
         </div>
         <h2 className="project-edit-header">

@@ -1062,10 +1062,20 @@ button.project-edit-submit {
 	margin-bottom: 50px;
 	color: RGB(15, 33, 5); // forest green
 	cursor: pointer;
+	width: 120px;
 }
 
 button.project-edit-submit:hover {
 	background-color: RGB(247, 250, 250); // very pale blue
+}
+
+button.project-edit-submit.inactive-submit-button {
+	cursor: default;
+	background-color: RGB(217, 217, 222); // light grey
+}
+
+button.project-edit-submit.inactive-submit-button:hover {
+	background-color: RGB(217, 217, 222); // light grey
 }
 
 h2.project-edit-header {
