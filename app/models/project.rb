@@ -26,6 +26,45 @@ class Project < ActiveRecord::Base
 	has_many :pledges, through: :rewards, dependent: :destroy
 	has_many :backers, through: :pledges, source: :user
 
+  def self.create_from_unlaunched_project(unlaunched_project)
+    # take an unlaunched project and its rewards and convert
+    # them to a project and its rewards (destroying the
+    # unlaunched project and reward records after)
+
+    # add the properties to the new project
+    new_project = Project.create!(
+      title: unlaunched_project.title,
+      creator_id: unlaunched_project.creator_id,
+      subcategory_id: unlaunched_project.subcategory_id,
+      funding_goal: unlaunched_project.funding_goal,
+      funding_date: unlaunched_project.funding_date,
+      project_blurb: unlaunched_project.project_blurb,
+      project_description: unlaunched_project.project_description,
+    )
+    # switch over the project images
+    unlaunched_project.main_image.update!(
+      imageable: new_project
+    )
+    unlaunched_project.secondary_image.update!(
+      imageable: new_project
+    )
+    # create the new rewards
+    unlaunched_rewards = unlaunched_project.unlaunched_rewards
+    unlaunched_rewards.each do |unlaunched|
+      new_project.rewards.create!(
+        minimum_pledge: unlaunched.minimum_pledge,
+        title: unlaunched.title,
+        description: unlaunched.description
+      )
+    end
+    # destroy the unlaunched records as they are no longer
+    # needed
+    unlaunched_project.unlaunched_rewards.destroy_all
+    unlaunched_project.destroy
+    # return the new project
+    new_project
+  end
+
 	def amount_pledged
     # check if value is already set as part of aggregate query,
     # to avoid firing an extra query

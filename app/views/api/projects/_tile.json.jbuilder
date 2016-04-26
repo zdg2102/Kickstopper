@@ -17,3 +17,5 @@ end
 
 json.creator_name project.creator.name
 json.amount_pledged project.amount_pledged
+json.formatted_amount_pledged project.
+  int_dollar_formatted(project.amount_pledged)

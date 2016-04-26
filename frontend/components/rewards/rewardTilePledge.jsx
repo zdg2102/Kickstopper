@@ -83,7 +83,7 @@ var RewardTilePledge = React.createClass({
         </div>
         <div className="reward-tile-text">
           <h5 className="reward-tile-minimum">
-            {this.props.reward.minimum_pledge}
+            {this.props.reward.formatted_minimum_pledge}
           </h5>
 
           <span className="reward-tile-title">

@@ -22,6 +22,8 @@ var ProjectTile = React.createClass({
 			title = this.props.project.title;
 			creatorName = this.props.project.creator_name;
 			amountPledged = this.props.project.amount_pledged;
+			formattedAmountPledged = this.props.project
+			  .formatted_amount_pledged;
       fundingGoal = this.props.project.funding_goal;
 			fundingDate = this.props.project.funding_date;
 			blurb = this.props.project.project_blurb;
@@ -82,7 +84,7 @@ var ProjectTile = React.createClass({
 
 						<li>
 							<data className="tile-stat-num">
-								{amountPledged}
+								{formattedAmountPledged}
 							</data>
 							<span className="tile-stat-label">
 								{"pledged"}

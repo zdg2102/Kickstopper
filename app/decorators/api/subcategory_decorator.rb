@@ -1,7 +1,7 @@
-class Api::CategoryDecorator < Draper::Decorator
+class Api::SubcategoryDecorator < Draper::Decorator
   delegate_all
 
-  decorates Category
+  decorates Subcategory
 
   def param_name
     # snake case version of name used for passing in queries

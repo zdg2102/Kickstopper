@@ -57,7 +57,7 @@ var RewardTileMain = React.createClass({
       {hoverDiv}
       <div className="reward-tile-content">
         <h5 className="reward-tile-minimum">
-          {this.props.reward.minimum_pledge}
+          {this.props.reward.formatted_minimum_pledge}
         </h5>
 
         <span className="reward-tile-title">
