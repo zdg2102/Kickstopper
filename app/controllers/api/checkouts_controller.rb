@@ -9,6 +9,7 @@ class Api::CheckoutsController < ApplicationController
       if checkout.save
         @checkout = Checkout.includes(:reward, :project,
           :project_creator).find(checkout.id)
+        @checkout = ApplicationDecorator.decorate(@checkout)
         render :show
       else
         render json: {}, status: 403
@@ -25,6 +26,7 @@ class Api::CheckoutsController < ApplicationController
       if checkout.user_id == user.id
         @checkout = Checkout.includes(:reward, :project,
           :project_creator).find(checkout.id)
+        @checkout = ApplicationDecorator.decorate(@checkout)
         render :show
       else
         render json: {}, status: 403

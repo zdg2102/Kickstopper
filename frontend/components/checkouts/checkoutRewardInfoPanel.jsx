@@ -7,7 +7,7 @@ var CheckoutRewardInfoPanel = React.createClass({
   render: function () {
     var pledgeAmount, rewardMinimum, rewardTitle, rewardDescription;
     if (this.props.checkout) {
-      pledgeAmount = this.props.checkout.pledge_amount;
+      pledgeAmount = this.props.checkout.formatted_pledge_amount;
       rewardMinimum = this.props.checkout.reward_minimum;
       rewardTitle = this.props.checkout.reward_title;
       rewardDescription = this.props.checkout.reward_description;
