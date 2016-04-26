@@ -41,6 +41,10 @@ class Api::ProjectsController < ApplicationController
             description: ul_reward.description
           )
         end
+        # if we successfully reached here, destroy
+        # the unlaunched records
+        unlaunched_project.unlaunched_rewards.destroy_all
+        unlaunched_project.destroy
         # return the project id so we can redirect
         render json: { "id" => @project.id }, status: 200
       else

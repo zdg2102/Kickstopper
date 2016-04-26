@@ -43,5 +43,6 @@ On Kickstopper, users have the ability to browse and search projects, make pledg
 ## Planned/To-Dos
 
 * Ability to cancel pledges up to the project funding date
+* Replace project description field in project creation form with a rich text editor
 * System-generated email to user when their project either meets or fails to meet its funding goal
 * Automated Rake task to clear old Checkout objects after 7 days (for payments that were initiated but never completed)
