@@ -38,6 +38,7 @@ On Kickstopper, users have the ability to browse and search projects, make pledg
 ### Other Features
 
 * OAuth login with Facebook
+* Display logic of values like project pledge totals handled by Decorators via Draper gem
 * Pages that require login redirect user to the login screen, and then back to their original target page upon completion
 
 ## Planned/To-Dos
