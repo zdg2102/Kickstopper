@@ -25,6 +25,7 @@ going_out = daily_life.subcategories.create!(name: "Going Out")
 airplanes = daily_life.subcategories.create!(name: "Airplanes")
 social_media = daily_life.subcategories.create!(name: "Social Media")
 bosses = work.subcategories.create!(name: "Bosses")
+coworkers = work.subcategories.create!(name: "Coworkers")
 
 # create Guest user to work with Guest Login button
 User.create!(name: "Guest", email: "GuestSession", password: "password")

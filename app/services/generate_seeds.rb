@@ -35,6 +35,16 @@ class GenerateSeeds
     weekend_main = File.open('app/assets/images/weekend-main.jpg')
     weekend_secondary =
       File.open('app/assets/images/weekend-secondary.jpg')
+    artsy_main = File.open('app/assets/images/artsy-main.jpg')
+    artsy_secondary = File.open('app/assets/images/artsy-secondary.jpg')
+    thief_main = File.open('app/assets/images/thief-main.jpg')
+    thief_secondary = File.open('app/assets/images/thief-secondary.jpg')
+    play_main = File.open('app/assets/images/play-main.jpg')
+    play_secondary = File.open('app/assets/images/play-secondary.jpg')
+    recliner_main = File.open('app/assets/images/recliner-main.jpg')
+    recliner_secondary = File
+      .open('app/assets/images/recliner-secondary.jpg')
+
 
     # set up the non-randomized info for each project in a hash, so
     # the project duplicates can be created in a random order
@@ -374,6 +384,174 @@ class GenerateSeeds
     weekend_info[:rewards] << weekend_reward_three_info
     projects_info << weekend_info
 
+    artsy_info = {
+      subcategory: Subcategory.find_by(name: "Weird Neighbors"),
+      title: "Real Job for Artsy Cousin",
+      project_blurb: "Tired of hearing your cousin explain how"\
+        " his interpretive dance expresses 'the truth of reality'?"\
+        " Force him to learn the truth of a cubicle!",
+      project_description: "This is your aunt, and I'm worried"\
+        " about your cousin. He claimed that staying on my couch"\
+        " was only temporary, but now he's saying that he needs"\
+        " to express his independent spirit, which apparently means"\
+        " going to an art gallery every weekend, covering himself"\
+        " in glue, and making chicken noises. And spending the rest"\
+        " of the week mooching cash from me. With the money I raise"\
+        " from this Kickstopper, I plan to bribe his performance"\
+        " group to kick him out, so he'll finally be forced to get"\
+        " a real job.",
+      rewards: [],
+      main_image: artsy_main,
+      secondary_image: artsy_secondary
+    }
+
+    artsy_reward_one_info = {
+      title: "Vaudevillian Tier",
+      description: "At this tier, I will provide you one tomato"\
+      " or other squishy and overripe fruit at his final performance"\
+      " for you to throw at the stage."
+    }
+
+    artsy_reward_two_info = {
+      title: "Monologue Tier",
+      description: "At this tier, I will force him to sit and"\
+      " listen while you lecture on a topic that he finds as"\
+      " irritating as his lectures on the moral inferiority of"\
+      " corporate work."
+    }
+
+    artsy_reward_three_info = {
+      title: "Day in the Life Tier",
+      description: "At this tier, in preparation for his"\
+      " upcoming life change, you get to force him to go through"\
+      " your workday for one full day, and experience what it's"\
+      " like to actually work for a living."
+    }
+
+    artsy_info[:rewards] << artsy_reward_one_info
+    artsy_info[:rewards] << artsy_reward_two_info
+    artsy_info[:rewards] << artsy_reward_three_info
+    projects_info << artsy_info
+
+    thief_info = {
+      subcategory: Subcategory.find_by(name: "Coworkers"),
+      title: "Stop the Refrigerator Thief",
+      project_blurb: "Stop the mysterious bandit stealing"\
+        " our lunches from the fridge!",
+      project_description: "We live every day under a shadowy"\
+        " threat. Someone, or perhaps something, somewhere, in"\
+        " the mysterious wilderness between the copy machine and"\
+        " the elevator bank, is stealing our lunches from the"\
+        " fridge. An evil brigand who knows neither friend nor"\
+        " foe, instead knowing only the foul hunger that drives him to"\
+        " pilfer that which does not belong to him. And we all"\
+        " know it's you, Steve, so stop trying to deny it.",
+      rewards: [],
+      main_image: thief_main,
+      secondary_image: thief_secondary
+    }
+
+    thief_reward_one_info = {
+      title: "Great Knight Tier",
+      description: "At this tier, we will present you with a sword,"\
+        " worthy of a knight who defeated such a beast as this."\
+        " Except your sword will be made of stryofoam, because"\
+        " anything else is too expensive and will get us in trouble"\
+        " with HR."
+    }
+
+    thief_reward_two_info = {
+      title: "Lunchlord Tier",
+      description: "At this tier, for having saved all of our"\
+        " lunches from certain doom, you will be entitled to"\
+        " a few bites of whichever lunch in the fridge is best"\
+        " that day."
+    }
+
+    thief_info[:rewards] << thief_reward_one_info
+    thief_info[:rewards] << thief_reward_two_info
+    projects_info << thief_info
+
+    play_info = {
+      subcategory: Subcategory.find_by(name: "Bad Music"),
+      title: "Escape the Elementary School Play",
+      project_blurb: "Avoid having to get excited over your"\
+        " precious little angels' off-key singing",
+      project_description: "Hello parents, this is your"\
+        " children's school. It's once again getting close to"\
+        " the annual school play, which I know you're all thrilled"\
+        " about. So thrilled, in fact, to hear their voices"\
+        " come together in an ear-splitting monotone shout as half of them"\
+        " forget the words and the other half come up with new"\
+        " ones on the spot, that we're sure you'll be willing to"\
+        " pay up to have us forget the whole thing was ever"\
+        " planned in the first place.",
+      rewards: [],
+      main_image: play_main,
+      secondary_image: play_secondary
+    }
+
+    play_reward_one_info = {
+      title: "Good Parent Tier",
+      description: "At this tier, we'll have your kid make"\
+        " some kind of art project, so you can hang it on the"\
+        " fridge to feel less guilty about not wanting to go to"\
+        " the play."
+    }
+
+    play_reward_two_info = {
+      title: "Good Excuse Tier",
+      description: "At this tier, we'll bribe your boss into"\
+        " sending you on a work trip, so you'll have an excuse"\
+        " to miss the next school play too."
+    }
+
+    play_info[:rewards] << play_reward_one_info
+    play_info[:rewards] << play_reward_two_info
+    projects_info << play_info
+
+    recliner_info = {
+      subcategory: Subcategory.find_by(name: "Airplanes"),
+      title: "Stop the Reclining Seat Guy",
+      project_blurb: "Protect your seat! End the tyranny of"\
+        " excessive recliners and chair back kickers!",
+      project_description: "For too long, my fellow airplane"\
+        " passengers, we have been meek and cowed in our shared"\
+        " injustice. For too long, we have allowed the seats in"\
+        " front of and behind us to ruin our flights. But no"\
+        " longer! For we are awakened, and we are mighty!"\
+        " And we're pooling our resources here to buy devices"\
+        " to install on airplane seats that play voice recordings"\
+        " making passive-aggressive comments when people lean back"\
+        " too far.",
+      rewards: [],
+      main_image: recliner_main,
+      secondary_image: recliner_secondary
+    }
+
+    recliner_reward_one_info = {
+      title: "Champion Tier",
+      description: "At this tier, you get one of our"\
+        " passive-aggressive voice playback devices to install"\
+        " on an airplane seat of your choice, striking a blow"\
+        " against tyranny like the champion of justice you are."
+    }
+
+    recliner_reward_two_info = {
+      title: "Rearguard Tier",
+      description: "At this tier, you get one of our"\
+        " prototype devices to defend against seat back kickers."\
+        " It installs in the back of their seat, and every time"\
+        " they kick your seat, it kicks their seat."
+    }
+
+    recliner_info[:rewards] << recliner_reward_one_info
+    recliner_info[:rewards] << recliner_reward_two_info
+    projects_info << recliner_info
+
+    # one more going out
+    # one more coworkers
+
     # Create projects from the project info, randomizing all other values
     @seed_count.times do
 
@@ -420,7 +598,7 @@ class GenerateSeeds
     	end
 
     	# create pledges
-    	rand(5).times do
+    	rand(7).times do
         reward = new_project.rewards.sample
     		reward.pledges.create!(
     		  user_id: User.all.sample.id,

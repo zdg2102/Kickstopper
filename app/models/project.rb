@@ -108,6 +108,11 @@ class Project < ActiveRecord::Base
           currency: 'usd',
           customer: stripe_token
         )
+        # in a live version, this charge would be given
+        # a destination of the Stripe account associated
+        # with the project, and an application fee
+        # parameter would also be passed to add the fee
+        # charge
       end
     end
     # regardless of whether it reached its goal or not,
