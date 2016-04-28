@@ -26,8 +26,11 @@ var AboutPage = React.createClass({
         </h4>
         <p className="about-page-text">
           {"This site is my capstone project at App Academy. You" +
-          " can contact me at zacharydgarcia@gmail.com, or see" +
-          " my profile on "}
+          " can see more of my work on my "}
+          <a className="about-page-text-link" href="http://www.zdgarcia.com/">
+            {"portfolio page"}
+          </a>
+          {" and my "}
           <a className="about-page-text-link" href="https://github.com/zdg2102">
             {"Github"}
           </a>

@@ -1780,10 +1780,10 @@ div.about-page-image {
   display: block;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 1100px;
   height: 550px;
   position: relative;
-  margin-bottom: 400px;
+	margin: 0px auto 400px;
 }
 
 h3.about-page-tagline {
@@ -1803,11 +1803,11 @@ h3.about-page-tagline {
 div.about-page-text-block {
   display: block;
   position: absolute;
-  width: 1040px;
-  margin: calc((100% - 1040px) / 2);
+  width: 900px;
+  margin: calc((100% - 900px) / 2);
   margin-top: 0px;
   margin-bottom: 0px;
-  top: 530px;
+  top: 500px;
   background-color: RGB(43, 222, 115); // bright green
   border-radius: 6px;
 }
