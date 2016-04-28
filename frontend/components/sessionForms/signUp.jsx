@@ -77,7 +77,9 @@ var SignUp = React.createClass({
           this.continueToTarget();
         }.bind(this),
         function (error) {
-          if (error.responseText === "email_taken") {
+          debugger;
+          if (JSON.parse(error.responseText).msg ===
+            "Email already taken") {
             newState.errorMessages.push("An account already exists " +
               "for that email");
             this.setState(newState);

@@ -12,7 +12,7 @@ class Api::CheckoutsController < ApplicationController
         @checkout = ApplicationDecorator.decorate(@checkout)
         render :show
       else
-        render json: {}, status: 403
+        render json: {}, status: 400
       end
     else
       render json: {}, status: 403
@@ -32,7 +32,7 @@ class Api::CheckoutsController < ApplicationController
         render json: {}, status: 403
       end
     else
-      render json: {}, status: 403
+      render json: {}, status: 401
     end
   end
 
