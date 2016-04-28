@@ -7,6 +7,7 @@ class Api::SearchesController < ApplicationController
     }
     filter = FilterProjects.new(filter_params)
     @projects = filter.matching_projects.includes(:creator, :images)
+    @projects = ApplicationDecorator.decorate_collection(@projects)
     render "api/projects/index"
   end
 
