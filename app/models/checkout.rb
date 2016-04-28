@@ -1,3 +1,6 @@
+# temporary object to hold payment details during pledge
+# creation process, to avoid front-end manipulation
+
 class Checkout < ActiveRecord::Base
   validates :user_id, :reward_id, :pledge_amount, presence: true
   validate :pledge_amount_greater_than_reward_minimum

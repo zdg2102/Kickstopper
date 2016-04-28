@@ -106,8 +106,8 @@ var SignUp = React.createClass({
 
   continueToTarget: function () {
     // if they reached this page normally, redirect them to the main page
-    // if they were redirected here while trying to perform another action,
-    // pass them back to their continueTo path
+    // if they were redirected here while trying to perform another
+    // action, pass them back to their continueTo path
     if (this.props.location.query.continueTo) {
       var newParams = {};
       for (var id in this.props.location.query) {

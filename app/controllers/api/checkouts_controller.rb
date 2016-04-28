@@ -4,8 +4,10 @@ class Api::CheckoutsController < ApplicationController
     user = current_user
     checkout_params = params[:checkout]
     if user && checkout_params
-      checkout = user.checkouts.create(reward_id: checkout_params[:rewardId],
-        pledge_amount: checkout_params[:pledgeAmount])
+      checkout = user.checkouts.create(
+        reward_id: checkout_params[:rewardId],
+        pledge_amount: checkout_params[:pledgeAmount]
+      )
       if checkout.save
         @checkout = Checkout.includes(:reward, :project,
           :project_creator).find(checkout.id)

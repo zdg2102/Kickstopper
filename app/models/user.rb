@@ -17,7 +17,11 @@ class User < ActiveRecord::Base
 		user && user.is_password?(password) ? user : nil
 	end
 
+  # NOTE OAuth method needs to check for collision on
+  # email name with already existing accounts
+
   def self.find_or_create_by_auth_hash(auth_hash)
+    # to find a user by OAuth
     user = User.find_by(
       provider: auth_hash[:provider],
       uid: auth_hash[:uid]

@@ -1,4 +1,4 @@
-// Page to display that a pledge has been successfully completed
+// Page to display that a pledge has been successfully created
 
 var React = require('react');
 

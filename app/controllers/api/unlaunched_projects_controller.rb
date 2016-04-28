@@ -1,5 +1,7 @@
 class Api::UnlaunchedProjectsController < ApplicationController
 
+  # NOTE need to replace project json with jbuilder view
+
   def create
     title = params[:project] && params[:project][:title] ?
       params[:project][:title] : ""
@@ -7,7 +9,7 @@ class Api::UnlaunchedProjectsController < ApplicationController
     if @project.save
       render json: @project
     else
-      render json: { "error" => "Failed to save" }, status: 400
+      render json: { "msg" => "Failed to save project" }, status: 400
     end
   end
 
@@ -19,6 +21,8 @@ class Api::UnlaunchedProjectsController < ApplicationController
       render json: {}, status: 403
     end
   end
+
+  # NOTE need to refactor this into a method on the model
 
   def update
     @project = UnlaunchedProject.find(params[:id])
@@ -76,12 +80,9 @@ class Api::UnlaunchedProjectsController < ApplicationController
             description: params[:reward_three][:description]
           )
         end
-
-        # NOTE need to replace this with a proper JSON
-        # rendering
         render json: @project
       else
-        render json: { "error" => "Failed to save" }, status: 400
+        render json: { "msg" => "Failed to save project" }, status: 400
       end
     else
       render json: {}, status: 403

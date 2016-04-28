@@ -1,3 +1,5 @@
+# A user's commitment to fund a project for a given value
+
 class Pledge < ActiveRecord::Base
   validates :user_id, :reward_id, :pledge_amount, presence: true
   validate :pledge_amount_greater_than_reward_minimum

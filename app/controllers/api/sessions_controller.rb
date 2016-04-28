@@ -1,7 +1,6 @@
 class Api::SessionsController < ApplicationController
 
-  # FINDTAG render json is not a long term good solution here, don't
-  # send password digests
+  # NOTE need to replace user json with jbuilder view
 
   def current
     if logged_in?
@@ -24,7 +23,7 @@ class Api::SessionsController < ApplicationController
       login!(user)
       render json: user
     else
-      render json: { "message" => "Invalid credentials" }, status: 401
+      render json: { "msg" => "Invalid credentials" }, status: 401
     end
   end
 

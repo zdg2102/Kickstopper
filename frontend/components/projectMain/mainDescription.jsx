@@ -4,10 +4,6 @@ var React = require('react');
 
 var MainDescription = React.createClass({
 
-	// FINDTAG need to edit this to allow users to write
-	// their descriptions in Markdown
-	// (or rich text editor library)
-
   render: function () {
 
 		var description = this.props.project ?

@@ -6,8 +6,6 @@ var NavFooter = React.createClass({
 
   render: function () {
 
-		// FINDTAG fix category names and column widths
-
     return (
 			<footer className="nav-footer group">
 

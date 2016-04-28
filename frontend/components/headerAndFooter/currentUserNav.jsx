@@ -23,12 +23,15 @@ var CurrentUserNav = React.createClass({
       whiteBorder = <div className="menu-white-border"></div>;
     }
 
+    // NOTE add user menu links back in when user menu is
+    // completed
     // <h6 className="user-menu-header">{"My stuff"}</h6>
     //
     // <ul className="user-menu-item-list">
     // <li className="user-menu-item">{"Profile"}</li>
     // <li className="user-menu-item">{"Edit Profile"}</li>
     // </ul>
+
     return (
       <div className="current-user-nav" onClick={this.handleClick}>
         <span className="user-nav-label">

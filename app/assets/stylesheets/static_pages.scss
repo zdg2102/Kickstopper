@@ -278,7 +278,8 @@ p.user-menu-text {
   font-size: 12px;
   margin: 20px;
 
-  margin-top: 20px; // FINDTAG reset to 0
+  // NOTE reset to 0 when user menu is completed
+  margin-top: 20px;
 
   white-space: nowrap;
 }
@@ -467,7 +468,7 @@ div.creator-panel {
 }
 
 div.creator-circle-icon {
-	// FINDTAG
+	// NOTE turn display back on when user menu is completed
 	display: none;
 
 	float: right;
@@ -501,7 +502,7 @@ span.creator-panel-stats {
 span.creator-page-link {
 	display: block;
 
-	// FINDTAG
+	// NOTE turn display back on when user menu is completed
 	display: none;
 
 	color: RGB(0, 160, 255); // bright blue

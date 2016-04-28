@@ -7,9 +7,7 @@ var MainPage = React.createClass({
   render: function () {
 
     return (
-			<div>
-        {"Main content will go here"}
-			</div>
+			<div></div>
 		);
 	}
 

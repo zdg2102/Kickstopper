@@ -647,13 +647,13 @@ class GenerateSeeds
     # Create projects from the project info, randomizing all other values
     @seed_count.times do
 
-      # for convenience, option to only populate duplicates
-      # of one particular project
+      # if a title was passed at initialization, only
+      # create instances of that particular project
       if @title
         current_project_info = projects_info
           .find { |info| info[:title] == @title }
       else
-        # otherwise take a random one each time
+        # otherwise take a random project each time
         current_project_info = projects_info.sample
       end
 

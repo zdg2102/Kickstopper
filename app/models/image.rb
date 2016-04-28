@@ -1,3 +1,5 @@
+# Class for holding one Paperclip image attachment
+
 class Image < ActiveRecord::Base
   validates :imageable_id, :imageable_type, :use_type, presence: true
 

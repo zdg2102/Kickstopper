@@ -4,7 +4,7 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 
-// temp
+// NOTE remove this after main page is completed
 var IndexRedirect = require('react-router').IndexRedirect;
 
 var browserHistory = require('react-router').browserHistory;
@@ -28,8 +28,8 @@ var SessionForm = require('./components/sessionForms/sessionForm');
 var Login = require('./components/sessionForms/login');
 var SignUp = require('./components/sessionForms/signUp');
 
+// NOTE add this back in when main page is completed
 // <IndexRoute component={MainPage} />
-// FINDTAG have to remove projects when they run out of days
 
 var Routes = (
   <Router history={browserHistory}>

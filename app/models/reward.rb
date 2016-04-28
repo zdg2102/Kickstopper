@@ -1,3 +1,5 @@
+# reward that a user can select for funding a project
+
 class Reward < ActiveRecord::Base
   validates :project_id, :minimum_pledge, :title, :description,
 	  presence: true

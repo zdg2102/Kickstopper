@@ -64,9 +64,12 @@ class FilterProjects
     # add backer_count and amount_pledged to avoid N + 1 querying
     projects
       .joins(<<-SQL)
-        LEFT OUTER JOIN "rewards" ON "rewards"."project_id" = "projects"."id"
-        LEFT OUTER JOIN "pledges" ON "pledges"."reward_id" = "rewards"."id"
-        LEFT OUTER JOIN "users" ON "users"."id" = "pledges"."user_id"
+        LEFT OUTER JOIN
+          "rewards" ON "rewards"."project_id" = "projects"."id"
+        LEFT OUTER JOIN
+          "pledges" ON "pledges"."reward_id" = "rewards"."id"
+        LEFT OUTER JOIN
+          "users" ON "users"."id" = "pledges"."user_id"
       SQL
       .group("projects.id")
       .select(<<-SQL)
@@ -97,7 +100,8 @@ class FilterProjects
       # the current set of projects are converted to a table that
       # is used for the aggregate totals (this causes duplicate
       # retrieval from the projects table, but this is hard to
-      # avoid due to ActiveRecord not giving control over the FROM clause)
+      # avoid due to ActiveRecord not giving control over the FROM
+      # clause)
       project_aggregates_table = projects.to_sql
       # the new set of projects is determined by joining the ranks to
       # data table, leaving us with only the relevant projects with

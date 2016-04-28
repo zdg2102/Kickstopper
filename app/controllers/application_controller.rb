@@ -32,11 +32,11 @@ class ApplicationController < ActionController::Base
   private
 
   def ensure_logged_in
-    render json: { "message" => "Must be logged in" }, status: 401
+    render json: { "msg" => "Must be logged in" }, status: 401
   end
 
   def ensure_logged_out
-    render json: { "message" => "Already logged in" }, status: 401
+    render json: { "msg" => "Already logged in" }, status: 401
   end
 
 end

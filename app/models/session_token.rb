@@ -1,3 +1,6 @@
+# session token for a given login (allows individual user
+# to have multiple simultaneous logins)
+
 class SessionToken < ActiveRecord::Base
   validates :user_id, :token_string, presence: true
   validates :token_string, uniqueness: true
@@ -7,8 +10,8 @@ class SessionToken < ActiveRecord::Base
 
 	belongs_to :user
 
-  # FINDTAG session tokens should be deleted from the database after
-  # 7 days
+  # NOTE set up a rake task to destroy session tokens after a given
+  # number of days
 
   def reset_token!
     update!(token_string: random_token)

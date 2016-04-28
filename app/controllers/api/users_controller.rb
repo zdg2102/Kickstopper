@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
         login!(user)
         render json: user
       else
-        render json: { "msg" => "Could not save user" }, status: 400
+        render json: { "msg" => "Failed to save user" }, status: 400
       end
     end
   end

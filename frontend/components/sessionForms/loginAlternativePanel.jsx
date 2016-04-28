@@ -1,4 +1,5 @@
 // button shared by both session forms to login via Facebook
+// or login as Guest
 
 var React = require('react');
 

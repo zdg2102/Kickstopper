@@ -13,7 +13,7 @@ var SortModal = require('./sortModal');
 
 var DiscoverPage = React.createClass({
 
-  // FINDTAG add message if projects list returns with length 0
+  // NOTE add message if projects list returns with length 0
 
 	getInitialState: function () {
     return { projects: ProjectStore.all(), openModal: null,

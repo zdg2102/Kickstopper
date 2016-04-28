@@ -4,7 +4,7 @@ var React = require('react');
 
 var CreatorPanel = React.createClass({
 
-	// FINDTAG: Need to update this to access the creator picture
+	// NOTE Need to update this to access the creator picture
 
   render: function () {
 

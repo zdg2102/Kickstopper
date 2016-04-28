@@ -17,14 +17,13 @@ class Project < ActiveRecord::Base
 	validates :funding_goal, numericality: { only_integer: true,
 		greater_than: 0, less_than: 2000000000 }
 
-  has_many :images, as: :imageable
-
 	belongs_to :subcategory
 	belongs_to :creator, class_name: 'User', foreign_key: :creator_id
 	has_one :category, through: :subcategory
 	has_many :rewards, -> { order(minimum_pledge: :asc) }, dependent: :destroy
 	has_many :pledges, through: :rewards, dependent: :destroy
 	has_many :backers, through: :pledges, source: :user
+  has_many :images, as: :imageable
 
   def self.create_from_unlaunched_project(unlaunched_project)
     # take an unlaunched project and its rewards and convert
@@ -108,11 +107,11 @@ class Project < ActiveRecord::Base
           currency: 'usd',
           customer: stripe_token
         )
-        # in a live version, this charge would be given
+        # (in a live version, this charge would be given
         # a destination of the Stripe account associated
         # with the project, and an application fee
         # parameter would also be passed to add the fee
-        # charge
+        # charge)
       end
     end
     # regardless of whether it reached its goal or not,
