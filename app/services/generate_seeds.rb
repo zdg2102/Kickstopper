@@ -44,14 +44,25 @@ class GenerateSeeds
     recliner_main = File.open('app/assets/images/recliner-main.jpg')
     recliner_secondary = File
       .open('app/assets/images/recliner-secondary.jpg')
+    buzzword_main = File.open('app/assets/images/buzzword-main.jpg')
+    buzzword_secondary =
+      File.open('app/assets/images/buzzword-secondary.jpg')
+    bad_date_main = File.open('app/assets/images/bad-date-main.jpg')
+    bad_date_secondary =
+      File.open('app/assets/images/bad-date-secondary.jpg')
 
+    # pull the subcategories so we can set their ids
+    subcategory_ids = {}
+    Subcategory.all.each do |subcategory|
+      subcategory_ids[subcategory.name] = subcategory.id
+    end
 
     # set up the non-randomized info for each project in a hash, so
     # the project duplicates can be created in a random order
     projects_info = []
 
     parrot_guy_info = {
-    	subcategory: Subcategory.find_by(name: "Weird Neighbors"),
+      subcategory: subcategory_ids["Weird Neighbors"],
     	title: "Stop the Parrot Guy",
     	project_blurb: "Let's hire someone to steal Steve's parrots",
     	project_description: "Everyone in the building knows Steve,"\
@@ -89,7 +100,7 @@ class GenerateSeeds
     projects_info << parrot_guy_info
 
     no_party_info = {
-    	subcategory: Subcategory.find_by(name: "Loud Neighbors"),
+    	subcategory: subcategory_ids["Loud Neighbors"],
     	title: "No Party This Weekend",
     	project_blurb: "You won't have to hear us yelling all night!",
     	project_description: "Hi neighbors, we're those three guys who"\
@@ -136,7 +147,7 @@ class GenerateSeeds
     projects_info << no_party_info
 
     dog_info = {
-    	subcategory: Subcategory.find_by(name: "Loud Neighbors"),
+    	subcategory: subcategory_ids["Loud Neighbors"],
     	title: "Shut the Dog Up",
     	project_blurb: "Buy that dog some toys so it stops barking",
     	project_description: "Why would anybody buy a little yippy dog?"\
@@ -170,7 +181,7 @@ class GenerateSeeds
     projects_info << dog_info
 
     news_info = {
-    	subcategory: Subcategory.find_by(name: "Depressing News"),
+    	subcategory: subcategory_ids["Depressing News"],
     	title: "No Depressing News",
     	project_blurb: "Avoid having to see depressing news"\
         " stories every day!",
@@ -206,7 +217,7 @@ class GenerateSeeds
     projects_info << news_info
 
     that_band_info = {
-    	subcategory: Subcategory.find_by(name: "Bad Music"),
+    	subcategory: subcategory_ids["Bad Music"],
     	title: "Stop that Band You Hate",
     	project_blurb: "Don't want to hear a new album from"\
         " that band you hate? Give us enough money and we'll"\
@@ -253,7 +264,7 @@ class GenerateSeeds
     projects_info << that_band_info
 
     theater_baby_info = {
-    	subcategory: Subcategory.find_by(name: "Going Out"),
+    	subcategory: subcategory_ids["Going Out"],
     	title: "Quiet the Baby in the Movie Theater",
     	project_blurb: "Want to actually be able to hear the movie you"\
         " paid to watch?",
@@ -280,7 +291,7 @@ class GenerateSeeds
     projects_info << theater_baby_info
 
     seatmate_info = {
-    	subcategory: Subcategory.find_by(name: "Airplanes"),
+    	subcategory: subcategory_ids["Airplanes"],
     	title: "Escape Talking to the Chatty Seatmate",
     	project_blurb: "Avoid hearing any more weird, rambling vacation"\
         " stories!",
@@ -305,7 +316,7 @@ class GenerateSeeds
     seatmate_reward_two_info = {
       title: "Turnabout Tier",
       description: "At this tier, you can be the chatty seatmate, and I'll"\
-        " listen to you talk about your boring hobby that none of your friends"\
+        " listen to you talk about that boring hobby that none of your friends"\
         " are interested in."
     }
 
@@ -314,7 +325,7 @@ class GenerateSeeds
     projects_info << seatmate_info
 
     facebook_info = {
-    	subcategory: Subcategory.find_by(name: "Social Media"),
+    	subcategory: subcategory_ids["Social Media"],
     	title: "No More Spamming Your Feed",
     	project_blurb: "No more long, ill-informed, caps-lock posts about"\
         " political issues!",
@@ -348,7 +359,7 @@ class GenerateSeeds
     projects_info << facebook_info
 
     weekend_info = {
-    	subcategory: Subcategory.find_by(name: "Bosses"),
+    	subcategory: subcategory_ids["Bosses"],
     	title: "Avoid Working the Weekend",
     	project_blurb: "No more getting asked to work weekends",
     	project_description: "This is your boss, the one who always asks"\
@@ -374,8 +385,7 @@ class GenerateSeeds
 
     weekend_reward_three_info = {
       title: "Not My Problem Tier",
-      description: "At this tier, not only do you not have to come in"\
-        " on the weekend, you get to choose one person in the office"\
+      description: "At this tier, you get to choose one person in the office"\
         " and I'll make them come in this weekend instead."
     }
 
@@ -385,7 +395,7 @@ class GenerateSeeds
     projects_info << weekend_info
 
     artsy_info = {
-      subcategory: Subcategory.find_by(name: "Weird Neighbors"),
+      subcategory: subcategory_ids["Weird Neighbors"],
       title: "Real Job for Artsy Cousin",
       project_blurb: "Tired of hearing your cousin explain how"\
         " his interpretive dance expresses 'the truth of reality'?"\
@@ -406,9 +416,9 @@ class GenerateSeeds
     }
 
     artsy_reward_one_info = {
-      title: "Vaudevillian Tier",
+      title: "Vaudeville Tier",
       description: "At this tier, I will provide you one tomato"\
-      " or other squishy and overripe fruit at his final performance"\
+      " or another squishy and overripe fruit at his final performance"\
       " for you to throw at the stage."
     }
 
@@ -434,7 +444,7 @@ class GenerateSeeds
     projects_info << artsy_info
 
     thief_info = {
-      subcategory: Subcategory.find_by(name: "Coworkers"),
+      subcategory: subcategory_ids["Coworkers"],
       title: "Stop the Refrigerator Thief",
       project_blurb: "Stop the mysterious bandit stealing"\
         " our lunches from the fridge!",
@@ -473,7 +483,7 @@ class GenerateSeeds
     projects_info << thief_info
 
     play_info = {
-      subcategory: Subcategory.find_by(name: "Bad Music"),
+      subcategory: subcategory_ids["Bad Music"],
       title: "Escape the Elementary School Play",
       project_blurb: "Avoid having to get excited over your"\
         " precious little angels' off-key singing",
@@ -511,7 +521,7 @@ class GenerateSeeds
     projects_info << play_info
 
     recliner_info = {
-      subcategory: Subcategory.find_by(name: "Airplanes"),
+      subcategory: subcategory_ids["Airplanes"],
       title: "Stop the Reclining Seat Guy",
       project_blurb: "Protect your seat! End the tyranny of"\
         " excessive recliners and chair back kickers!",
@@ -549,8 +559,90 @@ class GenerateSeeds
     recliner_info[:rewards] << recliner_reward_two_info
     projects_info << recliner_info
 
-    # one more going out
-    # one more coworkers
+    buzzword_info = {
+      subcategory: subcategory_ids["Coworkers"],
+      title: "Stop Buzzword Guy",
+      project_blurb: "Fast track the disruption of non-value-add"\
+        " verbiage by our team member!",
+      project_description: "We all know Ted. He's not a bad guy."\
+        " But we're also sick and tired of hearing him tell us how"\
+        " we need to leverage growth hacks to smartsize opportunity"\
+        " and enable flexible empowerment. With the money from this"\
+        " Kickstopper, we're going to pay someone to follow him"\
+        " around with a plastic paddle and hit him every time he"\
+        " uses a buzzword. Because he should be free to ideate"\
+        " on the thoughtspace of the digital ecology of the project"\
+        " as much as he wants,"\
+        " but if we have to hear it out of him one more time we're going to toss"\
+        " him out the top floor window.",
+      rewards: [],
+      main_image: buzzword_main,
+      secondary_image: buzzword_secondary
+    }
+
+    buzzword_reward_one_info = {
+      title: "Filter Tier",
+      description: "At this tier, we'll install a plugin for"\
+        " your email that will automatically filter out all his"\
+        " buzzwords and replace them with real English. Doesn't"\
+        " do anything to fix in-person conversation,"\
+        " unfortunately..."
+    }
+
+    buzzword_reward_two_info = {
+      title: "Payback Tier",
+      description: "At this tier, we'll bribe his friends and"\
+        " family into revealing whatever word he likes the least,"\
+        " so you can sneak it into your conversations with him."\
+        " Maybe he's one of those people who really hates the word"\
+        " 'moist'? If so, you can work it into conversation every single"\
+        " time you talk to him."
+    }
+
+    buzzword_info[:rewards] << buzzword_reward_one_info
+    buzzword_info[:rewards] << buzzword_reward_two_info
+    projects_info << buzzword_info
+
+    bad_date_info = {
+      subcategory: subcategory_ids["Going Out"],
+      title: "Escape the Bad Date",
+      project_blurb: "You need an immediate escape plan."\
+        " We're here to help.",
+      project_description: "We've all been there. You've discovered"\
+        " your date is passionately interested in stamp collecting,"\
+        " or makes constant clicking sounds with their teeth, or"\
+        " just seems a little too likely to be a serial killer."\
+        " The point is, you need an exit, preferrably as soon as"\
+        " possible. Give us a donation here and we're happy to"\
+        " provide, whether that means calling you with a fake"\
+        " emergency or distracting your date with a mariachi"\
+        " band.",
+      rewards: [],
+      main_image: bad_date_main,
+      secondary_image: bad_date_secondary
+    }
+
+    bad_date_reward_one_info = {
+      title: "Diversion Tier",
+      description: "Sometimes the obvious approach is best. At"\
+        " this tier, we'll hire someone to dress like a yeti"\
+        " and burst into the restaurant clanging pots over their"\
+        " head. You can take advantage of the confusion to slip"\
+        " out unnoticed."
+    }
+
+    bad_date_reward_two_info = {
+      title: "Thorough Tier",
+      description: "At this tier, we cover all your bases."\
+        " We use memory-alteration technology stolen from the NSA"\
+        " to wipe your date's memory of ever having met you,"\
+        " so there's no risk they'll ask you out again."
+    }
+
+    bad_date_info[:rewards] << bad_date_reward_one_info
+    bad_date_info[:rewards] << bad_date_reward_two_info
+    projects_info << bad_date_info
+
 
     # Create projects from the project info, randomizing all other values
     @seed_count.times do
@@ -567,8 +659,8 @@ class GenerateSeeds
 
     	# funding goal is always forced to be a multiple of 10, to look
     	# more like a real goal
-    	new_project = current_project_info[:subcategory].projects
-    	  .create!(
+      new_project = Project.create!(
+        subcategory_id: current_project_info[:subcategory],
         title: current_project_info[:title],
     		creator_id: User.all.sample.id,
     		category_featured: rand(7) == 0,
