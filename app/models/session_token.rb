@@ -8,7 +8,7 @@ class SessionToken < ActiveRecord::Base
   after_initialize :ensure_token_string
   before_validation :ensure_token_uniqueness
 
-	belongs_to :user
+  belongs_to :user
 
   # NOTE set up a rake task to destroy session tokens after a given
   # number of days

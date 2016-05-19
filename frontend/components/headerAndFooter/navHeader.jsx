@@ -79,8 +79,8 @@ var NavHeader = React.createClass({
 
         {searchPopup}
       </div>
-		);
-	}
+    );
+  }
 });
 
 module.exports = NavHeader;

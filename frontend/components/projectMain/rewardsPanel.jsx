@@ -27,16 +27,16 @@ var RewardsPanel = React.createClass({
     return (
       <div className="project-rewards-panel">
 
-				<h4 className="project-detail-header">
-					{"Rewards"}
-				</h4>
+        <h4 className="project-detail-header">
+          {"Rewards"}
+        </h4>
 
         {tiles}
 
       </div>
-		);
+    );
 
-	}
+  }
 
 });
 

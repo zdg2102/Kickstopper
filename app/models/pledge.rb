@@ -4,9 +4,9 @@ class Pledge < ActiveRecord::Base
   validates :user_id, :reward_id, :pledge_amount, presence: true
   validate :pledge_amount_greater_than_reward_minimum
 
-	belongs_to :user
-	belongs_to :reward
-	has_one :project, through: :reward
+  belongs_to :user
+  belongs_to :reward
+  has_one :project, through: :reward
 
   private
 

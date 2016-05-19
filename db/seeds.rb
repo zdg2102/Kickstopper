@@ -33,15 +33,15 @@ User.create!(name: "Guest", email: "GuestSession", password: "password")
 users = []
 
 700.times do
-	u = User.create(
-	  name: Faker::Name.name,
-		email: Faker::Internet.email,
-		password: "password"
-	)
-	# ignore in case of duplicate email from Faker
-	if u.save
-		users << u
-	end
+  u = User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "password"
+  )
+  # ignore in case of duplicate email from Faker
+  if u.save
+    users << u
+  end
 end
 
 # delegates project, reward, and pledge creation to GenerateSeeds

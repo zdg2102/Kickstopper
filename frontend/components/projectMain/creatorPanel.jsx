@@ -4,7 +4,7 @@ var React = require('react');
 
 var CreatorPanel = React.createClass({
 
-	// NOTE Need to update this to access the creator picture
+  // NOTE Need to update this to access the creator picture
 
   render: function () {
 
@@ -20,24 +20,24 @@ var CreatorPanel = React.createClass({
     return (
       <div className="creator-panel group">
 
-				<div className="creator-panel-text">
-					<h6 className="creator-panel-name">{creatorName}</h6>
+        <div className="creator-panel-text">
+          <h6 className="creator-panel-name">{creatorName}</h6>
 
-					<span className="creator-panel-stats">
-						{numCreated + " created | " + numBacked + " backed"}
-					</span>
+          <span className="creator-panel-stats">
+            {numCreated + " created | " + numBacked + " backed"}
+          </span>
 
-					<span className="creator-page-link">
-						<a href={creatorUrl}>{"See creator page"}</a>
-					</span>
-				</div>
+          <span className="creator-page-link">
+            <a href={creatorUrl}>{"See creator page"}</a>
+          </span>
+        </div>
 
-				<div className="creator-circle-icon"></div>
+        <div className="creator-circle-icon"></div>
 
       </div>
-		);
+    );
 
-	}
+  }
 
 });
 

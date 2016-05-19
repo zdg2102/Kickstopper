@@ -2,10 +2,10 @@ class Api::ProjectsController < ApplicationController
 
   def index
     filter = FilterProjects.new(params[:projects])
-		@projects = filter.matching_projects.includes(:creator, :images)
+    @projects = filter.matching_projects.includes(:creator, :images)
     @projects = ApplicationDecorator.decorate_collection(@projects)
     render :index
-	end
+  end
 
   def create
     # creates project from unlaunched project and destroys
@@ -24,20 +24,20 @@ class Api::ProjectsController < ApplicationController
     end
   end
 
-	def show
+  def show
     # allows three values for param detailType:
-		# main, panel, and tile
+    # main, panel, and tile
     @type = params[:detailType]
-		if @type
-	    @project = Project
+    if @type
+      @project = Project
         .includes(:creator, :backers, :pledges, :rewards, :images)
-				.find(params[:id])
+        .find(params[:id])
       @project = ApplicationDecorator.decorate(@project)
-			render :show
-		else
+      render :show
+    else
       render json: { "message" => "Must provide detail type param" },
-			  status: 422
-		end
-	end
+        status: 422
+    end
+  end
 
 end

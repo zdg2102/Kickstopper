@@ -40,8 +40,8 @@ var CheckoutRewardInfoPanel = React.createClass({
         </p>
 
       </div>
-		);
-	}
+    );
+  }
 });
 
 module.exports = CheckoutRewardInfoPanel;

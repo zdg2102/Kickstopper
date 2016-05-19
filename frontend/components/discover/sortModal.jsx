@@ -22,9 +22,9 @@ var SortModal = React.createClass({
     this.props.close();
   },
 
-	render: function () {
+  render: function () {
 
-		return (
+    return (
       <div className="modal-overlay" onClick={this.handleClickAway}>
 
         <div className="modal-content sort-modal" onClick={this.catchClickOn}>
@@ -47,8 +47,8 @@ var SortModal = React.createClass({
         </div>
 
       </div>
-		);
-	}
+    );
+  }
 
 });
 

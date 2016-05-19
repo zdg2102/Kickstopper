@@ -37,8 +37,8 @@ var AboutPage = React.createClass({
           {"."}
         </p>
       </div>
-		);
-	}
+    );
+  }
 });
 
 module.exports = AboutPage;

@@ -23,11 +23,11 @@ UnlaunchedProjectStore.currentProject = function () {
 
 UnlaunchedProjectStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-		case unlaunchedProjectConstants.UNLAUNCHED_PROJECT_RECEIVED:
-		  _currentProject = payload.project;
-			UnlaunchedProjectStore.__emitChange();
-			break;
-	}
+    case unlaunchedProjectConstants.UNLAUNCHED_PROJECT_RECEIVED:
+      _currentProject = payload.project;
+      UnlaunchedProjectStore.__emitChange();
+      break;
+  }
 };
 
 module.exports = UnlaunchedProjectStore;

@@ -5,7 +5,7 @@ var React = require('react');
 var SessionLinks = React.createClass({
   render: function () {
     return (
-			<div className="session-links-div">
+      <div className="session-links-div">
         <a className="session-link" href="/signup">
           {"Sign Up"}
         </a>
@@ -13,9 +13,9 @@ var SessionLinks = React.createClass({
         <a className="session-link" href="/login">
           {"Log In"}
         </a>
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 });
 
 module.exports = SessionLinks;

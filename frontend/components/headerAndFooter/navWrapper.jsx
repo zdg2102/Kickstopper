@@ -9,13 +9,13 @@ var NavWrapper = React.createClass({
 
   render: function () {
     return (
-			<div>
-				<NavHeader />
-				{this.props.children}
-				<NavFooter />
-			</div>
-		);
-	}
+      <div>
+        <NavHeader />
+        {this.props.children}
+        <NavFooter />
+      </div>
+    );
+  }
 
 });
 

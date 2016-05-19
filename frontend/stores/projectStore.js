@@ -9,12 +9,12 @@ var _projects = [];
 var _keyedProjects = {};
 
 var refreshProjects = function (projects) {
-	_projects = [];
-	_keyedProjects = {};
-	for (var i = 0; i < projects.length; i++) {
-		_projects.push(projects[i]);
-		_keyedProjects[projects[i].id] = projects[i];
-	}
+  _projects = [];
+  _keyedProjects = {};
+  for (var i = 0; i < projects.length; i++) {
+    _projects.push(projects[i]);
+    _keyedProjects[projects[i].id] = projects[i];
+  }
 };
 
 var appendProjects = function (projects) {
@@ -36,7 +36,7 @@ var updateProject = function (project) {
 };
 
 ProjectStore.all = function () {
-	return _projects.slice();
+  return _projects.slice();
 };
 
 ProjectStore.find = function (projectId) {
@@ -45,19 +45,19 @@ ProjectStore.find = function (projectId) {
 
 ProjectStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-		case projectConstants.ALL_PROJECTS_RECEIVED:
-		  refreshProjects(payload.projects);
-			ProjectStore.__emitChange();
-			break;
-		case projectConstants.SINGLE_PROJECT_RECEIVED:
-		  updateProject(payload.project);
-			ProjectStore.__emitChange();
-			break;
+    case projectConstants.ALL_PROJECTS_RECEIVED:
+      refreshProjects(payload.projects);
+      ProjectStore.__emitChange();
+      break;
+    case projectConstants.SINGLE_PROJECT_RECEIVED:
+      updateProject(payload.project);
+      ProjectStore.__emitChange();
+      break;
     case projectConstants.NEW_PAGE_PROJECTS_RECEIVED:
       appendProjects(payload.projects);
       ProjectStore.__emitChange();
       break;
-	}
+  }
 };
 
 module.exports = ProjectStore;

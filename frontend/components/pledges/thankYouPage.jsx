@@ -29,8 +29,8 @@ var ThankYouPage = React.createClass({
           </button>
         </div>
       </div>
-		);
-	}
+    );
+  }
 });
 
 module.exports = ThankYouPage;

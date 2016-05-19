@@ -24,9 +24,9 @@ module Kickstopper
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.enabled = true
-		config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
-		config.serve_static_files = true
+    config.serve_static_files = true
 
     config.assets.initialize_on_precompile = false
 

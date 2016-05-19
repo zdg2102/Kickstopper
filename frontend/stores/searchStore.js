@@ -13,11 +13,11 @@ SearchStore.all = function () {
 
 SearchStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-		case searchConstants.SEARCH_RESULTS_RECEIVED:
-		  _results = payload.results;
-			SearchStore.__emitChange();
-			break;
-	}
+    case searchConstants.SEARCH_RESULTS_RECEIVED:
+      _results = payload.results;
+      SearchStore.__emitChange();
+      break;
+  }
 };
 
 module.exports = SearchStore;

@@ -3,33 +3,33 @@
 body, header, h1, h2, h3, h4, h5, h6, ul, li,
 a, img, span, data, p, button, hr, input, select,
 textarea {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	font-size: inherit;
-	font-weight: inherit;
-	font-style: inherit;
-	font-family: inherit;
-	text-decoration: none;
-	color: inherit;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
-	font-size: 16px;
-	font-weight: normal;
-	font-style: normal;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
   font-family: liberation-sans;
   min-width: 1100px;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 img {
-	display: block;
-	width: 100%;
-	height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 input[type=text]:focus, input[type=submit]:focus,
@@ -44,51 +44,51 @@ button:focus, select:focus {
 // CLEARFIX
 
 .group:after {
-	content: "";
-	display: block;
-	clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
 
 // NAV HEADER
 
 header.nav-header {
-	background-color: RGB(255, 255, 255); // white
-	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  background-color: RGB(255, 255, 255); // white
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
   position: relative;
 }
 
 a.header-logo {
   float: left;
-	padding: 20px 40px;
+  padding: 20px 40px;
 }
 
 div.header-logo-div {
-	background-image: image-url("kickstopper-logo-transparent.png");
-	background-size: contain;
-	height: 20px;
-	width: 175px;
+  background-image: image-url("kickstopper-logo-transparent.png");
+  background-size: contain;
+  height: 20px;
+  width: 175px;
 }
 
 ul.nav-header-links {
   float: left;
-	font-size: 14px;
-	color: RGB(130, 133, 135); // grey
-	padding-right: 20px;
-	border-right: 1px solid RGB(217, 217, 222); // light grey
+  font-size: 14px;
+  color: RGB(130, 133, 135); // grey
+  padding-right: 20px;
+  border-right: 1px solid RGB(217, 217, 222); // light grey
 }
 
 ul.nav-header-links > li {
   float: left;
-	font-weight: bold;
+  font-weight: bold;
 }
 
 ul.nav-header-links > li > a {
-	display: block;
-	padding: 23px 15px;
+  display: block;
+  padding: 23px 15px;
 }
 
 ul.nav-header-links > li:hover {
-	background-color: RGB(247, 250, 250); // very pale blue
+  background-color: RGB(247, 250, 250); // very pale blue
 }
 
 // SEARCH BAR
@@ -146,8 +146,8 @@ span.search-empty-message {
 }
 
 div.search-popup div.project-tile {
-	float: left;
-	margin: 0px;
+  float: left;
+  margin: 0px;
   margin-right: 15px;
   margin-top: 15px;
 }
@@ -157,7 +157,7 @@ div.search-popup div.project-tile:first-of-type {
 }
 
 div.search-popup  div.project-tile:last-of-type {
-	margin-right: calc((100% - 1000px) / 2);
+  margin-right: calc((100% - 1000px) / 2);
 }
 
 button.all-search-button {
@@ -225,13 +225,13 @@ span.user-nav-label {
 }
 
 a.user-nav-arrow {
-	width: 0;
-	height: 0;
+  width: 0;
+  height: 0;
   top: 29px;
   right: 17px;
-	border-style: solid;
-	border-width: 7px 5px 0 5px;
-	border-color: RGB(130, 133, 135) transparent transparent transparent;
+  border-style: solid;
+  border-width: 7px 5px 0 5px;
+  border-color: RGB(130, 133, 135) transparent transparent transparent;
   position: absolute;
 }
 
@@ -301,10 +301,10 @@ div.menu-white-border {
 // NAV FOOTER
 
 footer.nav-footer {
-	background-color: RGB(15, 33, 5); // forest green
-	border-top: 1px solid RGB(43, 222, 115); // bright green
-	color: RGB(255, 255, 255); // white
-	font-size: 14px;
+  background-color: RGB(15, 33, 5); // forest green
+  border-top: 1px solid RGB(43, 222, 115); // bright green
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
 }
 
 footer.nav-footer li {
@@ -317,49 +317,49 @@ footer.nav-footer li:hover {
 }
 
 div.footer-column-container {
-	width: 1040px;
-	margin: 0px auto;
-	padding: 30px 0px;
-	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  width: 1040px;
+  margin: 0px auto;
+  padding: 30px 0px;
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
 }
 
 div.footer-column {
   float: left;
-	width: 13%;
-	padding-left: 2%;
-	padding-right: 2%;
-	margin-left: 15%;
-	margin-right: 15%;
+  width: 13%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 h4.footer-column-header {
-	font-weight: bold;
-	margin-bottom: 15px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 a.footer-logo {
-	display: block;
-	margin: 30px 90px 0px;
-	padding-bottom: 40px;
+  display: block;
+  margin: 30px 90px 0px;
+  padding-bottom: 40px;
 }
 
 div.footer-logo-div {
-	background-image: image-url("kickstopper-logo-footer-transparent.png");
-	background-size: contain;
-	height: 20px;
-	width: 175px;
+  background-image: image-url("kickstopper-logo-footer-transparent.png");
+  background-size: contain;
+  height: 20px;
+  width: 175px;
 }
 
 // STATIC WRAPPER
 
 header.static-header {
-	background-color: RGB(255, 255, 255); // white
-	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  background-color: RGB(255, 255, 255); // white
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
 }
 
 footer.static-footer {
   background-color: RGB(255, 255, 255); // white
-	border-top: 1px solid RGB(217, 217, 222); // light grey
+  border-top: 1px solid RGB(217, 217, 222); // light grey
   min-height: 70px;
 }
 
@@ -370,27 +370,27 @@ section.project-main-info {
 }
 
 div.project-main-info-container {
-	width: 1040px;
-	padding: 50px 0px;
-	margin: 0px auto;
+  width: 1040px;
+  padding: 50px 0px;
+  margin: 0px auto;
 }
 
 // PROJECT MAIN PAGE TITLE BAR
 
 h1.project-title {
-	font-size: 32px;
-	text-align: center;
-	margin-bottom: 15px;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 h6.project-byline {
-	font-size: 14px;
-	text-align: center;
-	margin-bottom: 40px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 span.creator-name {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 // PROJECT MAIN PAGE VIDEO PANEL
@@ -400,9 +400,9 @@ div.video-panel {
 }
 
 div.video {
-	float: left;
-	width: 680px;
-	height: 510px;
+  float: left;
+  width: 680px;
+  height: 510px;
   overflow: hidden;
 }
 
@@ -412,133 +412,133 @@ img.project-main-picture {
 }
 
 div.main-stats-panel {
-	float: right;
-	padding-top: 40px;
+  float: right;
+  padding-top: 40px;
 }
 
 data.main-stats-num {
-	display: block;
+  display: block;
   font-weight: bold;
-	font-size: 48px;
-	color: RGB(15, 33, 5); // forest green
+  font-size: 48px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 span.main-stats-label {
-	display: block;
-	font-size: 14px;
-	color: RGB(130, 133, 135); // grey
-	margin-bottom: 10px;
+  display: block;
+  font-size: 14px;
+  color: RGB(130, 133, 135); // grey
+  margin-bottom: 10px;
 }
 
 button.back-project-button {
-	background-color: RGB(43, 222, 115); // bright green
-	padding: 20px 30px;
-	margin: 40px 0px;
-	border-radius: 5px;
-	color: RGB(255, 255, 255); // white
-	letter-spacing: 1px;
-	cursor: pointer;
+  background-color: RGB(43, 222, 115); // bright green
+  padding: 20px 30px;
+  margin: 40px 0px;
+  border-radius: 5px;
+  color: RGB(255, 255, 255); // white
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 span.main-stats-fund-date {
-	display: block;
-	width: 330px;
-	color: RGB(130, 133, 135); // grey
-	font-size: 12px;
+  display: block;
+  width: 330px;
+  color: RGB(130, 133, 135); // grey
+  font-size: 12px;
 }
 
 // PROJECT MAIN PAGE BLURB PANEL
 
 p.project-blurb {
-	float: left;
+  float: left;
   width: 680px;
-	font-size: 22px;
-	margin: 30px 0px;
+  font-size: 22px;
+  margin: 30px 0px;
 }
 
 div.creator-panel {
-	float: right;
-	width: 330px;
-	border-top: 1px solid RGB(217, 217, 222); // light grey
-	padding-top: 30px;
+  float: right;
+  width: 330px;
+  border-top: 1px solid RGB(217, 217, 222); // light grey
+  padding-top: 30px;
 }
 
 div.creator-circle-icon {
-	// NOTE turn display back on when user menu is completed
-	display: none;
+  // NOTE turn display back on when user menu is completed
+  display: none;
 
-	float: right;
-	border-radius: 50%;
-	background-color: RGB(0, 255, 0); // green, temp
-	width: 80px;
-	height: 80px;
+  float: right;
+  border-radius: 50%;
+  background-color: RGB(0, 255, 0); // green, temp
+  width: 80px;
+  height: 80px;
 }
 
 div.creator-panel-text {
-	float: left;
-	width: 240px;
+  float: left;
+  width: 240px;
 }
 
 h6.creator-panel-name {
-	display: block;
-	font-weight: bold;
-	font-size: 15px;
-	margin-bottom: 10px;
-	color: RGB(15, 33, 5); // forest green
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 span.creator-panel-stats {
-	display: block;
-	color: RGB(130, 133, 135); // grey
-	font-weight: bold;
-	font-size: 14px;
-	margin-bottom: 10px;
+  display: block;
+  color: RGB(130, 133, 135); // grey
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 span.creator-page-link {
-	display: block;
+  display: block;
 
-	// NOTE turn display back on when user menu is completed
-	display: none;
+  // NOTE turn display back on when user menu is completed
+  display: none;
 
-	color: RGB(0, 160, 255); // bright blue
-	font-weight: bold;
-	font-size: 15px;
+  color: RGB(0, 160, 255); // bright blue
+  font-weight: bold;
+  font-size: 15px;
 }
 
 // PROJECT MAIN PAGE DIVIDER
 
 span.project-page-divider {
-	display: block;
-	padding: 20px 100px;
-	font-size: 14px;
-	font-weight: bold;
-	background-color: RGB(255, 255, 255); // white
-	border-top: 1px solid RGB(217, 217, 222); // light grey
-	border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  display: block;
+  padding: 20px 100px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: RGB(255, 255, 255); // white
+  border-top: 1px solid RGB(217, 217, 222); // light grey
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
 }
 
 // PROJECT MAIN PAGE DETAIL
 
 section.project-detail-info {
-	margin: 70px auto;
-	width: 1040px;
+  margin: 70px auto;
+  width: 1040px;
 }
 
 div.project-description {
-	float: left;
-	padding-right: 40px;
-	width: 640px;
+  float: left;
+  padding-right: 40px;
+  width: 640px;
 }
 
 div.project-rewards-panel {
-	float: right;
-	width: 330px;
+  float: right;
+  width: 330px;
 }
 
 h4.project-detail-header {
-	font-size: 22px;
-	margin-bottom: 50px;
+  font-size: 22px;
+  margin-bottom: 50px;
 }
 
 div.project-description-picture-container {
@@ -549,13 +549,13 @@ div.project-description-picture-container {
 }
 
 img.project-description-picture {
-	width: auto;
-	height: 100%;
+  width: auto;
+  height: 100%;
 }
 
 p.project-description-body {
-	margin-top: 40px;
-	line-height: 1.5;
+  margin-top: 40px;
+  line-height: 1.5;
 }
 
 // PROJECT MAIN PAGE REWARDS
@@ -820,15 +820,15 @@ p.checkout-reward-description {
 }
 
 button.checkout-populate {
-	background-color: RGB(43, 222, 115); // bright green
-	display: block;
-	color: RGB(255, 255, 255); // white
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 6px;
-	padding: 10px 20px;
-	cursor: pointer;
-	margin-bottom: 50px;
+  background-color: RGB(43, 222, 115); // bright green
+  display: block;
+  color: RGB(255, 255, 255); // white
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 50px;
 }
 
 h4.checkout-form-header {
@@ -978,22 +978,22 @@ button.thank-you-button {
 // PROJECT START PAGE
 
 div.project-start-background {
-	display: block;
+  display: block;
   background-color: RGB(247, 250, 250); // very pale blue
   padding: 80px 0px;
 }
 
 div.project-start-box {
   width: 750px;
-	margin: 0px auto;
+  margin: 0px auto;
 }
 
 h2.project-start-header {
   display: block;
-	font-size: 48px;
-	text-align: center;
-	margin-bottom: 60px;
-	color: RGB(15, 33, 5); // forest green
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 form.project-start-form {
@@ -1001,192 +1001,192 @@ form.project-start-form {
 }
 
 p.project-start-prompt {
-	display: block;
-	font-size: 32px;
-	margin-bottom: 30px;
-	color: RGB(15, 33, 5); // forest green
+  display: block;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 select.project-start-category {
-	display: inline-block;
-	min-width: 300px;
-	background-color: RGB(255, 255, 255); // white
-	border-radius: 6px;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	color: RGB(15, 33, 5); // forest green
-	cursor: pointer;
+  display: inline-block;
+  min-width: 300px;
+  background-color: RGB(255, 255, 255); // white
+  border-radius: 6px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  color: RGB(15, 33, 5); // forest green
+  cursor: pointer;
 }
 
 input.project-start-name {
-	display: block;
-	margin-bottom: 50px;
-	background-color: transparent;
-	width: 100%;
-	font-size: 32px;
-	color: RGB(15, 33, 5); // forest green
-	border-bottom: 1px solid RGB(217, 217, 222); // light grey
-	padding: 10px 0px;
+  display: block;
+  margin-bottom: 50px;
+  background-color: transparent;
+  width: 100%;
+  font-size: 32px;
+  color: RGB(15, 33, 5); // forest green
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  padding: 10px 0px;
 }
 
 input.project-start-submit {
-	display: block;
-	float: right;
-	padding: 20px 40px;
-	color: RGB(255, 255, 255); // white
-	background-color: RGB(130, 133, 135); // grey
-	border-radius: 6px;
-	cursor: pointer;
-	font-size: 22px;
-	font-weight: bold;
-	transition: background-color, 0.2s;
+  display: block;
+  float: right;
+  padding: 20px 40px;
+  color: RGB(255, 255, 255); // white
+  background-color: RGB(130, 133, 135); // grey
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  transition: background-color, 0.2s;
 }
 
 input.project-start-submit:hover {
-	background-color: RGB(169, 171, 172); // medium grey
-	transition: background-color, 0.2s;
+  background-color: RGB(169, 171, 172); // medium grey
+  transition: background-color, 0.2s;
 }
 
 // PROJECT EDIT PAGE
 
 div.project-edit-background {
-	display: block;
+  display: block;
   background-color: RGB(247, 250, 250); // very pale blue
   padding: 40px 0px 80px;
 }
 
 div.project-edit-button-container {
-	display: block;
-	margin: 0px auto;
-	width: 700px;
+  display: block;
+  margin: 0px auto;
+  width: 700px;
 }
 
 button.project-edit-submit {
-	float: right;
-	background-color: RGB(255, 255, 255); // white
-	border-radius: 6px;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	font-size: 14px;
-	font-weight: bold;
-	padding: 20px;
-	margin-bottom: 50px;
-	color: RGB(15, 33, 5); // forest green
-	cursor: pointer;
-	width: 120px;
+  float: right;
+  background-color: RGB(255, 255, 255); // white
+  border-radius: 6px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px;
+  margin-bottom: 50px;
+  color: RGB(15, 33, 5); // forest green
+  cursor: pointer;
+  width: 120px;
 }
 
 button.project-edit-submit:hover {
-	background-color: RGB(247, 250, 250); // very pale blue
+  background-color: RGB(247, 250, 250); // very pale blue
 }
 
 button.project-edit-submit.inactive-submit-button {
-	cursor: default;
-	background-color: RGB(217, 217, 222); // light grey
+  cursor: default;
+  background-color: RGB(217, 217, 222); // light grey
 }
 
 button.project-edit-submit.inactive-submit-button:hover {
-	background-color: RGB(217, 217, 222); // light grey
+  background-color: RGB(217, 217, 222); // light grey
 }
 
 h2.project-edit-header {
   display: block;
-	font-size: 32px;
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 20px;
-	color: RGB(15, 33, 5); // forest green
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 h3.project-edit-subheader {
-	display: block;
-	font-size: 22px;
-	text-align: center;
-	margin-bottom: 60px;
-	color: RGB(15, 33, 5); // forest green
+  display: block;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 form.project-edit-form {
-	display: block;
-	margin: 0px auto;
-	width: 700px;
-	background-color: RGB(255, 255, 255); // white
-	border-radius: 6px;
-	padding: 20px;
-	padding-bottom: 20px;
+  display: block;
+  margin: 0px auto;
+  width: 700px;
+  background-color: RGB(255, 255, 255); // white
+  border-radius: 6px;
+  padding: 20px;
+  padding-bottom: 20px;
 }
 
 div.project-edit-item-box {
-	display: block;
-	background-color: RGB(247, 250, 250); // very pale blue
-	padding: 10px;
-	border-radius: 6px;
-	margin-bottom: 20px;
+  display: block;
+  background-color: RGB(247, 250, 250); // very pale blue
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
 
 div.project-edit-item-box:last-of-type {
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 label.project-edit-item-label {
-	color: RGB(15, 33, 5); // forest green
-	padding: 10px;
-	display: block;
-	float: left;
-	font-size: 13px;
-	font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  padding: 10px;
+  display: block;
+  float: left;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 label.project-edit-reward-label {
-	color: RGB(15, 33, 5); // forest green
-	display: block;
-	margin-bottom: 20px;
-	padding-left: 10px;
-	font-size: 14px;
-	font-weight: bold;
+  color: RGB(15, 33, 5); // forest green
+  display: block;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 input.project-edit-item-input {
-	float: right;
-	background-color: RGB(255, 255, 255); // white
-	color: RGB(15, 33, 5); // forest green
-	border-radius: 6px;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	width: 430px;
-	padding: 10px;
-	font-size: 14px;
+  float: right;
+  background-color: RGB(255, 255, 255); // white
+  color: RGB(15, 33, 5); // forest green
+  border-radius: 6px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  width: 430px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 textarea.project-edit-item-textarea {
-	float: right;
-	background-color: RGB(255, 255, 255); // white
-	color: RGB(15, 33, 5); // forest green
-	border-radius: 6px;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	width: 430px;
-	height: 150px;
-	padding: 10px;
-	font-size: 14px;
+  float: right;
+  background-color: RGB(255, 255, 255); // white
+  color: RGB(15, 33, 5); // forest green
+  border-radius: 6px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  width: 430px;
+  height: 150px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 select.project-edit-item-select {
-	float: right;
-	background-color: RGB(255, 255, 255); // white
-	color: RGB(15, 33, 5); // forest green
-	border-radius: 6px;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	width: 450px;
-	padding: 10px;
-	font-size: 14px;
+  float: right;
+  background-color: RGB(255, 255, 255); // white
+  color: RGB(15, 33, 5); // forest green
+  border-radius: 6px;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  width: 450px;
+  padding: 10px;
+  font-size: 14px;
 }
 
 input.project-edit-image-upload {
-	float: right;
-	background-color: RGB(255, 255, 255); // white
-	border-radius: 6px;
-	border: 1px dashed RGB(217, 217, 222); // light grey
-	width: 430px;
-	padding: 10px;
-	cursor: pointer;
-	position: relative;
+  float: right;
+  background-color: RGB(255, 255, 255); // white
+  border-radius: 6px;
+  border: 1px dashed RGB(217, 217, 222); // light grey
+  width: 430px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
 }
 
 
@@ -1196,54 +1196,54 @@ input.project-edit-image-upload:hover {
 
 img.project-edit-preview {
   float: right;
-	width: 450px;
-	height: auto;
-	margin-top: 20px;
-	border: 1px dashed RGB(217, 217, 222); // light grey
+  width: 450px;
+  height: auto;
+  margin-top: 20px;
+  border: 1px dashed RGB(217, 217, 222); // light grey
 }
 
 input.project-edit-image-upload.error {
-	border: 2px solid RGB(246, 0, 47); // purple-red
+  border: 2px solid RGB(246, 0, 47); // purple-red
 }
 
 input.project-edit-item-input.error {
-	border: 2px solid RGB(246, 0, 47); // purple-red
+  border: 2px solid RGB(246, 0, 47); // purple-red
 }
 
 textarea.project-edit-item-textarea.error {
-	border: 2px solid RGB(246, 0, 47); // purple-red
+  border: 2px solid RGB(246, 0, 47); // purple-red
 }
 
 select.project-edit-item-select.error {
-	border: 2px solid RGB(246, 0, 47); // purple-red
+  border: 2px solid RGB(246, 0, 47); // purple-red
 }
 
 div.edit-error-list {
-	width: 700px;
-	margin: 0px auto 40px;
+  width: 700px;
+  margin: 0px auto 40px;
 }
 
 span.edit-error {
-	font-size: 18px;
-	display: block;
-	color: RGB(246, 0, 47); // purple-red
-	padding-bottom: 20px;
+  font-size: 18px;
+  display: block;
+  color: RGB(246, 0, 47); // purple-red
+  padding-bottom: 20px;
 }
 
 span.edit-error:last-of-type {
-	padding-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 // PROJECT TILE
 
 div.project-tile {
-	width: 230px;
-	height: 400px;
-	background-color: RGB(255, 255, 255); // white
-	border: 1px solid RGB(217, 217, 222); // light grey
-	overflow: hidden;
-	border-radius: 6px;
-	cursor: pointer;
+  width: 230px;
+  height: 400px;
+  background-color: RGB(255, 255, 255); // white
+  border: 1px solid RGB(217, 217, 222); // light grey
+  overflow: hidden;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 div.tile-image-container {
@@ -1253,50 +1253,50 @@ div.tile-image-container {
 }
 
 img.tile-image {
-	width: auto;
+  width: auto;
   min-width: 100%;
   height: 110%;
 }
 
 div.tile-content {
-	padding: 10px;
+  padding: 10px;
   height: 130px;
 }
 
 h6.tile-title {
-	font-size: 12px;
-	font-weight: bold;
-	margin-bottom: 3px;
-	color: RGB(15, 33, 5); // forest green
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 div.tile-content > p {
-	font-size: 12px;
-	line-height: 1.5;
-	color: RGB(130, 133, 135); // grey
+  font-size: 12px;
+  line-height: 1.5;
+  color: RGB(130, 133, 135); // grey
 }
 
 p.tile-byline {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 p.tile-blurb {
-	height: 72px;
-	overflow: hidden;
-	margin-bottom: 20px;
+  height: 72px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 div.tile-footer {
-	padding: 10px;
+  padding: 10px;
 }
 
 div.tile-progress-bar {
-	height: 6px;
-	background-color: RGB(217, 217, 222); // light grey
-	border-radius: 3px;
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 10px;
+  height: 6px;
+  background-color: RGB(217, 217, 222); // light grey
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 div.tile-progress-bar.with-modal {
@@ -1305,10 +1305,10 @@ div.tile-progress-bar.with-modal {
 
 div.tile-progress-complete {
   position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	background-color: RGB(43, 222, 115); // bright green
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: RGB(43, 222, 115); // bright green
 }
 
 div.tile-progress-complete.with-modal {
@@ -1316,21 +1316,21 @@ div.tile-progress-complete.with-modal {
 }
 
 ul.tile-stats > li {
-	float: left;
-	padding-right: 10px;
+  float: left;
+  padding-right: 10px;
 }
 
 data.tile-stat-num {
-	display: block;
-	font-size: 12px;
-	font-weight: bold;
-	margin-bottom: 2px;
-	color: RGB(15, 33, 5); // forest green
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 span.tile-stat-label {
-	color: RGB(130, 133, 135); // grey
-	font-size: 12px;
+  color: RGB(130, 133, 135); // grey
+  font-size: 12px;
 }
 
 // DISCOVER PAGE
@@ -1340,31 +1340,31 @@ div.discover-page-content {
 }
 
 div.discover-lists-container {
-	width: 1040px;
-	margin: 0px auto;
+  width: 1040px;
+  margin: 0px auto;
 }
 
 // DISCOVER PAGE FILTER BOX
 
 div.filter-box {
-	display: block;
-	height: 40px;
-	padding: 140px 0px;
-	background-color: RGB(247, 250, 250); // very pale blue
-	border-bottom: 1px solid RGB(217, 217, 222); // light grey
-	margin-bottom: 50px;
-	color: RGB(15, 33, 5); // forest green
+  display: block;
+  height: 40px;
+  padding: 140px 0px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  border-bottom: 1px solid RGB(217, 217, 222); // light grey
+  margin-bottom: 50px;
+  color: RGB(15, 33, 5); // forest green
 }
 
 h2.filter-box-text {
-	display: inline-block;
-	font-size: 44px;
+  display: inline-block;
+  font-size: 44px;
 }
 
 span.filter-box-dropdown {
-	font-size: 44px;
-	padding-bottom: 10px;
-	border-bottom: 2px solid RGB(15, 33, 5); // forest green
+  font-size: 44px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid RGB(15, 33, 5); // forest green
   padding-right: 45px;
   position: relative;
   overflow: hidden;
@@ -1372,26 +1372,26 @@ span.filter-box-dropdown {
 }
 
 span.filter {
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
 span.sort {
-	margin-left: 20px;
+  margin-left: 20px;
 }
 
 div.filter-text-line {
-	display: block;
-	padding-left: 20px;
+  display: block;
+  padding-left: 20px;
 }
 
 a.filter-box-arrow {
-	width: 0;
-	height: 0;
+  width: 0;
+  height: 0;
   top: 22px;
   right: 0px;
-	border-style: solid;
-	border-width: 15px 20px 0 20px;
-	border-color: RGB(0, 0, 0) transparent transparent transparent;
+  border-style: solid;
+  border-width: 15px 20px 0 20px;
+  border-color: RGB(0, 0, 0) transparent transparent transparent;
   position: absolute;
 }
 
@@ -1463,12 +1463,12 @@ div.search-filter-box {
 }
 
 h2.search-filter-box-text {
-	display: inline-block;
+  display: inline-block;
 }
 
 div.search-filter-text-line {
-	display: block;
-	padding-left: 50px;
+  display: block;
+  padding-left: 50px;
 }
 
 span.search-filter-item {
@@ -1603,74 +1603,74 @@ span.sort-popout-sub:hover {
 // DISCOVER PAGE MAIN LIST
 
 section.main-discover-list {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 span.discover-list-header {
-	display: block;
-	color: RGB(15, 33, 5); // forest green
-	font-size: 22px;
+  display: block;
+  color: RGB(15, 33, 5); // forest green
+  font-size: 22px;
 }
 
 section.main-discover-list > div.project-tile {
-	float: left;
-	margin: calc((100% - (232px * 4)) / 3);
-	margin-left: 0px;
+  float: left;
+  margin: calc((100% - (232px * 4)) / 3);
+  margin-left: 0px;
 }
 
 section.main-discover-list > div.project-tile:nth-of-type(4n + 0) {
-	margin-right: 0px;
+  margin-right: 0px;
 }
 
 button.expand-list-button {
-	display: block;
-	margin: 0px auto 60px;
-	border: 2px solid RGB(130, 133, 135); // grey
-	color: RGB(130, 133, 135); // grey
-	background-color: RGB(255, 255, 255); // white
-	border-radius: 6px;
-	font-size: 14px;
-	padding: 10px 20px;
-	cursor: pointer;
+  display: block;
+  margin: 0px auto 60px;
+  border: 2px solid RGB(130, 133, 135); // grey
+  color: RGB(130, 133, 135); // grey
+  background-color: RGB(255, 255, 255); // white
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 // SESSION FORM
 
 div.session-form-main {
-	background-color: RGB(247, 250, 250); // very pale blue
-	padding-top: 60px;
-	padding-bottom: 60px;
+  background-color: RGB(247, 250, 250); // very pale blue
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 div.session-form-box {
-	width: 400px;
-	background-color: RGB(255, 255, 255); // white
-	border: 1px solid RGB(217, 217, 222); // light grey
-	border-radius: 6px;
-	margin: 0px auto;
+  width: 400px;
+  background-color: RGB(255, 255, 255); // white
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  margin: 0px auto;
 }
 
 div.session-form-divider {
-	width: 400px;
+  width: 400px;
   text-align: center;
-	color: RGB(130, 133, 135); // grey
-	font-size: 14px;
+  color: RGB(130, 133, 135); // grey
+  font-size: 14px;
 }
 
 div.session-form-divider > hr {
-	width: 40%;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	margin-top: 7px;
+  width: 40%;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  margin-top: 7px;
 }
 
 hr.session-divider-left {
   float: left;
-	margin-left: 3%;
+  margin-left: 3%;
 }
 
 hr.session-divider-right {
   float: right;
-	margin-right: 3%;
+  margin-right: 3%;
 }
 
 button.facebook-login-button {
@@ -1700,38 +1700,38 @@ button.guest-login-button {
 }
 
 p.session-button-message {
-	display: block;
-	text-align: center;
-	font-size: 12px;
-	color: RGB(130, 133, 135); // grey
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: RGB(130, 133, 135); // grey
   width: 250px;
-	margin: 0px auto;
+  margin: 0px auto;
 }
 
 div.switch-form-section {
-	display: block;
-	background-color: RGBA(217, 217, 222, 0.2);
-	text-align: center;
-	margin-top: 40px;
-	border-top: 1px solid RGB(217, 217, 222); // light grey
-	padding: 20px;
-	color: RGB(130, 133, 135); // grey
-	font-size: 14px;
+  display: block;
+  background-color: RGBA(217, 217, 222, 0.2);
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid RGB(217, 217, 222); // light grey
+  padding: 20px;
+  color: RGB(130, 133, 135); // grey
+  font-size: 14px;
 }
 
 a.switch-form-link {
-	color: RGB(0, 160, 255); // bright blue
-	font-weight: bold;
-	cursor: pointer;
+  color: RGB(0, 160, 255); // bright blue
+  font-weight: bold;
+  cursor: pointer;
 }
 
 form.login-form {
-	margin: 20px;
+  margin: 20px;
 }
 
 h2.session-form-header {
   font-size: 32px;
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 ul.session-errors-list {
@@ -1746,14 +1746,14 @@ ul.session-errors-list {
 }
 
 input.session-input {
-	display: block;
-	border: 1px solid RGB(217, 217, 222); // light grey
-	border-radius: 6px;
-	color: RGB(168, 168, 168); // medium-light grey
-	padding: 12px 10px;
-	margin: 0px auto 20px;
-	width: calc(100% - 20px);
-	font-size: 14px;
+  display: block;
+  border: 1px solid RGB(217, 217, 222); // light grey
+  border-radius: 6px;
+  color: RGB(168, 168, 168); // medium-light grey
+  padding: 12px 10px;
+  margin: 0px auto 20px;
+  width: calc(100% - 20px);
+  font-size: 14px;
 }
 
 input.session-input.error {
@@ -1765,16 +1765,16 @@ input.session-input:focus {
 }
 
 input.session-submit {
-	display: block;
-	color: RGB(255, 255, 255); // white
-	background-color: RGB(43, 222, 115); // bright green
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 6px;
-	padding: 10px 20px;
-	margin: 20px auto 10px;
-	width: 100%;
-	cursor: pointer;
+  display: block;
+  color: RGB(255, 255, 255); // white
+  background-color: RGB(43, 222, 115); // bright green
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 20px auto 10px;
+  width: 100%;
+  cursor: pointer;
 }
 
 // ABOUT PAGE
@@ -1792,7 +1792,7 @@ div.about-page-image {
   width: 1100px;
   height: 550px;
   position: relative;
-	margin: 0px auto 400px;
+  margin: 0px auto 400px;
 }
 
 h3.about-page-tagline {
@@ -1859,17 +1859,17 @@ a.about-page-text-link {
 // UTILITY
 
 .white-gradient {
-	position: relative;
+  position: relative;
 }
 
 .white-gradient:after {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	height: 50%;
-	width: 100%;
-	background-image: linear-gradient(transparent, white);
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  background-image: linear-gradient(transparent, white);
   background-image: -webkit-linear-gradient(top, RGBA(255, 255, 255, 0), white);
 }

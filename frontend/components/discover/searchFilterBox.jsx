@@ -76,7 +76,7 @@ var SearchFilterBox = React.createClass({
     this.setState({ expanded: null });
   },
 
-	render: function () {
+  render: function () {
     var prettifiedFilters = {
       searchRank: "Search Rank",
       popularity: "Popularity",
@@ -160,7 +160,7 @@ var SearchFilterBox = React.createClass({
       </div>;
     }
 
-		return (
+    return (
       <div className="search-filter-box">
         <div className="search-filter-text-line">
           <h2 className="search-filter-box-text">
@@ -202,8 +202,8 @@ var SearchFilterBox = React.createClass({
 
         </div>
       </div>
-		);
-	}
+    );
+  }
 
 });
 

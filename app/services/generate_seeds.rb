@@ -63,36 +63,36 @@ class GenerateSeeds
 
     parrot_guy_info = {
       subcategory: subcategory_ids["Weird Neighbors"],
-    	title: "Stop the Parrot Guy",
-    	project_blurb: "Let's hire someone to steal Steve's parrots",
-    	project_description: "Everyone in the building knows Steve,"\
-    		" the weird guy who lives upstairs with all the parrots."\
-    		" What one person needs with eleven parrots I don't know,"\
-    		" but I think we can all agree it's a little creepy (and smelly,"\
-    		" and loud, especially when they all decide to start repeating"\
-    		" each other). With the funds raised with this Kickstopper,"\
-    		" I will hire a professional parrot kidnapper to break in"\
-    		" while Steve is at work, steal all those parrots, and"\
-    		" donate them to a wildlife sanctuary, so we can all have"\
-    		" a wonderful, parrot-free building.",
+      title: "Stop the Parrot Guy",
+      project_blurb: "Let's hire someone to steal Steve's parrots",
+      project_description: "Everyone in the building knows Steve,"\
+        " the weird guy who lives upstairs with all the parrots."\
+        " What one person needs with eleven parrots I don't know,"\
+        " but I think we can all agree it's a little creepy (and smelly,"\
+        " and loud, especially when they all decide to start repeating"\
+        " each other). With the funds raised with this Kickstopper,"\
+        " I will hire a professional parrot kidnapper to break in"\
+        " while Steve is at work, steal all those parrots, and"\
+        " donate them to a wildlife sanctuary, so we can all have"\
+        " a wonderful, parrot-free building.",
       rewards: [],
-    	main_image: parrot_guy_main,
-    	secondary_image: parrot_guy_secondary
+      main_image: parrot_guy_main,
+      secondary_image: parrot_guy_secondary
     }
 
     parrot_guy_reward_one_info = {
-    	title: "Good Neighbor Tier",
-    	description: "At this tier, the next time you move, I will "\
-    		" tell your new neighbors nice things about what a good"\
-    		" neighbor you were (regardless of if it was true or not)."
+      title: "Good Neighbor Tier",
+      description: "At this tier, the next time you move, I will "\
+        " tell your new neighbors nice things about what a good"\
+        " neighbor you were (regardless of if it was true or not)."
     }
 
     parrot_guy_reward_two_info = {
-    	title: "True Parrot Hater Tier",
-    	description: "At this tier, I will make you a hat with "\
-    		" a custom message on it about how much you hate parrots,"\
-    		" so any parrots you encounter in the future will know"\
-    		" not to annoy you."
+      title: "True Parrot Hater Tier",
+      description: "At this tier, I will make you a hat with "\
+        " a custom message on it about how much you hate parrots,"\
+        " so any parrots you encounter in the future will know"\
+        " not to annoy you."
     }
 
     parrot_guy_info[:rewards] << parrot_guy_reward_one_info
@@ -100,10 +100,10 @@ class GenerateSeeds
     projects_info << parrot_guy_info
 
     no_party_info = {
-    	subcategory: subcategory_ids["Loud Neighbors"],
-    	title: "No Party This Weekend",
-    	project_blurb: "You won't have to hear us yelling all night!",
-    	project_description: "Hi neighbors, we're those three guys who"\
+      subcategory: subcategory_ids["Loud Neighbors"],
+      title: "No Party This Weekend",
+      project_blurb: "You won't have to hear us yelling all night!",
+      project_description: "Hi neighbors, we're those three guys who"\
         " live upstairs, the ones who invite over a howling horde of"\
         " barbarians every Friday and Saturday night to stomp on the"\
         " floor and randomly burst into fits of screaming (maybe"\
@@ -114,8 +114,8 @@ class GenerateSeeds
         " (The money may or may not be used to have an even louder"\
         " party next weekend, no promises...)",
       rewards: [],
-    	main_image: no_party_main,
-    	secondary_image: no_party_secondary
+      main_image: no_party_main,
+      secondary_image: no_party_secondary
     }
 
     no_party_reward_one_info = {
@@ -147,10 +147,10 @@ class GenerateSeeds
     projects_info << no_party_info
 
     dog_info = {
-    	subcategory: subcategory_ids["Loud Neighbors"],
-    	title: "Shut the Dog Up",
-    	project_blurb: "Buy that dog some toys so it stops barking",
-    	project_description: "Why would anybody buy a little yippy dog?"\
+      subcategory: subcategory_ids["Loud Neighbors"],
+      title: "Shut the Dog Up",
+      project_blurb: "Buy that dog some toys so it stops barking",
+      project_description: "Why would anybody buy a little yippy dog?"\
         " I have no idea. Yet there it is, and I think everyone within five"\
         " blocks can hear it. I think it probably makes those noises all"\
         " day because it's bored and has too much energy. And based on that"\
@@ -158,8 +158,8 @@ class GenerateSeeds
         " buy that dog more toys than it could possibly know what to do"\
         " with. Maybe that will finally tire it out so it stops barking...",
       rewards: [],
-    	main_image: dog_main,
-    	secondary_image: dog_secondary
+      main_image: dog_main,
+      secondary_image: dog_secondary
     }
 
     dog_reward_one_info = {
@@ -181,21 +181,21 @@ class GenerateSeeds
     projects_info << dog_info
 
     news_info = {
-    	subcategory: subcategory_ids["Depressing News"],
-    	title: "No Depressing News",
-    	project_blurb: "Avoid having to see depressing news"\
+      subcategory: subcategory_ids["Depressing News"],
+      title: "No Depressing News",
+      project_blurb: "Avoid having to see depressing news"\
         " stories every day!",
-    	project_description: "Isn't seeing what's in the news every"\
-    	  " day depressing? Wouldn't you like to avoid some of that"\
-    		" in your life? For just that reason, we your friends here"\
-    		" at CNN, MSNBC, the New York Times, and even all the way down"\
-    		" to Buzzfeed are offering this special Kickstopper project."\
-    		" Just give us money, and we'll give you a day where we don't"\
-    		" show you anything that makes you want to cover your eyes"\
+      project_description: "Isn't seeing what's in the news every"\
+        " day depressing? Wouldn't you like to avoid some of that"\
+        " in your life? For just that reason, we your friends here"\
+        " at CNN, MSNBC, the New York Times, and even all the way down"\
+        " to Buzzfeed are offering this special Kickstopper project."\
+        " Just give us money, and we'll give you a day where we don't"\
+        " show you anything that makes you want to cover your eyes"\
         " to avoid seeing the state of humanity!",
       rewards: [],
-    	main_image: news_main,
-    	secondary_image: news_secondary
+      main_image: news_main,
+      secondary_image: news_secondary
     }
 
     news_reward_one_info = {
@@ -217,14 +217,14 @@ class GenerateSeeds
     projects_info << news_info
 
     that_band_info = {
-    	subcategory: subcategory_ids["Bad Music"],
-    	title: "Stop that Band You Hate",
-    	project_blurb: "Don't want to hear a new album from"\
+      subcategory: subcategory_ids["Bad Music"],
+      title: "Stop that Band You Hate",
+      project_blurb: "Don't want to hear a new album from"\
         " that band you hate? Give us enough money and we'll"\
         " skip releasing the album entirely and spare you nine"\
         " months of hearing only that on the radio on infinite"\
         " loop!",
-    	project_description: "Hey there everyone, we're that"\
+      project_description: "Hey there everyone, we're that"\
         " band you really hate! Don't you find it incredibly frustrating"\
         " how every time we come out with a new album or single, you hear"\
         " nothing but those one or two songs on endless cycle on every radio"\
@@ -233,8 +233,8 @@ class GenerateSeeds
         " our funding goal on this Kickstopper, we'll skip releasing our next"\
         " album, and give your ears a break!",
       rewards: [],
-    	main_image: that_band_main,
-    	secondary_image: that_band_secondary
+      main_image: that_band_main,
+      secondary_image: that_band_secondary
     }
 
     that_band_reward_one_info = {
@@ -264,11 +264,11 @@ class GenerateSeeds
     projects_info << that_band_info
 
     theater_baby_info = {
-    	subcategory: subcategory_ids["Going Out"],
-    	title: "Quiet the Baby in the Movie Theater",
-    	project_blurb: "Want to actually be able to hear the movie you"\
+      subcategory: subcategory_ids["Going Out"],
+      title: "Quiet the Baby in the Movie Theater",
+      project_blurb: "Want to actually be able to hear the movie you"\
         " paid to watch?",
-    	project_description: "Hi there, we're the parents of that baby"\
+      project_description: "Hi there, we're the parents of that baby"\
         " in the fourth row of the theater that hasn't stopped crying"\
         " for the entire movie. At this point, we're completely immune"\
         " to the sound, but we know you aren't, so we're offering this"\
@@ -276,8 +276,8 @@ class GenerateSeeds
         " a bottle so he stops crying and you can watch your movie in peace."\
         " If we reach our stretch goal, we'll leave the theater altogether!",
       rewards: [],
-    	main_image: theater_baby_main,
-    	secondary_image: theater_baby_secondary
+      main_image: theater_baby_main,
+      secondary_image: theater_baby_secondary
     }
 
     theater_baby_reward_one_info = {
@@ -291,11 +291,11 @@ class GenerateSeeds
     projects_info << theater_baby_info
 
     seatmate_info = {
-    	subcategory: subcategory_ids["Airplanes"],
-    	title: "Escape Talking to the Chatty Seatmate",
-    	project_blurb: "Avoid hearing any more weird, rambling vacation"\
+      subcategory: subcategory_ids["Airplanes"],
+      title: "Escape Talking to the Chatty Seatmate",
+      project_blurb: "Avoid hearing any more weird, rambling vacation"\
         " stories!",
-    	project_description: "Hi there, I'm that person in the seat next"\
+      project_description: "Hi there, I'm that person in the seat next"\
         " to you on the very long plane ride who's decided to become your"\
         " new best friend. I know it's a long flight and you just want"\
         " to sleep, so I'm offering this Kickstopper. If I reach my funding"\
@@ -303,8 +303,8 @@ class GenerateSeeds
         " comparing the weather in my home city to your home city, and just"\
         " let you watch your in-flight movie in peace.",
       rewards: [],
-    	main_image: seatmate_main,
-    	secondary_image: seatmate_secondary
+      main_image: seatmate_main,
+      secondary_image: seatmate_secondary
     }
 
     seatmate_reward_one_info = {
@@ -325,19 +325,19 @@ class GenerateSeeds
     projects_info << seatmate_info
 
     facebook_info = {
-    	subcategory: subcategory_ids["Social Media"],
-    	title: "No More Spamming Your Feed",
-    	project_blurb: "No more long, ill-informed, caps-lock posts about"\
+      subcategory: subcategory_ids["Social Media"],
+      title: "No More Spamming Your Feed",
+      project_blurb: "No more long, ill-informed, caps-lock posts about"\
         " political issues!",
-    	project_description: "This is your cousin, the one who makes"\
+      project_description: "This is your cousin, the one who makes"\
         " at least five social media posts a day about crazy political"\
         " conspiracy theories that no sane person could possibly believe."\
         " If I reach my funding goal, I will give up social media entirely."\
         " If I reach my stretch goal, I will also go read some normal news"\
         " sources to teach me to get past my conspiracy theories.",
       rewards: [],
-    	main_image: facebook_main,
-    	secondary_image: facebook_secondary
+      main_image: facebook_main,
+      secondary_image: facebook_secondary
     }
 
     facebook_reward_one_info = {
@@ -359,16 +359,16 @@ class GenerateSeeds
     projects_info << facebook_info
 
     weekend_info = {
-    	subcategory: subcategory_ids["Bosses"],
-    	title: "Avoid Working the Weekend",
-    	project_blurb: "No more getting asked to work weekends",
-    	project_description: "This is your boss, the one who always asks"\
+      subcategory: subcategory_ids["Bosses"],
+      title: "Avoid Working the Weekend",
+      project_blurb: "No more getting asked to work weekends",
+      project_description: "This is your boss, the one who always asks"\
         " you to come in on weekends and then gives you a dirty look"\
         " when you try to get out of it. I'm offering this Kickstopper"\
         " to give you a chance to escape and enjoy your weekend.",
       rewards: [],
-    	main_image: weekend_main,
-    	secondary_image: weekend_secondary
+      main_image: weekend_main,
+      secondary_image: weekend_secondary
     }
 
     weekend_reward_one_info = {
@@ -657,47 +657,47 @@ class GenerateSeeds
         current_project_info = projects_info.sample
       end
 
-    	# funding goal is always forced to be a multiple of 10, to look
-    	# more like a real goal
+      # funding goal is always forced to be a multiple of 10, to look
+      # more like a real goal
       new_project = Project.create!(
         subcategory_id: current_project_info[:subcategory],
         title: current_project_info[:title],
-    		creator_id: User.all.sample.id,
-    		category_featured: rand(7) == 0,
+        creator_id: User.all.sample.id,
+        category_featured: rand(7) == 0,
         funding_goal: 500 + (rand(100) * 10),
         funding_date: Date.today + (3 + rand(40)).days,
-    		project_blurb: current_project_info[:project_blurb],
-    		project_description: current_project_info[:project_description]
-    	)
+        project_blurb: current_project_info[:project_blurb],
+        project_description: current_project_info[:project_description]
+      )
 
-    	new_project.images.create!(
-    	  picture: current_project_info[:main_image],
-    		use_type: :project_main
-    	)
-    	new_project.images.create!(
-    	  picture: current_project_info[:secondary_image],
-    		use_type: :project_secondary
-    	)
+      new_project.images.create!(
+        picture: current_project_info[:main_image],
+        use_type: :project_main
+      )
+      new_project.images.create!(
+        picture: current_project_info[:secondary_image],
+        use_type: :project_secondary
+      )
 
-    	current_project_info[:rewards].each do |reward|
+      current_project_info[:rewards].each do |reward|
         # reward minimum pledges are also forced to be a multiple
-    		#  of 10
-    		new_project.rewards.create!(
+        #  of 10
+        new_project.rewards.create!(
           minimum_pledge: 20 + (rand(18) * 10),
-    			title: reward[:title],
-    			description: reward[:description]
-    		)
-    	end
+          title: reward[:title],
+          description: reward[:description]
+        )
+      end
 
-    	# create pledges
-    	rand(7).times do
+      # create pledges
+      rand(7).times do
         reward = new_project.rewards.sample
-    		reward.pledges.create!(
-    		  user_id: User.all.sample.id,
-    			pledge_amount: reward.minimum_pledge +
-    			  rand(50) + (rand(100).to_f / 100)
-    		)
-    	end
+        reward.pledges.create!(
+          user_id: User.all.sample.id,
+          pledge_amount: reward.minimum_pledge +
+            rand(50) + (rand(100).to_f / 100)
+        )
+      end
     end
   end
 

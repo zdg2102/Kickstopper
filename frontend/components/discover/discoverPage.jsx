@@ -15,35 +15,35 @@ var DiscoverPage = React.createClass({
 
   // NOTE add message if projects list returns with length 0
 
-	getInitialState: function () {
+  getInitialState: function () {
     return { projects: ProjectStore.all(), openModal: null,
       currentCategory: "", prunedTree: [], pageNum: 1 };
-	},
+  },
 
-	componentDidMount: function () {
+  componentDidMount: function () {
     this.projectStoreToken = ProjectStore.addListener(this.refresh);
     this.categoryStoreToken = CategoryStore.addListener(this.updateCategories);
-		var params = $.extend({}, this.props.location.query, this.props.params);
-		ApiUtil.getFilteredProjects(params);
+    var params = $.extend({}, this.props.location.query, this.props.params);
+    ApiUtil.getFilteredProjects(params);
     ApiUtil.getCategoryTree();
-	},
+  },
 
-	componentWillReceiveProps: function (newProps) {
-		var params = $.extend({}, newProps.location.query, newProps.params);
+  componentWillReceiveProps: function (newProps) {
+    var params = $.extend({}, newProps.location.query, newProps.params);
     ApiUtil.getFilteredProjects(params);
     ApiUtil.getCategoryTree();
     // this means we changed the url, so pagination goes back to 1
     this.setState({ pageNum: 1 });
-	},
+  },
 
-	componentWillUnmount: function () {
+  componentWillUnmount: function () {
     this.projectStoreToken.remove();
     this.categoryStoreToken.remove();
-	},
+  },
 
-	refresh: function () {
+  refresh: function () {
     this.setState({ projects: ProjectStore.all() });
-	},
+  },
 
   updateCategories: function () {
     var params = $.extend({}, this.props.location.query, this.props.params);
@@ -82,11 +82,11 @@ var DiscoverPage = React.createClass({
     this.setState({ openModal: null });
   },
 
-	newPage: function (e) {
+  newPage: function (e) {
     var params = $.extend({}, this.props.location.query, this.props.params);
     ApiUtil.getNextPageProjects(params, this.state.pageNum + 1);
     this.setState({ pageNum: this.state.pageNum + 1 });
-	},
+  },
 
   render: function () {
     var discoverParams = $.extend({}, this.props.location.query,
@@ -130,7 +130,7 @@ var DiscoverPage = React.createClass({
     }
 
     return (
-			<div className="discover-page-content">
+      <div className="discover-page-content">
 
         {currentModal}
 
@@ -138,19 +138,19 @@ var DiscoverPage = React.createClass({
 
         <div className="discover-lists-container">
 
-					<DiscoverMainList projects={this.state.projects}
+          <DiscoverMainList projects={this.state.projects}
             modalOn={modalOn} />
 
-					<button className="expand-list-button"
-						onClick={this.newPage}>
-						{"Load more"}
-					</button>
+          <button className="expand-list-button"
+            onClick={this.newPage}>
+            {"Load more"}
+          </button>
 
         </div>
 
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 
 });
 

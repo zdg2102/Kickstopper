@@ -22,11 +22,11 @@ CheckoutStore.currentCheckout = function () {
 
 CheckoutStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-		case checkoutConstants.CHECKOUT_RECEIVED:
-		  _currentCheckout = payload.checkout;
-			CheckoutStore.__emitChange();
-			break;
-	}
+    case checkoutConstants.CHECKOUT_RECEIVED:
+      _currentCheckout = payload.checkout;
+      CheckoutStore.__emitChange();
+      break;
+  }
 };
 
 module.exports = CheckoutStore;

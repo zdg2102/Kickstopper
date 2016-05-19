@@ -35,8 +35,8 @@ var CurrentUserNav = React.createClass({
     return (
       <div className="current-user-nav" onClick={this.handleClick}>
         <span className="user-nav-label">
-					{"Me"}
-						<a className="user-nav-arrow"></a>
+          {"Me"}
+            <a className="user-nav-arrow"></a>
         </span>
 
         {whiteBorder}
@@ -54,8 +54,8 @@ var CurrentUserNav = React.createClass({
           </p>
         </div>
       </div>
-		);
-	}
+    );
+  }
 });
 
 module.exports = CurrentUserNav;

@@ -3,27 +3,27 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 
 var ProjectActions = {
   receiveSingleProject: function (project) {
-		var action = {
-			actionType: projectConstants.SINGLE_PROJECT_RECEIVED,
-			project: project
-		};
-		AppDispatcher.dispatch(action);
-	},
+    var action = {
+      actionType: projectConstants.SINGLE_PROJECT_RECEIVED,
+      project: project
+    };
+    AppDispatcher.dispatch(action);
+  },
 
-	receiveAllProjects: function (projects) {
-		var action = {
-			actionType: projectConstants.ALL_PROJECTS_RECEIVED,
-			projects: projects
-		};
-		AppDispatcher.dispatch(action);
-	},
+  receiveAllProjects: function (projects) {
+    var action = {
+      actionType: projectConstants.ALL_PROJECTS_RECEIVED,
+      projects: projects
+    };
+    AppDispatcher.dispatch(action);
+  },
 
   receiveNewPageProjects: function (projects) {
     var action = {
-			actionType: projectConstants.NEW_PAGE_PROJECTS_RECEIVED,
-			projects: projects
-		};
-		AppDispatcher.dispatch(action);
+      actionType: projectConstants.NEW_PAGE_PROJECTS_RECEIVED,
+      projects: projects
+    };
+    AppDispatcher.dispatch(action);
   }
 };
 

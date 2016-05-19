@@ -1,21 +1,21 @@
 class User < ActiveRecord::Base
   validates :name, :email, presence: true
-	validates :email, uniqueness: true
-	validates :password, length: { minimum: 6, allow_nil: true }
+  validates :email, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
 
-	has_many :projects, foreign_key: :creator_id, dependent: :destroy
+  has_many :projects, foreign_key: :creator_id, dependent: :destroy
   has_many :unlaunched_projects, foreign_key: :creator_id,
     dependent: :destroy
-	has_many :pledges, dependent: :destroy
+  has_many :pledges, dependent: :destroy
   has_many :checkouts, dependent: :destroy
-	has_many :session_tokens, dependent: :destroy
+  has_many :session_tokens, dependent: :destroy
 
-	attr_reader :password
+  attr_reader :password
 
-	def self.find_by_credentials(email, password)
+  def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
-		user && user.is_password?(password) ? user : nil
-	end
+    user && user.is_password?(password) ? user : nil
+  end
 
   # NOTE OAuth method needs to check for collision on
   # email name with already existing accounts
@@ -38,13 +38,13 @@ class User < ActiveRecord::Base
     end
   end
 
-	def password=(password)
+  def password=(password)
     @password = password
-		self.password_hash = BCrypt::Password.create(password)
-	end
+    self.password_hash = BCrypt::Password.create(password)
+  end
 
-	def is_password?(password)
+  def is_password?(password)
     BCrypt::Password.new(password_hash).is_password?(password)
-	end
+  end
 
 end

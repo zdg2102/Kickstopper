@@ -100,7 +100,7 @@ var Login = React.createClass({
     });
   },
 
-	render: function () {
+  render: function () {
     var emailError = this.state.emailError ? " error" : "";
     var passwordError = this.state.passwordError ? " error" : "";
 
@@ -123,40 +123,40 @@ var Login = React.createClass({
       header = "Log in";
     }
 
-		return (
-			<div>
-				<form className="login-form" onSubmit={this.handleSubmit}>
-					<h2 className="session-form-header">{header}</h2>
+    return (
+      <div>
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <h2 className="session-form-header">{header}</h2>
 
           {errorsList}
 
-					<input type="text"
+          <input type="text"
             className={"session-input" + emailError}
-						placeholder="Email" value={this.state.email}
+            placeholder="Email" value={this.state.email}
             onChange={this.handleFieldInput.bind(this, "email")} />
 
           <input type="password"
             className={"session-input" + passwordError}
-						placeholder="Password" value={this.state.password}
+            placeholder="Password" value={this.state.password}
             onChange={this.handleFieldInput.bind(this, "password")}/>
 
-					<input type="submit" className="session-submit"
-						value="Log me in!" />
-				</form>
+          <input type="submit" className="session-submit"
+            value="Log me in!" />
+        </form>
 
-				<div className="session-form-footer">
-					<LoginAlternativePanel guestLogin={this.guestLogin} />
+        <div className="session-form-footer">
+          <LoginAlternativePanel guestLogin={this.guestLogin} />
 
-					<div className="switch-form-section">
-						{"New to Kickstopper? "}
-						<a className="switch-form-link" onClick={this.switchToSignup}>
+          <div className="switch-form-section">
+            {"New to Kickstopper? "}
+            <a className="switch-form-link" onClick={this.switchToSignup}>
               {"Sign Up!"}
             </a>
-					</div>
-				</div>
-			</div>
-		);
-	}
+          </div>
+        </div>
+      </div>
+    );
+  }
 });
 
 module.exports = Login;

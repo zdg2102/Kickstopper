@@ -89,8 +89,8 @@ var StartProjectPage = React.createClass({
           </form>
         </div>
       </div>
-		);
-	}
+    );
+  }
 });
 
 module.exports = StartProjectPage;

@@ -54,7 +54,7 @@ var PledgePage = React.createClass({
     var title, creatorName, tiles, errorMessage;
     if (this.state.project) {
       title = this.state.project.title;
-			creatorName = this.state.project.creator_name;
+      creatorName = this.state.project.creator_name;
     }
     if (this.state.project && this.state.project.rewards) {
       tiles = this.state.project.rewards.map( function (reward) {
@@ -90,9 +90,9 @@ var PledgePage = React.createClass({
         {tiles}
 
       </div>
-		);
+    );
 
-	}
+  }
 
 });
 

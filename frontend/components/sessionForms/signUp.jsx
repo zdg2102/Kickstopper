@@ -132,7 +132,7 @@ var SignUp = React.createClass({
     });
   },
 
-	render: function () {
+  render: function () {
     var nameError = this.state.nameError ? " error" : "";
     var emailError = this.state.emailError ? " error" : "";
     var passwordError = this.state.passwordError ? " error" : "";
@@ -152,10 +152,10 @@ var SignUp = React.createClass({
       );
     }
 
-		return (
-			<div>
-				<form className="login-form" onSubmit={this.handleSubmit}>
-					<h2 className="session-form-header">{"Sign up"}</h2>
+    return (
+      <div>
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <h2 className="session-form-header">{"Sign up"}</h2>
 
           {errorsList}
 
@@ -184,32 +184,32 @@ var SignUp = React.createClass({
             placeholder="Re-enter password" value={this.state.passwordValidation}
             onChange={this.handleFieldInput.bind(this, "passwordValidation")} />
 
-					<input type="submit" className="session-submit"
-						value="Sign me up!" />
+          <input type="submit" className="session-submit"
+            value="Sign me up!" />
 
-					<p className="session-button-message">
-						{"By signing up, you agree to all kinds of" +
-							" cryptic terms."}
-						</p>
+          <p className="session-button-message">
+            {"By signing up, you agree to all kinds of" +
+              " cryptic terms."}
+            </p>
 
-					</form>
+          </form>
 
-					<div className="session-form-footer">
+          <div className="session-form-footer">
 
-						<LoginAlternativePanel guestLogin={this.guestLogin} />
+            <LoginAlternativePanel guestLogin={this.guestLogin} />
 
-						<div className="switch-form-section">
-							{"Have an account? "}
-							<a className="switch-form-link" onClick={this.switchToLogin}>
+            <div className="switch-form-section">
+              {"Have an account? "}
+              <a className="switch-form-link" onClick={this.switchToLogin}>
                 {"Log In"}
               </a>
-						</div>
+            </div>
 
-					</div>
+          </div>
 
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 
 });
 

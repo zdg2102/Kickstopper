@@ -247,8 +247,8 @@ var CheckoutForm = React.createClass({
           value="Pledge" />
 
       </form>
-		);
-	}
+    );
+  }
 });
 
 module.exports = CheckoutForm;

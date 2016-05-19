@@ -58,11 +58,11 @@ CategoryStore.prunedTree = function (paramName) {
 
 CategoryStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-		case categoryConstants.CATEGORY_TREE_RECEIVED:
-		  _categoryTree = payload.categoryTree;
-			CategoryStore.__emitChange();
-			break;
-	}
+    case categoryConstants.CATEGORY_TREE_RECEIVED:
+      _categoryTree = payload.categoryTree;
+      CategoryStore.__emitChange();
+      break;
+  }
 };
 
 module.exports = CategoryStore;

@@ -38,7 +38,7 @@ var CategoryModal = React.createClass({
     this.props.close();
   },
 
-	render: function () {
+  render: function () {
     var tree = this.props.prunedTree.map( function (branch) {
       var sublist;
       if (branch.subcategories) {
@@ -63,7 +63,7 @@ var CategoryModal = React.createClass({
       );
     }.bind(this));
 
-		return (
+    return (
       <div className="modal-overlay" onClick={this.handleClickAway}>
 
         <div className="modal-content category-modal" onClick={this.catchClickOn}>
@@ -73,8 +73,8 @@ var CategoryModal = React.createClass({
         </div>
 
       </div>
-		);
-	}
+    );
+  }
 
 });
 

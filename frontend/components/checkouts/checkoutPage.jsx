@@ -80,9 +80,9 @@ var CheckoutPage = React.createClass({
         </div>
 
       </div>
-		);
+    );
 
-	}
+  }
 
 });
 

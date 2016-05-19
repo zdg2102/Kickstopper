@@ -21,17 +21,17 @@ SessionStore.currentUserHasBeenFetched = function () {
 
 SessionStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-		case sessionConstants.CURRENT_USER_RECEIVED:
-		  _currentUser = payload.currentUser;
+    case sessionConstants.CURRENT_USER_RECEIVED:
+      _currentUser = payload.currentUser;
       _currentUserHasBeenFetched = true;
-			SessionStore.__emitChange();
-			break;
+      SessionStore.__emitChange();
+      break;
     case sessionConstants.LOGOUT:
       _currentUser = null;
       _currentUserHasBeenFetched = false;
       SessionStore.__emitChange();
       break;
-	}
+  }
 };
 
 module.exports = SessionStore;

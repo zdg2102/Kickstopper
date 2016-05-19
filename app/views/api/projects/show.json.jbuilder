@@ -3,5 +3,5 @@ if @type == "main"
 elsif @type == "panel"
   json.partial! "api/projects/panel", project: @project
 elsif @type == "tile"
-	json.partial! "api/projects/tile", project: @project
+  json.partial! "api/projects/tile", project: @project
 end

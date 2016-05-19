@@ -7,9 +7,9 @@ var MainPage = React.createClass({
   render: function () {
 
     return (
-			<div></div>
-		);
-	}
+      <div></div>
+    );
+  }
 
 });
 

@@ -7,25 +7,25 @@ var DiscoverMainList = React.createClass({
 
   render: function () {
 
-		var tiles = this.props.projects.map(function (project) {
-			return <ProjectTile key={project.id} project={project}
+    var tiles = this.props.projects.map(function (project) {
+      return <ProjectTile key={project.id} project={project}
         modalOn={this.props.modalOn} />;
     }.bind(this));
 
     return (
-			<section className="main-discover-list group">
+      <section className="main-discover-list group">
 
-				<span className="discover-list-header">
-					{"Explore live projects"}
-				</span>
+        <span className="discover-list-header">
+          {"Explore live projects"}
+        </span>
 
-				{tiles}
+        {tiles}
 
-			</section>
+      </section>
 
-		);
+    );
 
-	}
+  }
 
 });
 

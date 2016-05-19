@@ -8,42 +8,42 @@ var UnlaunchedProjectActions =
 
 var ApiUtil = {
   getProjectMain: function (projectId) {
-		$.ajax({
-			type: 'GET',
-			url: '/api/projects/' + projectId,
-			dataType: 'json',
-			data: 'detailType=main',
-			success: function (project) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/projects/' + projectId,
+      dataType: 'json',
+      data: 'detailType=main',
+      success: function (project) {
         ProjectActions.receiveSingleProject(project);
-			}
-		});
-	},
+      }
+    });
+  },
 
-	getFilteredProjects: function (params) {
-		$.ajax({
-			type: 'GET',
-			url: '/api/projects/',
-			dataType: 'json',
-			data: {projects: params},
-			success: function (projects) {
-				ProjectActions.receiveAllProjects(projects);
-			}
-		});
-	},
+  getFilteredProjects: function (params) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/projects/',
+      dataType: 'json',
+      data: {projects: params},
+      success: function (projects) {
+        ProjectActions.receiveAllProjects(projects);
+      }
+    });
+  },
 
-	getNextPageProjects: function (params, pageNum) {
+  getNextPageProjects: function (params, pageNum) {
     // add pageNum to params
     params.page = pageNum;
-		$.ajax({
-			type: 'GET',
-			url: '/api/projects/',
-			dataType: 'json',
-			data: {projects: params},
-			success: function (projects) {
-				ProjectActions.receiveNewPageProjects(projects);
-			}
-		});
-	},
+    $.ajax({
+      type: 'GET',
+      url: '/api/projects/',
+      dataType: 'json',
+      data: {projects: params},
+      success: function (projects) {
+        ProjectActions.receiveNewPageProjects(projects);
+      }
+    });
+  },
 
   globalSearch: function (term) {
     $.ajax({

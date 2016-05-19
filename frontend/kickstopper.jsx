@@ -68,8 +68,8 @@ var Routes = (
 window.launchPage = function () {
   ReactDOM.render(
     Routes,
-		$("div#content")[0]
-	);
+    $("div#content")[0]
+  );
 };
 
 function _requireLoggedIn(nextState, replace, callback) {
