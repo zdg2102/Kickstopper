@@ -77,6 +77,19 @@ var CheckoutForm = React.createClass({
     }
   },
 
+  populate: function (e) {
+    e.preventDefault();
+    this.setState({
+      name: "Steve Sample",
+      cardNumber: "4242424242424242",
+      expirationMonth: "01",
+      expirationYear: new Date().getFullYear() + 5,
+      cvn: "123",
+      country: "United States",
+      postalCode: "12345"
+    });
+  },
+
   submitStripeRequest: function () {
     var card = {
       number: this.state.cardNumber,
@@ -139,6 +152,15 @@ var CheckoutForm = React.createClass({
 
     return (
       <form className="checkout-form" onSubmit={this.handleSubmit}>
+
+        <p className="checkout-form-info">
+          Or you can use the below button to populate the form
+          for you:
+        </p>
+
+        <button className="checkout-populate" onClick={this.populate}>
+          Populate Sample Checkout Data
+        </button>
 
         {errorList}
 

@@ -1,7 +1,3 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 // RESET
 
 body, header, h1, h2, h3, h4, h5, h6, ul, li,
@@ -821,6 +817,18 @@ p.checkout-reward-description {
   padding-top: 0px;
   font-size: 14px;
   color: RGB(15, 33, 5); // forest green
+}
+
+button.checkout-populate {
+	background-color: RGB(43, 222, 115); // bright green
+	display: block;
+	color: RGB(255, 255, 255); // white
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 6px;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin-bottom: 50px;
 }
 
 h4.checkout-form-header {
